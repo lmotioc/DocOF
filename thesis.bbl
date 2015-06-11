@@ -21,6 +21,9 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{gibson1950perception}
+J.~J. Gibson, ``The perception of the visual world.'' 1950.
+
 \bibitem{HSOpticalFlow}
 B.~K. Horn and B.~Schunck, ``Determining optical flow,'' in \emph{1981
   Technical Symposium East}.\hskip 1em plus 0.5em minus 0.4em\relax
@@ -71,5 +74,10 @@ M.~Drulea and S.~Nedevschi, ``Motion estimation using the correlation
 C.~Tomasi and R.~Manduchi, ``Bilateral filtering for gray and color images,''
   in \emph{Computer Vision, 1998. Sixth International Conference on}.\hskip 1em
   plus 0.5em minus 0.4em\relax IEEE, 1998, pp. 839--846.
+
+\bibitem{middleburry}
+\BIBentryALTinterwordspacing
+ [Online]. Available: \url{http://flow.middlebury.com}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

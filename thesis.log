@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  3 JUN 2015 10:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  11 JUN 2015 19:09
 entering extended mode
 **thesis.tex
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.tex
@@ -364,73 +364,99 @@ Package pdftex.def Info: img/tucn.jpg used on input line 154.
 \tf@toc=\write4
  [11]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 226.
+[12
+
+]
+Chapter 2.
+[13
+
+]
+Chapter 3.
+[14
+
+] [15] [16] [17] [18]
+Chapter 4.
+[19
+
+]
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 397.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 397.
+ <img/Aperture.png, id=65, 112.42pt x 158.5925pt>
+File: img/Aperture.png Graphic file (type png)
+ <use img/Aperture.png>
+Package pdftex.def Info: img/Aperture.png used on input line 415.
+(pdftex.def)             Requested size: 112.41972pt x 158.59209pt.
+
+Overfull \hbox (58.82532pt too wide) has occurred while \output is active
+\T1/aer/m/n/12 20 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
+ON OF EXISTING ALGORITHMS
+ []
+
+[20] <img/sin.jpg, id=71, 156.585pt x 30.1125pt>
+File: img/sin.jpg Graphic file (type jpg)
+ <use img/sin.jpg>
+Package pdftex.def Info: img/sin.jpg used on input line 424.
+(pdftex.def)             Requested size: 156.58461pt x 30.11241pt.
+ [21 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/Aperture.png> <C:/Users/Lala/
+Desktop/templateLaTeX-Eng/img/sin.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (58.82532pt too wide) has occurred while \output is active
+\T1/aer/m/n/12 22 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
+ON OF EXISTING ALGORITHMS
+ []
+
+[22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23]
+Overfull \hbox (30.53337pt too wide) in paragraph at lines 570--570
+[] 
+ []
+
+
+Overfull \hbox (58.82532pt too wide) has occurred while \output is active
+\T1/aer/m/n/12 24 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
+ON OF EXISTING ALGORITHMS
+ []
+
+[24] [25]
+Overfull \hbox (58.82532pt too wide) has occurred while \output is active
+\T1/aer/m/n/12 26 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
+ON OF EXISTING ALGORITHMS
+ []
+
+[26]
+Chapter 5.
+[27
+
+]
+Chapter 6.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 644.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\omsaer.fd"
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 226.
-
-
-LaTeX Warning: Reference `fig:imag' on page 12 undefined on input line 260.
-
-
-Overfull \hbox (10.96915pt too wide) in paragraph at lines 262--268
-[]\T1/aer/m/n/12 @bookwedel2011stereo, ti-tle=Stereo scene flow for 3D mo-tion 
-anal-y-sis, au-thor=Wedel,
- []
-
-[12
-
-] [13]
-Chapter 2.
-[14
-
-]
-Chapter 3.
-[15
-
-] [16] [17] [18] [19]
-Chapter 4.
-[20
-
-]
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 430.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 430.
- <img/Aperture.png, id=70, 112.42pt x 158.5925pt>
-File: img/Aperture.png Graphic file (type png)
- <use img/Aperture.png>
-Package pdftex.def Info: img/Aperture.png used on input line 447.
-(pdftex.def)             Requested size: 112.41972pt x 158.59209pt.
-
-[21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/Aperture.png>] [23]
-Overfull \hbox (30.53337pt too wide) in paragraph at lines 572--572
-[] 
- []
-
-[24] [25]
-Chapter 5.
-[26
-
-]
-Chapter 6.
-[27
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 644.
+ [28
 
 ]
 Chapter 7.
-[28
+[29
 
 ]
 Chapter 8.
-(C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [29
+[30
 
-]) [30
+]
+Chapter 9.
+(C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [31
+
+]) [32
 
 ]
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.tex
@@ -438,50 +464,45 @@ Appendix A.
 LaTeX Font Info:    Try loading font information for T1+aett on input line 4.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-) [31
+) [33
 
 
 ]
 Appendix B.
-[32
+[34
 
 ]
 Appendix C.
-) [33
+) [35
 
 ] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.aux
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\guideline.aux)
-(C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.aux))
-
-LaTeX Warning: There were undefined references.
-
- ) 
+(C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.aux)) ) 
 Here is how much of TeX's memory you used:
- 4087 strings out of 493921
- 49642 string characters out of 3147285
- 122926 words of memory out of 3000000
- 7226 multiletter control sequences out of 15000+200000
- 46057 words of font info for 111 fonts, out of 3000000 for 9000
+ 4069 strings out of 493921
+ 49539 string characters out of 3147285
+ 124963 words of memory out of 3000000
+ 7221 multiletter control sequences out of 15000+200000
+ 38100 words of font info for 94 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 28i,21n,26p,845b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (30 pages, 268593 bytes).
+ 28i,21n,26p,851b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmtt12.pfb>
+Output written on thesis.pdf (32 pages, 260051 bytes).
 PDF statistics:
  166 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
