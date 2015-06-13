@@ -8,9 +8,12 @@
 %%% of the Computer Science Department from the Technical University of Cluj-Napoca
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt,a4paper,twoside]{report}         
+\documentclass[12pt,a4paper,twoside]{report} 
+
 \usepackage{cs}              
 \usepackage{times}
+\usepackage{float}
+\usepackage[caption = false]{subfig}
 \usepackage{graphicx}
 \usepackage{latexsym}
 \usepackage{amsmath,amsbsy}
@@ -539,7 +542,7 @@ In addition to the brightness constraint, Horn and Schunk take a second term in 
 	E_{smooth} = \iint (\left\Vert\nabla u \right\Vert_2^2 +\left\Vert\nabla v \right\Vert_2^2)dxdy
 \end{equation}
 where
-\begin{equation}
+\begin{equation} \label{mynabla}
 	\nabla = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
 \end{equation}
 which means if the flow differs from a pixel to another (on $x$ and $y$ directions), the smoothness equation, \ref{smoothEq} will be high. As the algorithm tries to minimize the energy function\ref{HSEq}, the second term, \ref{smoothEq}, will also be minimized. If this term is closer to zero, the flow derivatives over $x$ and $y$  are smaller, which means the difference with the  neighbours is also smaller, in other words the flow is smooth.
@@ -555,8 +558,23 @@ An solution in computing this weight can be taken form the bilateral filter. The
 
 \section{Coarse-to-fine}
 Differential methods cannot approximate large displacements. This is due to the small motion assumption from the data term.
-The data term is expanded with Euler-Lagrange equation and then expressed as a sum of partial derivatives. To discretize this derivatives a small step is necessary, usually of one pixel. This further means that motion larger than the with of the derivative window will not be detected. Also the kernel cannot be wider than one pixel on each side, because the small step requirement of the derivative. This problem can be solved with coarse-to-fine method.
+The data term is expanded with Euler-Lagrange equation and then expressed as a sum of partial derivatives. To discretize this derivatives a small step is necessary, usually of one pixel. This further means that motion larger than the with of the derivative window will not be detected. Also the kernel cannot be wider than one pixel on each side, because the small step requirement of the derivative.
 
+
+This problem can be solved with coarse-to-fine method.
+For example, in the original Horn Schunk formulation, the algorithm contains no Coarse to fine strategy. But, when this approach is added to the implementation the error of the results drop significantly. 
+
+
+
+
+\begin{figure}
+	\subfloat[fig 1]{\includegraphics[width = 3in]{img/frame10}} 
+	\subfloat[fig 2]{\includegraphics[width = 3in]{img/realflow}}
+%	\subfloat[fig 3]{\includegraphics[width = 3in]{img/HSPyrExample/RegularHS}}
+%	\subfloat[fig 4]{\includegraphics[width = 3in]{img/HSPyrExample/HSwithPyr}} 
+	\caption{Add your own figures before compiling}
+	\label{some example}
+\end{figure}
 
  
 Firstly, Gaussian Pyramids are built by successively blurring and unsampling into images of smaller and smaller resolutions. The unsampeling is done until the smallest resolution is about 30 pixels width or height.  Then, the flow is iteratively computed between each level of the pyramid, from the corest to the finest.
@@ -613,15 +631,132 @@ where $w_l$ is the flow computed until the level $l$ and $dw$ the  residual flow
 
 \section{$L^2$ Solutions}
 \subsection{Gauss-Seidel Iterations} \label{GaussSeidel}
-Gauss Seidel is a iterative method for solving simultaneous equations.
+Gauss Seidel is a iterative method for solving simultaneous equations. If we consider th system 
+\begin{equation}
+A\boldsymbol{x} = b
+\end{equation}
+where x is the unknown, the matrix $A$ can be decomposed in a sum of 2 matrices, the lower triangular and the upper.
+\begin{equation}
+	\begin{split}
+	A &= L_* +U \\
+	A &= \begin{bmatrix}
+	a_{11} &  0  & \ldots & 0\\
+	a_{21} &  a_{22} & \ldots & 0\\
+	\vdots & \vdots & \ddots & \vdots\\
+	a_{n1} &  a_{n2}       &\ldots & a_{nn}
+	\end{bmatrix}  
+	+  \begin{bmatrix}
+	0 &  a_{12}  & \ldots & a_{1n}\\
+	0 &  0 & \ldots &a_{2n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	0 &  0  &\ldots & 0
+	\end{bmatrix} 
+ 	\end{split}
+\end{equation}
+	The equation becomes:
+\begin{equation}
+\begin{split}
+	(L_*+U)\boldsymbol{x} = b\\
+	L_*\boldsymbol{x}^{k+1} = b - U\boldsymbol{x}^{k}
+\end{split}
+\end{equation}
+The algorithm takes a guess for the first step  $k$ of the iteration. The next steps are solved using the previous approximation and the solutions found up to the current point from the latest iteration. The algorithm stops when the solution converges, the iteration does not change the result significantly.
+
+The Horn Schunk equation \ref{HSEq}, can be minimized using the Gauss Seidel Equations.
+First, we need to derive by $u$  and $v$:
+\begin{equation} \label{partialDer}
+\begin{split} 
+\frac{\partial E}{\partial u} = I_x(I_xu+I_yv+Iy) + \lambda(\bar{u}-u) \\
+\frac{\partial E}{\partial v} = I_y(I_xu+I_yv+Iy) + \lambda(\bar{v}-v)
+\end{split}
+\end{equation}
+Notice the substitution of the term $\nabla u ^2$ with $(\bar{u}-u)$, this is done like a Laplacian transform by unwrapping the $\nabla$ line in equation \ref{mynabla}.
+ A matrix will be: 
+$A_{2*i+1, 2*i+1} = I^2_{xi}+ \lambda$,
+ $A_{2*i, 2*i} = I^2_{y}+ \lambda$,
+$A_{2*i+1, 2*j} = I_{xi}I_{yi}$,  
+$A_{2*i, 2*j+1} = I_{xi}I_{yi}$, 
+ $A_{2*i+1, 2*j+1} = A_{2*i, 2*j} = \lambda$, where $j \in N_i $, by solving the equation for $\boldsymbol{x}$, we obtain the iterations:
+ \begin{equation} \label{GSEq}
+ \begin{split}
+ u^{k+1}_i = \frac{1}{I_{xi}^2+I_{yi}^2+ \lambda}
+					  \left(
+					 (I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i;j<i} u_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} u_j^k)
+					 -I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i;j<i} v_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} v_j^k)
+					 -I_{xi}I_{ti}
+					 \right)
+					 \\
+   u^{k+1}_i = \frac{1}{I_{xi}^2+I_{yi}^2+ \lambda}
+			   \left(
+			   -I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i;j<i} u_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} u_j^k)
+			   +(I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i;j<i} v_j^{k+1} + \sum_{j \in \mathcal{N}_i;j<i} v_j^k)
+			   -I_{yi}I_{ti}
+			   \right)
+ \end{split}
+ \end{equation}
 \subsection{Jacobi Iterations}
-Like Gauss Seidel, the Jacobi method solves a system of linear equations. It is generally used when the system is diagonaly dominant.
+Like Gauss Seidel, the Jacobi method solves a system of linear equations. It is generally used when the system is diagonally dominant. 
 
 If we consider th system 
 \begin{equation}
 	A\boldsymbol{x} = b
 \end{equation}
 where x is the unknown, the matrix $A$ can be decomposed in a sum of 2 matrices, the principal diagonal and the rest of the elements.
+
+\begin{equation}
+	\begin{split}
+	A &= D + E \\
+	A &= 
+		\begin{bmatrix}
+			a_{11} &  0  & \ldots & 0\\
+				0	 &  a_{22} & \ldots & 0\\
+			\vdots & \vdots & \ddots & \vdots\\
+			0   &  0      &\ldots & a_{nn}
+		\end{bmatrix}
+		+
+		\begin{bmatrix}
+			0 &  a_{12}  & \ldots & a_{1n}\\
+			a_{21} &  a_{22} & \ldots & a_{2n}\\
+			\vdots & \vdots & \ddots & \vdots\\
+			a_{n1} &  a_{n2}       &\ldots & 0
+		\end{bmatrix}
+	\end{split}
+\end{equation}
+
+The equation becomes:
+\begin{equation}
+\begin{split}
+(D+E)\boldsymbol{x} = b\\
+D\boldsymbol{x}^{k+1} = b - E\boldsymbol{x}^{k}
+\end{split}
+\end{equation}
+
+The Jacobi iterations are used by Horn and Schunk in solving the minimization of the energy function. As can be observed, the method finds each $x$ from all it's previous guess but itself. Applied on Horn and Schunk's partial derivatives, the solution can be expressed as:
+
+\begin{equation} \label{JEq}
+\begin{split}
+u^{k+1}_i = \frac{1}{I_{xi}^2+I_{yi}^2+ \lambda}
+\left(
+(I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i} u_j^{k})
+-I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i} v_j^{k})
+-I_{xi}I_{ti}
+\right)
+\\
+u^{k+1}_i = \frac{1}{I_{xi}^2+I_{yi}^2+ \lambda}
+\left(
+-I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i} u_j^{k})
++(I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i} v_j^{k})
+-I_{yi}I_{ti}
+\right)
+\end{split}
+\end{equation}
+
+Notice the difference between Gauss-Seidel and Jacobi method. The first one uses the solution for $x$ as soon as is available, while the Jacobi iterations relay only on the previous approximation.
+
+
+The math between equation \ref{partialDer} and the iteration equations \ref{GSEq} and \ref{JEq} can be found in Appendix B \ref{GSDemo}.
+
+
 \section{$L^1$ approach}
 
 When the penalty function, $E(x)$ is of type $L^2$, like $\sigma(x)^2$,  the minimization problem is simple. One can reach the solution trough variational calculus, by differentiating the whole energy function with respect to $u$ and $v$, equalising with 0, and solving the system.  
@@ -638,7 +773,14 @@ Now that the problem is stated, in order to get an idea of which behaves better 
 
 \subsection{Cross correlation}
 
-Cross correlation is a simple way to measure the difference between 2 signals.
+Cross correlation is a simple way to measure the difference between 2 signals. In image processing it is used as a normalized form. 
+
+\begin{equation}
+\frac{1}{n}\sum_{i,j} \frac{(f(i,j) - \bar{f})(f_{GT}(i,j) - \bar{f_{GT}})}{\sigma_f \sigma_{GT}}
+\end{equation}
+
+
+The results of this function will vary in $[0,1]$, $1$ meaning a total match and $0$ a total dismatch.
 \subsection{Endpoint error}
 For measuring this error, the length of the vectors is taken in account. This error is expressed as the sum of differences both on the $x$ and $y$ directions, stated in a $L^2$ or $L^1$ norm.
 
