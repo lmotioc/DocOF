@@ -241,16 +241,51 @@ With decades of small steps to improvement, algorithms today reach a high accura
 
 In the next section this fundamental algorithms will be discussed in detail.
 
+In the next chapter,  \ref{POS} we will discuss what is the optical flow and some examples will be explained. Then we will shortly talk in ensemble about what is its mathematical form, what are the main approaches in finding it. 
 
-\chapter{Project Objectives and Specifications}
+
+
+\chapter{Project Objectives and Specifications} \label{POS}
 {\color{red}{must be about 6 pages}}
 
-Describe the proper theme (as a research/design proposal, clearly formulated, with clear objectives, and some explanatory figures).
 
-Stretches over about 10\% of the paper.
+Optical field computation is a complex area of study. From the first methods published around 1980, the field advanced trough the decades little by little, up to these days when it can bee computed with high accuracy, and the computation time comes close to real time.
 
-\section{Optical Flow Formulations}
+
+\section{Optical Flow definitions and examples}
+
+The optical flow is defined from a field of vectors $(u,v)$ which define the velocities of the pixels in a image.
+Solving the optical flow means finding this $(u,v)$ correspondence between the pixels of 2 consecutive frames.
+
+Let us dfine the optical flow on the example in image \ref{movingDot}. If we have the 2 frames, which are consecutive in time, we observe the white dot in the first frame $(x,y)$. In the second frame it had moved up and to the right, reaching the position $(x+1, y+v)$. Now, The flow is defined by the displacement of this dot. We say that the flow is defined by the vector $(u,v)$. The assumption on which most of the dense models are formulated is that moving pixels do not change their intensity in time. In our example $$I(x,y) = I(x+u, y+v)$$.
+
+Taking an more complex example, \ref{moreflow} the optical field is composed from $m\cdot n$ vectors corresponding to each pixel. This exemplifies the flow between image frames, which are matrices of pixels. The algorithms that compute such a structure for the flow are called dense, unlike sparse methods that compute the flow only for key features of the frames. The flow is formulated in a energy function, based on the brightness  constraint and others, depending on the algorithm. This function should be ideally $0$. A simple (but not very efficient) example of the energy function is $\sum |I(x,y) - I(x+u, y+v)|$. In \ref{moreflow} if we add all the difference between pixels in the first image and their corresponding from the next, we will find that the result is 0.
+\begin{figure} \label{movingDot}
+\centering
+\includegraphics[width = 5in]{img/movingDot} 
+	\caption{Moving Dot}
+\end{figure}
+
+
+\begin{figure} \label{moreflow}
+	\centering
+	\includegraphics[width = 5in]{img/morefow} 
+	\caption{Moving Objects}
+\end{figure}
+
 \section{Solving the Optical Flow System}
+
+Solving the system is the expensive part of the algorithm. The solution available is based on the chosen model. The classic formulation are based om a $L^2$ norm. With variational calculus, their derivatives are equated to 0. For this simple solvers are available. Gauss-Seidel and Jacobi iterations are th most handy solution. They are simple, fast, and memory inexpensive. This are classic approaches for the $L^2$ norm. We used them to implement the Horn and Schunk method and they are discussed in the next chapters.
+
+In latest approaches there is a tendency to lose the $L^2$ formulation in favour of the $L^1$. Although it is more computationally expensive to solve then, this formulations are preferred because of it's robustness. Our final implementation is based on such a formulation. 
+
+\section{Project Objectives}
+
+
+The project has two objectives, one is gathering some research in the field, and the second is implementing our solution with a new minimizing strategy.
+
+With a highly complex mathematical model and a large numbers of approaches, the main scope of this project is to familiarize with the basic concepts and methods of the optical flow computation. The two ground approaches, Horn Schunk and Lucas Kanade were studied, implemented, and will be discussed in detail in the next chapters. Then as a starting point for our algorithm we stareted from Drulea's paper, \cite{drulea2013}, which was studied, implemented and tested. Then a new strategy of minimization was studied, then implemented wit the formulation from the previous algorithm. The results are compared with the starting algorithm and other small modifications are implemented to learn the effect and possible improvements.
+
 
 \chapter{Bibliographic research}
 
@@ -320,15 +355,29 @@ The diference between them is not significantly high, but they found that spline
 \paragraph{Drawbacks}In chapter 15 of ~\cite{fleet2006} the pyramid method is discussed. The author draws attention over the drawbacks of the coarse to fine methods. Each level's flow depends on its predecessor. If at some point in the computation of the velocities is erroneous, for example if aliasing or occlusions occur, it will be propagated up to the finest level.
  
 \section{Solving the minimization problem}
-Most of the formulation of the optical flow are stated as a minimization problem. If the penalty function is squared the solution can be achieved trough variational calculus. This is the case of the differential methods. For the L1 the classic methods do not apply  any more.
-\paragraph{Gauss Seidel Iterations}
+Most of the formulation of the optical flow are stated as a minimization problem. If the penalty function is squared the solution can be achieved trough variational calculus. This applies when the energy function is derivable, and preferably easy. Then, most important, the function must be convex. Because of the convexity of the function, the minimum can be found by equate the derivative with 0. 
+
+This is the case of the differential methods like Horn and Schunk. They first computed the partial derivatives for $u$ and $v$, then to solve the system of equations they apply Jacobi iterative method. In this algorithm, in a iteration $k$ each flow vector is computed from the results from the precious iteration $k-1$
+
+Gauss-Seidel and Jacobi iterations are methods for solving linear equations with many unknowns. They start from one initial guess from which they iteratively compute the solution. the Gauss-Seidel solves for an upper dominant coefficient matrix, while th Jacoby method is used when the linear system is more symmetric. In their paper, Horn and Schunk used the Jacobi method, because the coefficient matrix is a sparse bended matrix.
+
+Squared penalties are very sensitive to noises. because of this the $L^1$ norm was introduced.
+
+For the L1 the classic methods do not apply  any more.
+
 
 \section{$L^1$ techniques}
-\subsection{Projected Proximal Point}
 
+$L^1$ penalty functions were introduced in the optical flow energy function in the need for robustness. They are more computational expensive, but they are more resistant to noise.
 
-\subsection{Least Mixed Norm}
-
+ A example of how the errors throw off a $L^1$ vs a $L^2$ function is exemplified in figure \ref{func}. After values greater than one the difference is quite noticeable. As the function is a sum of errors from each vector of an image, the error function builds up and quickly. $L^2$ functions have the tendency to spread the error. Imagine, in a minimization function, as most of the vectors are $0$, but there is one that is erroneous. It is obvious that the $L^2$ norm, let's sat sum of squares, will be way bigger than the $L^1$ norm, let's say absolute-value norm. As noisy images are quite common, a more robust formulation is needed.
+ 
+Algorithms studied involve a mixed norm formulation. They were implemented either with Proximal Point Projection or Least Mixed Norm. The detailed mathematical scheme is presented in the next chapter.
+\begin{figure} \label{func}
+	\centering
+	\includegraphics[width = 3in]{img/func} 
+	\caption{  throw off of $L^1$ vs $L^2$ function }
+\end{figure}
 \section{Improvements}
 \subsection{Low Pass Filter}
 
@@ -364,9 +413,21 @@ In the Gaussian case, one could get the normalization term, which is
 	e^{-\big(\ \frac{\Delta_c(i,s)}{2\sigma_c^2}+ \frac{\Delta_d(i,s)}{2\sigma_d^2}\big)}
 \end{equation}
 
-This normalization term can measure the likelihood of being on the edge of a pixel. 
+This normalization term can measure the likelihood of being on the edge of a pixel. An exaple of the bilateral filter transform is given in \ref{BFexaple}. It can be observed in the left figure, \ref{bfb}, the brighter areas on th planes of the object indicate a value near to $1$, and the darker areas, indicating $0$ are present on th edges of the objects.
 
-In \cite{drulea2013}, this formulation of the bilateral filter is used as a component of smoothness term. The smoothness constraint says that, the velocity of the neighbour pixels is the same. This applies, of course only if the neighbour pixels belong to the same object. The classic methods based on the smoothness constraint have large errors along the edges. By considering the bilateral filter term \ref{bilateralFilterTerm}, one can easily reduce the smoothness penalty for velocities that do not belong to the same object, by simply applying the dot product between th bilateral filter term and the first norm of the difference. 
+\begin{figure} \label{BFexaple}
+	\subfloat[]{\label{bfa}\includegraphics[width = 3in]{img/frame10}} 
+	\subfloat[]{\label{bfb}\includegraphics[width = 3in]{img/bf}}
+	\caption{Example of the bilateral filter transform. \ref{bfa} is the original image, on which the formula \ref{bilateralFilterTerm} was applied. The result is shown on the right in \ref{bfb}}
+\end{figure}
+
+In \cite{drulea2013}, this formulation of the bilateral filter is used as a component of smoothness term. The smoothness constraint says that, the velocity of the neighbour pixels is the same. This applies, of course only if the neighbour pixels belong to the same object. The classic methods based on the smoothness constraint have large errors along the edges. By considering the bilateral filter term \ref{bilateralFilterTerm}, one can easily reduce the smoothness penalty for velocities that do not belong to the same object, by simply applying the dot product between the bilateral filter term and the first norm of the difference. 
+
+\subsection{Census transform}
+
+There must be a balance when choosing th threshold, between a value that is to high and causes insensitivity to light chances and a value that is too small where the uniqueness of the signature bit is affected.
+
+
 
 \chapter{Analysis and Theoretical Foundation of existing algorithms}
 \label{ch:analysis}
@@ -405,7 +466,7 @@ From this, using multi-dimensional Euler-Lagrange equations (see appendix B for 
 The optical flow is given by the $x$ and $y$ derivative in time. Considering this, let
 \begin{equation}
 u = \frac{dx}{dt} \ \ \ , \ \ \  v = \frac{dy}{dt} \ \ \ and \ \ \ \nabla I=\begin{bmatrix}
-I_x I_y
+I_x & I_y
 \end{bmatrix} ^T
 \end{equation} 
 be the optical flow, $\boldsymbol{v}$ components. Denoting the temporal derivative with $I_t$, we obtain the gradient constraint. 
@@ -562,18 +623,18 @@ The data term is expanded with Euler-Lagrange equation and then expressed as a s
 
 
 This problem can be solved with coarse-to-fine method.
-For example, in the original Horn Schunk formulation, the algorithm contains no Coarse to fine strategy. But, when this approach is added to the implementation the error of the results drop significantly. 
+For example, in the original Horn Schunk formulation, the algorithm contains no Coarse to fine strategy. But, when this approach is added to the implementation the error of the results drop significantly. As it can be seen in the images in \ref{HSExample} When the flow is computed with the Coarse-to-fine approach the result are better. for this example in particular, the mean angular error without the pyramidal approach is $30.86$ and after is decreased to $15.94$
 
 
 
 
-\begin{figure}
-	\subfloat[fig 1]{\includegraphics[width = 3in]{img/frame10}} 
-	\subfloat[fig 2]{\includegraphics[width = 3in]{img/realflow}}
-%	\subfloat[fig 3]{\includegraphics[width = 3in]{img/HSPyrExample/RegularHS}}
-%	\subfloat[fig 4]{\includegraphics[width = 3in]{img/HSPyrExample/HSwithPyr}} 
-	\caption{Add your own figures before compiling}
-	\label{some example}
+
+\begin{figure} \label{HSExample}
+	\subfloat[]{\label{hsa}\includegraphics[width = 3in]{img/frame10}} 
+	\subfloat[]{\label{hsb}\includegraphics[width = 3in]{img/realflow}}\\
+	\subfloat[]{\label{hsc}\includegraphics[width = 3in]{img/HS}}
+	\subfloat[]{\label{hsd}\includegraphics[width = 3in]{img/HSPyr}} 
+	\caption{Example of the improvement the coarse to fine approach gives an algorithm. In picture \ref{hsa} is one of the 2 images of the sequence on which the flow is to be computed. In \ref{hsb} is the flow according to Middlebury. In \ref{hsc} is the flow computed with classical Horn and Schunk algorithm. And in \ref{hsd} is the same algorithm which was encapsulated in a coarse to fine strategy.}
 \end{figure}
 
  
@@ -585,7 +646,7 @@ The pyramid of an image is a multi-scale representation of it. In order to obtai
 \paragraph{Building The pyramid} 
  Let us consider an image $I$ of size $m \times n$. The first level of the pyramid, the base is the image, $I_0$ is the image $I$, itself. The next level, $I_1$, is computed from $I_0$. The image $I_0$ is convoluted with a Gauss kernel, than the filtered image is sampled. $I_1$ is obtained with the dimensions $(m_0/sampling factor \times n_0/samplig factor)$. 
 
-Similarly, the next levels are obtained, the $I_2$ is computed from $I_1$, $I_3$ from $I_2$, and so on.
+Similarly, the next levels are obtained, the $I_2$ is computed from $I_1$, $I_3$ from $I_2$, and so on, as illustrated in picture.
 
 Usually a sampling factor of $0.5$ is considered. If we consider $L$ the current level of the image, than we can obtain the $I_{L+1}$ image as fallows
 
@@ -630,6 +691,9 @@ I_w = interpolation(I_l, w_l+dw)
 where $w_l$ is the flow computed until the level $l$ and $dw$ the  residual flow computed at level $l$. Some algorithms, like proximal point approximation, do not compute the residual flow, but update directly the new flow.
 
 \section{$L^2$ Solutions}
+
+First formulations were in the $L^2$ norm. For this simple approaches are used. As the function is convex and derivable, the solution is classic. First compute the partial derivatives, then equate them to 0. This are simple solutions, that run fast and don't consume to much memory. But this methods are very sensitive to noise. 
+
 \subsection{Gauss-Seidel Iterations} \label{GaussSeidel}
 Gauss Seidel is a iterative method for solving simultaneous equations. If we consider th system 
 \begin{equation}
@@ -680,18 +744,18 @@ $A_{2*i, 2*j+1} = I_{xi}I_{yi}$,
  \begin{equation} \label{GSEq}
  \begin{split}
  u^{k+1}_i = \frac{1}{I_{xi}^2+I_{yi}^2+ \lambda}
-					  \left(
-					 (I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i;j<i} u_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} u_j^k)
-					 -I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i;j<i} v_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} v_j^k)
+					 (
+					 (I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i;j<i} u_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} u_j^k) \\
+					 -I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i;j<i} v_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} v_j^k)\\
 					 -I_{xi}I_{ti}
-					 \right)
+					)
 					 \\
    u^{k+1}_i = \frac{1}{I_{xi}^2+I_{yi}^2+ \lambda}
-			   \left(
-			   -I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i;j<i} u_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} u_j^k)
-			   +(I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i;j<i} v_j^{k+1} + \sum_{j \in \mathcal{N}_i;j<i} v_j^k)
+			   (
+			   -I_{xi}I_{yi}(\sum_{j \in \mathcal{N}_i;j<i} u_j^{k+1} + \sum_{j \in \mathcal{N}_i;j>i} u_j^k)\\
+			   +(I_{yi}^2+\lambda)(\sum_{j \in \mathcal{N}_i;j<i} v_j^{k+1} + \sum_{j \in \mathcal{N}_i;j<i} v_j^k)\\
 			   -I_{yi}I_{ti}
-			   \right)
+			   )
  \end{split}
  \end{equation}
 \subsection{Jacobi Iterations}
@@ -759,17 +823,205 @@ The math between equation \ref{partialDer} and the iteration equations \ref{GSEq
 
 \section{$L^1$ approach}
 
-When the penalty function, $E(x)$ is of type $L^2$, like $\sigma(x)^2$,  the minimization problem is simple. One can reach the solution trough variational calculus, by differentiating the whole energy function with respect to $u$ and $v$, equalising with 0, and solving the system.  
-For a faster convergence, some of the current algorithms use a $L^1$ penalty function, like modulus, others use a combination of both $L^2$ and $L^1$ penalty functions, for example, one for the data energy and one for the smoothness energy.
+When the penalty function, $E(x)$ is of type $L^2$, like $\sigma^2(x)$,  the minimization problem is simple. One can reach the solution trough variational calculus, by differentiating the whole energy function with respect to $u$ and $v$, equalising with 0, and solving the system.  
+For a higher robustness, current algorithms tend to use a $L^1$ penalty function, like modulus, others use a combination of both $L^2$ and $L^1$ penalty functions, for example, one for the data energy and one for the smoothness energy.
 
 For this kind of formulations, the minimization can not be done any more trough differential techniques, and other approaches are used.
 
-The smoothness term 
+The smoothness term is the on that is more likely to give erroneous results, as the most outliers are present in the edge areas. Further will be presented two methods studied for solving thee $L^1$ norm. Both of the have only the correction term in $L^1$, the first remaining in $L^2$.
 
-\section{other Improvements}
-\subsection{Census transform}
+\subsection{Projected Proximal Point}
+
+
+\subsection{Least Mixed Norm}
+The Least Mixed Norm (LMN) solution originates from the image restoration problems, belonging from the family of interior point algorithms. The objective is to minimize a $L^2-L^1$ function:
+\begin{equation} \label{l2l1}
+	\min_{\boldsymbol{f}}\Arrowvert g - H\boldsymbol{f}\Arrowvert_2^2+ \alpha\Arrowvert R \boldsymbol{f}\Arrowvert_1
+\end{equation}
+
+In \cite{fu2006efficient}, the problem is explained as a image restoration solution, but as the general function, \ref{l2l1}, matches the optical flow total energy function, this solution can be applied in the optical flow computation, considering $\boldsymbol{f}$ the pair of field vectors $(u,v)$.
+
+Let us now discuss the solution presented in \cite{fu2006efficient}.
+
+First le us write the data term, as a sun of it's positive and negative values:  $\alpha R \boldsymbol{f} = \boldsymbol{v}^+ + \boldsymbol{v}^-$, where $\boldsymbol{v}^+ = \max(\alpha R \boldsymbol{f}, 0) $, and  $\boldsymbol{v}^- = \max(-\alpha R \boldsymbol{f}, 0) $. Considering $\boldsymbol{1}$ a column of ones, the function becomes:
+
+\begin{equation} \label{l2l1}
+\min_{\boldsymbol{f}}\Arrowvert g - H\boldsymbol{f}\Arrowvert_2^2+ 
+\boldsymbol{1}^T \boldsymbol{v}^+ +\boldsymbol{1}^T \boldsymbol{v}^-
+\end{equation}
+The function becomes:
+
+\begin{equation}
+	\min_{\boldsymbol{x}}\frac{1}{2}\boldsymbol{x}G\boldsymbol{x} + \boldsymbol{c}^T\boldsymbol{x} \ \ \
+	\textnormal{ subject to } \ \ \  A\boldsymbol{x} = \boldsymbol{b}
+\end{equation}
+
+where
+\begin{equation}
+	\begin{split}
+	G = \begin{bmatrix}
+	2H^TH & 0 & 0\\
+	 0 & 0 & 0 \\
+	 0 & 0& 0
+	\end{bmatrix} \ \ \ 
+	A = \begin{bmatrix}
+	\alpha R & -I & I
+	\end{bmatrix} \\
+	\boldsymbol{b} = \boldsymbol{0} , \ \ \ 
+	 \boldsymbol{x} = \begin{bmatrix}
+	 \boldsymbol{f} \\ \boldsymbol{v}^+
+ \\\boldsymbol{v}^-
+ 	 \end{bmatrix} ,\ \ \ \textnormal{and} \ \ \ 
+ 	  \boldsymbol{c} = \begin{bmatrix}
+ 	  -2H^T\boldsymbol{g} \\ \boldsymbol{1}
+ 	  \\\boldsymbol{1}
+ 	  \end{bmatrix}
+ 	\end{split} 
+\end{equation}
+We can now write the Lagrange equation:
+
+\begin{equation}
+\mathcal{L}(\boldsymbol{x}, \boldsymbol{\lambda}, \boldsymbol{s}) = \frac{1}{2}\boldsymbol{x}G\boldsymbol{x} + \boldsymbol{c}^T\boldsymbol{x} - \boldsymbol{\lambda}^T(A\boldsymbol{x}-b) - \boldsymbol{s}^T
+\boldsymbol{x}
+\end{equation}
+where $\lambda$ is the generalized Lagrange multiplier for the $A\boldsymbol{x} = \boldsymbol{b}$ constraint. Let $X$ and $S$ be sparse matrices with the diagonal elements from $\boldsymbol{x}$ and $\boldsymbol{s}$ unwrapped. The equation can be rewritten as:
+\begin{equation}
+F(\boldsymbol{x}, \boldsymbol{\lambda}, \boldsymbol{s}) = 
+	\begin{bmatrix}
+G\boldsymbol{x} + \boldsymbol{c}-A^T\boldsymbol{\lambda} - \boldsymbol{s}\\
+A\boldsymbol{x}-\boldsymbol{b} \\
+XS\boldsymbol{1}
+	\end{bmatrix} = 0
+\end{equation}
+where the central path is
+\begin{equation}
+	F(\boldsymbol{x}_{\sigma\mu}, \boldsymbol{\lambda}_{\sigma\mu}, \boldsymbol{s}_{\sigma\mu}) = \begin{bmatrix}
+	0 \\ 0 \\ \sigma\mu \boldsymbol{1}
+	\end{bmatrix}
+\end{equation}
+where $\sigma \in (0,1)$ and $\mu$ is the arithmetic mean of $\boldsymbol{f}$. Rewriting using Newton step, the system becomes:
+
+\begin{equation}
+	\begin{bmatrix}
+	G &-A^T & -I\\
+	A & 0 & 0 \\
+	S & 0  & X
+	\end{bmatrix} 
+	\begin{bmatrix}
+	\Delta\boldsymbol{x} \\ \Delta\boldsymbol{\lambda} \\ \Delta\boldsymbol{s}
+	\end{bmatrix} =
+		\begin{bmatrix}
+		\boldsymbol{-r_c} \\ \boldsymbol{-r_b} \\ \boldsymbol{-r_a}
+		\end{bmatrix}
+\end{equation}
+where 
+\begin{equation}
+\boldsymbol{r}_c = G\boldsymbol{x} + \boldsymbol{c}-A^T\boldsymbol{\lambda} - \boldsymbol{s}, \ 
+\boldsymbol{r}_b = A\boldsymbol{x}-\boldsymbol{b} \ \textnormal{and} \ 
+\boldsymbol{r}_a = XS\boldsymbol{1}- \sigma\mu \boldsymbol{1}
+\end{equation}
+to reduce by $\Delta s$
+\begin{equation}
+	\begin{bmatrix}
+	G+X^{-1}S &-A^T \\
+	A & 0  
+	\end{bmatrix} 
+	\begin{bmatrix}
+	\Delta\boldsymbol{x} \\ \Delta\boldsymbol{\lambda} 
+	\end{bmatrix} =
+	\begin{bmatrix}
+	-\hat{\boldsymbol{r}}_c \\ \boldsymbol{-r_b} 
+	\end{bmatrix}
+\end{equation}
+where $\hat{\boldsymbol{r}}_c = \boldsymbol{r}_c + X^{-1}\boldsymbol{r}_a$. Making the system symmetric:
+
+
+\begin{equation}
+\begin{bmatrix}
+G+X^{-1}S &A^T \\
+A & 0  
+\end{bmatrix} 
+\begin{bmatrix}
+\Delta\boldsymbol{x} \\ -\Delta\boldsymbol{\lambda} 
+\end{bmatrix} =
+\begin{bmatrix}
+-\hat{\boldsymbol{r}}_c \\ \boldsymbol{-r_b} 
+\end{bmatrix}
+\end{equation}
+
+Let $D = S^{-1/2}X^{1/2}$, the let $D$ be decomposed in equal partitions over the diagonal. $D = diag(D_1, D_2, D_3)$ .
+Then the system can be unwrapped as:
+\begin{equation}
+\begin{bmatrix}
+2H^TH+D_1^{2} & 0 & 0 &\alpha R ^T\\
+0 & D_2^{2} & 0 & 0 \\
+ 0 & 0 &  D_3^{2} & 0\\
+\alpha R &-I & I & 0  
+\end{bmatrix} 
+\begin{bmatrix}
+\Delta\boldsymbol{f} \\ 
+\Delta\boldsymbol{v}^+ \\ 
+\Delta\boldsymbol{v}^- \\ 
+\Delta\boldsymbol{\lambda} 
+\end{bmatrix} =
+\begin{bmatrix}
+-\hat{\boldsymbol{r}}_{c1} \\
+-\hat{\boldsymbol{r}}_{c2} \\
+-\hat{\boldsymbol{r}}_{c3} \\
+ \boldsymbol{-r_b} 
+\end{bmatrix}
+\end{equation}
+where $-\hat{\boldsymbol{r}}_c1$, $-\hat{\boldsymbol{r}}_c2$,  and $-\hat{\boldsymbol{r}}_c3$ are the appropriate vectors of $-\hat{\boldsymbol{r}}_c$, 
+by removing $\Delta \boldsymbol{v}^+$ and $\Delta \boldsymbol{v}^-$ we obtain:
+
+\begin{equation}
+\begin{bmatrix}
+2H^TH+D_1^{2} &\alpha R ^T\\
+ \alpha R & -D_2^{2} + -D_3^{2} 
+\end{bmatrix} 
+\begin{bmatrix}
+\Delta\boldsymbol{f} \\ 
+\Delta\boldsymbol{\lambda} 
+\end{bmatrix} =
+\begin{bmatrix}
+-\hat{\boldsymbol{r}}_{c1} \\
+-\hat{\boldsymbol{r}}_b  
+\end{bmatrix}
+\end{equation}
+
+ where 
+ $-\hat{\boldsymbol{r}}_b =  \boldsymbol{-r_b} + D^2_2\hat{\boldsymbol{r}}_{c2} - D^2_3\hat{\boldsymbol{r}}_{c3}$
+ and finally, eliminating $\Delta\boldsymbol{\lambda}$,
+ \begin{equation} \label{lmnXeq}
+ \begin{bmatrix}
+ 2H^TH+D_1^{-2} + \alpha R ^T( D_2^{2} +  D_3^{2} )^{-1}R
+ \end{bmatrix} 
+ \Delta\boldsymbol{f}  =
+ -\tilde{\boldsymbol{r}}_{c1} \\
+ \end{equation}
+ where $\tilde{\boldsymbol{r}}_{c1} = \hat{\boldsymbol{r}}_{c1} + \alpha R ^T( D_2^{2} +  D_3^{2} )^{-1} \hat{\boldsymbol{r}}_{b}$
+ 
+ The system will be solved for $\boldsymbol{f}$ with equation  \ref{lmnXeq}, and then the other unknowns can be computed:
+ \begin{equation}
+ 	\begin{split}
+ 	\boldsymbol{\lambda} = ( D_2^{2} +  D_3^{2} )^{-1}
+ 	(-\hat{\boldsymbol{r}}_{b} - \alpha R \boldsymbol{f})\\
+ 	\boldsymbol{v}^+ = D_2^{2}(-\hat{\boldsymbol{r}}_{c2} - \boldsymbol{\lambda})\\
+	\boldsymbol{v}^- = D_3^{2}(-\hat{\boldsymbol{r}}_{c3} + \boldsymbol{\lambda})\\
+ 	\boldsymbol{s} =  G  \boldsymbol{x} -  A^T\boldsymbol{\lambda} + \boldsymbol{r}_c
+ 	\end{split}
+ \end{equation}
+ 
+ Now the system will be approximated iteratively. A initial guess is taken from the condition $A\boldsymbol{x} = b$ 
+
+
+
+
 \section{Error Measurement}
-Now that the problem is stated, in order to get an idea of which behaves better on what conditions, we can compare the flow results with a ground truth. From Middlebury's website\cite{middleburry}, one can download their set of image sequences and the expected output. The images are artificially generated, so the flow between them is nearly the perfect result. This stands as a reference for the output of the algorithms, the errors are computed between this ground truth outputs and the results from the algorithms. Middlebury \cite{middleburry} also has a big database of the existing algorithms, classified by accuracy. Being referenced in most of the latest articles, it seems that this database is a good reference to modern approaches and their metrics.
+Now that the problem is stated, in order to get an idea of which behaves better on what conditions, we can compare the flow results with a ground truth. Middlebury's website\cite{middleburry} proposes a challenging data sheet containing some of the top algorithms in optical flow, as they state in \cite{baker2011database}, by which they hope to encourage improvement. It \cite{middleburry} has a big database of the existing algorithms, classified by accuracy.
+They have available a set of images on which the algorithms can be tested and measure their performance. Both realistic high speed camera and synthetic images can be downloaded from their database. For the artificially generated also the exact flow is available. This stands as a reference for the output of the algorithms. The error can be computed between this ground truth output and the result from the algorithms.
+
+ Being referenced in most of the latest articles, it seems that this database is a good reference to modern approaches and their metrics.
 
 \subsection{Cross correlation}
 
@@ -805,20 +1057,67 @@ As we are talking about vectors, we need a complementary measurements over the m
 
 \chapter{Detailed Design and Implementation}
 
-Together with the previous chapter takes about 60\% of the paper.
 
-The purpose of this chapter is to document the developed application such a way that it can be maintained and developed later. A reader should be able (from what you have written here) to identify the main functions of the application.
 \section{Derivative discretization}
-\section{Sparse Matrix vs Iterative approach}
-\section{Downsamplig and Pyramidal Implementation}
-\section{Output and MATLAB Colorspace}
-The chapter should contain (but not limited to):
-\begin{itemize}
- \item a general application sketch/scheme,
-\item a description of every component implemented, at module level,
-\item class diagrams, important classes and methods from key classes.
 
-\end{itemize}
+ For obtaining the derivatives of the image and also the gradient we used th discretized formula:
+\begin{equation}
+		\frac{\partial f(x, y)}{\partial x} =  \frac{f(x-h, y) - f(x+h,y)}{2h}
+\end{equation}
+
+By taking the small step $h = 1$ we can compute the derivatives and the gradient of the image.
+For achieving this, the a Prewitt kernel convolution is used. The convolution process implies multiplying each pixel of a image and its neighbours by an kernel, chosen depending on the operation. Perwitt is one of the kernels used for derivatives along  Laplacian, Sobel and Roberts. The Perwitt filter is $\begin{bmatrix}-1 & 0 & 1\end{bmatrix}$ and  
+$\begin{bmatrix}-1 & 0 & 1\end{bmatrix}^T$  for the horizontal axis, vertical respectively. It is relatively easy and inexpensive to compute. Generally it is used in the context of edge detection, but in our implementations, was used in the energy function, especially in the brightness constraint. 
+
+When computing only the gradient, and the partial derivatives are not further used, the kernel applied is the Laplacian, also found in the context of edge detection. The general formula is:
+\begin{equation}
+f(x, y) =  \frac{f(x-h, y) + f(x+h,y) +f(x,y-h) +f(x+h,y) - 4f(x,y)}
+{(2h)^2}
+\end{equation}
+ In \ref{GaussSeidel} when computing the derivative, the gradient $\nabla u$ was replaces with$\bar{u} - u)$. This is because the gradient was computed with a Laplace Kernel:
+ \begin{equation}
+ \frac{1}{9}
+ \begin{bmatrix}
+ 	1 & 1 & 1 \\
+ 	1 & -9 & 1 \\
+ 	1 & 1 & 1
+ \end{bmatrix}
+ \end{equation}
+
+
+Notice the property of the differentiative krnels, both Perwitt and Laplce, the sum of the elements must alwais be 0. 
+
+\section{Sparse Matrix vs Iterative approach}
+
+Sparse matrices are usually large matrices with most of the elements $0$. They are popular with solving large linear systems.
+
+The memory advantage of sparse over full matrices is that in sparse only the non zero values and their indexes are stored. 
+
+Computational wise it skips redundant operations with 0 such as addition and multiplication.
+
+A special type of sparse are band matrices. This are regular sparse, the non-zero elements are grouped diagonally. This allows even more efficient memory use and computation time. 
+
+\section{Downsamplig and Pyramidal Implementation}
+
+
+\section{Output and MATLAB Colorspace}
+
+
+For the flow output and visualization, the functions available on Middlebury ware used.
+As their ground truth flow was encoded in .flo format, we kept the same convention. The .flo is the unwrapped flow matrix in a long stream. values are red one by one and then the flow is rearranged in a $m\times n \times 2$ matrix, where $m$ and $n$ are the flow field's height and width and 2, every vector's $x$ and $y$ components.
+
+Middlebury\cite{middleburry} provides functions for writing and reading this files. 
+
+For visualizing the output each vector is encoded to the MATLAB's colour space. As shown in \ref{colors}, the vectors on the write, expressed as arrows are encoded trough colour code. The colour notation is  used more that ht vector, because the changes in direction are more obvious. Also, the magnitude of the vector is encoded by the level of saturation of the colour, white representing no movement, and a full, saturated colour represents the widest movement of the flow. The pixel range between white and full colours vary, depending on the flow output. The function adapts this range to the needs. As can be observed, the encodings for the main directions are: indigo for up, red for right, yellow for down and cyan for left. On Middlebury's site, thy provide a function for the colour transform in the same package as the read and write functions mentioned earlier. They can be found on the datasets section as "flow-code".  
+
+\begin{figure}
+	\label{colors}
+	\centering
+	\subfloat{\includegraphics[width = 3in]{img/vectors}} 
+	\subfloat{\includegraphics[width = 3.6in]{img/colors}} 
+	\caption{Colour encoding.}
+\end{figure}
+
 
 \chapter{Testing and Validation}
 

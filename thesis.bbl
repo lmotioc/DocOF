@@ -75,9 +75,19 @@ C.~Tomasi and R.~Manduchi, ``Bilateral filtering for gray and color images,''
   in \emph{Computer Vision, 1998. Sixth International Conference on}.\hskip 1em
   plus 0.5em minus 0.4em\relax IEEE, 1998, pp. 839--846.
 
+\bibitem{fu2006efficient}
+H.~Fu, M.~K. Ng, M.~Nikolova, and J.~L. Barlow, ``Efficient minimization
+  methods of mixed l2-l1 and l1-l1 norms for image restoration,'' \emph{SIAM
+  Journal on Scientific computing}, vol.~27, no.~6, pp. 1881--1902, 2006.
+
 \bibitem{middleburry}
 \BIBentryALTinterwordspacing
  [Online]. Available: \url{http://flow.middlebury.com}
 \BIBentrySTDinterwordspacing
+
+\bibitem{baker2011database}
+S.~Baker, D.~Scharstein, J.~Lewis, S.~Roth, M.~J. Black, and R.~Szeliski, ``A
+  database and evaluation methodology for optical flow,'' \emph{International
+  Journal of Computer Vision}, vol.~92, no.~1, pp. 1--31, 2011.
 
 \end{thebibliography}

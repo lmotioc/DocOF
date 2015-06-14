@@ -7,8 +7,15 @@
 \@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {2}Project Objectives and Specifications}{14}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Optical Flow Formulations}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Solving the Optical Flow System}{14}}
+\newlabel{POS}{{2}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Optical Flow definitions and examples}{14}}
+\citation{drulea2013}
+\newlabel{movingDot}{{2.1}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Moving Dot}}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Solving the Optical Flow System}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Project Objectives}{15}}
+\newlabel{moreflow}{{2.1}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Moving Objects}}{16}}
 \citation{HSOpticalFlow}
 \citation{sun2010}
 \citation{QAnalysis}
@@ -16,119 +23,146 @@
 \citation{mitiche2014computer}
 \citation{wedel2011stereo}
 \citation{HSOpticalFlow}
-\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {3}Bibliographic research}{15}}
+\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {3}Bibliographic research}{18}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}First Approaches}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}First Approaches}{18}}
 \citation{HSOpticalFlow}
 \citation{barron1994}
 \citation{lucas1981}
 \citation{sun2010}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Horn Schunk}{16}}
-\newlabel{HSEq}{{3.1}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Lucas Kanade}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Coarse-to-fine}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Horn Schunk}{19}}
+\newlabel{HSEq}{{3.1}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Lucas Kanade}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Coarse-to-fine}{19}}
 \citation{sun2010}
 \citation{sun2010}
 \citation{sun2010}
 \citation{fleet2006}
-\newlabel{pyrHeight}{{3.2}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Pyramid Height}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Downsamplig}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Warping}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Interpolation technoques}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Drawbacks}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Solving the minimization problem}{17}}
+\newlabel{pyrHeight}{{3.2}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Pyramid Height}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Downsamplig}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Warping}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Interpolation technoques}{20}}
+\@writefile{toc}{\contentsline {paragraph}{Drawbacks}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Solving the minimization problem}{20}}
 \citation{fleet2006}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}$L^1$ techniques}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Improvements}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Low Pass Filter}{21}}
 \citation{sun2010}
 \citation{drulea2013}
-\@writefile{toc}{\contentsline {paragraph}{Gauss Seidel Iterations}{18}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}$L^1$ techniques}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Projected Proximal Point}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Least Mixed Norm}{18}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Improvements}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Low Pass Filter}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Cross Correlation}{18}}
 \citation{tomasi1998bilateral}
+\newlabel{func}{{3.4}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  throw off of $L^1$ vs $L^2$ function }}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Cross Correlation}{22}}
 \citation{drulea2013}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Bilateral Filter}{19}}
-\newlabel{bf}{{3.5.3}{19}}
-\newlabel{bilateralFilterTerm}{{3.4}{19}}
-\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{20}}
+\newlabel{BFexaple}{{3.5.3}{23}}
+\newlabel{bfa}{{3.2a}{23}}
+\newlabel{sub@bfa}{{(a)}{a}}
+\newlabel{bfb}{{3.2b}{23}}
+\newlabel{sub@bfb}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of the bilateral filter transform. 3.2a\hbox {} is the original image, on which the formula 3.4\hbox {} was applied. The result is shown on the right in 3.2b\hbox {}}}{23}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{23}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Bilateral Filter}{23}}
+\newlabel{bf}{{3.5.3}{23}}
+\newlabel{bilateralFilterTerm}{{3.4}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.4}Census transform}{24}}
+\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{25}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:analysis}{{4}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Differential Methods}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}The Brightness Constraint}{20}}
-\newlabel{BrightnessConstr}{{4.1.1}{20}}
+\newlabel{ch:analysis}{{4}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Differential Methods}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}The Brightness Constraint}{25}}
+\newlabel{BrightnessConstr}{{4.1.1}{25}}
 \citation{barron1994}
-\newlabel{Idt0}{{4.1}{21}}
-\newlabel{Idt0_lagr}{{4.2}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}The Aperture Problem}{21}}
-\newlabel{apertureimg}{{4.1.2}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Example of aperture problem by the movement of a line.}}{22}}
-\newlabel{apertureimgSin}{{4.1.2}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of aperture problem by the movement of a sinusoidal signal.}}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Lucas-Kanade}{22}}
-\newlabel{gradientSumN}{{4.6}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Correcting term}{24}}
-\newlabel{smoothEq}{{4.14}{24}}
-\newlabel{mynabla}{{4.15}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Add your own figures before compiling}}{25}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {fig 1}}}{25}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {fig 2}}}{25}}
-\newlabel{some example}{{4.3}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Coarse-to-fine}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{25}}
-\@writefile{toc}{\contentsline {paragraph}{Building The pyramid}{25}}
-\newlabel{cameraPyr}{{4.2.1}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of a pyramid with 4 levels.}}{26}}
-\newlabel{eq1}{{4.17}{26}}
-\@writefile{toc}{\contentsline {paragraph}{Choosing the pyramid height}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}$L^2$ Solutions}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Gauss-Seidel Iterations}{27}}
-\newlabel{GaussSeidel}{{4.3.1}{27}}
-\newlabel{partialDer}{{4.23}{28}}
-\newlabel{GSEq}{{4.24}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Jacobi Iterations}{28}}
+\newlabel{Idt0}{{4.1}{26}}
+\newlabel{Idt0_lagr}{{4.2}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}The Aperture Problem}{26}}
+\newlabel{apertureimg}{{4.1.2}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Example of aperture problem by the movement of a line.}}{27}}
+\newlabel{apertureimgSin}{{4.1.2}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of aperture problem by the movement of a sinusoidal signal.}}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Lucas-Kanade}{27}}
+\newlabel{gradientSumN}{{4.6}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Correcting term}{29}}
+\newlabel{smoothEq}{{4.14}{29}}
+\newlabel{mynabla}{{4.15}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Coarse-to-fine}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{30}}
+\@writefile{toc}{\contentsline {paragraph}{Building The pyramid}{30}}
+\newlabel{eq1}{{4.17}{30}}
+\newlabel{HSExample}{{4.2}{31}}
+\newlabel{hsa}{{4.3a}{31}}
+\newlabel{sub@hsa}{{(a)}{a}}
+\newlabel{hsb}{{4.3b}{31}}
+\newlabel{sub@hsb}{{(b)}{b}}
+\newlabel{hsc}{{4.3c}{31}}
+\newlabel{sub@hsc}{{(c)}{c}}
+\newlabel{hsd}{{4.3d}{31}}
+\newlabel{sub@hsd}{{(d)}{d}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Example of the improvement the coarse to fine approach gives an algorithm. In picture 4.3a\hbox {} is one of the 2 images of the sequence on which the flow is to be computed. In 4.3b\hbox {} is the flow according to Middlebury. In 4.3c\hbox {} is the flow computed with classical Horn and Schunk algorithm. And in 4.3d\hbox {} is the same algorithm which was encapsulated in a coarse to fine strategy.}}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{31}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{31}}
+\newlabel{cameraPyr}{{4.2.1}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of a pyramid with 4 levels.}}{32}}
+\@writefile{toc}{\contentsline {paragraph}{Choosing the pyramid height}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}$L^2$ Solutions}{33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Gauss-Seidel Iterations}{33}}
+\newlabel{GaussSeidel}{{4.3.1}{33}}
+\newlabel{partialDer}{{4.23}{33}}
+\newlabel{GSEq}{{4.24}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Jacobi Iterations}{34}}
+\citation{fu2006efficient}
+\citation{fu2006efficient}
+\newlabel{JEq}{{4.28}{35}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}$L^1$ approach}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Projected Proximal Point}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Least Mixed Norm}{35}}
+\newlabel{l2l1}{{4.29}{35}}
+\newlabel{l2l1}{{4.30}{36}}
 \citation{middleburry}
+\citation{baker2011database}
 \citation{middleburry}
-\newlabel{JEq}{{4.28}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}$L^1$ approach}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}other Improvements}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Census transform}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Error Measurement}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Cross correlation}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Endpoint error}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Angular error}{30}}
-\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {5}Proposed algorithm}{31}}
+\newlabel{lmnXeq}{{4.42}{37}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Error Measurement}{37}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Cross correlation}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Endpoint error}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Angular error}{38}}
+\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {5}Proposed algorithm}{40}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {6}Detailed Design and Implementation}{32}}
+\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {6}Detailed Design and Implementation}{41}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Derivative discretization}{32}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Sparse Matrix vs Iterative approach}{32}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Downsamplig and Pyramidal Implementation}{32}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Output and MATLAB Colorspace}{32}}
-\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{33}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Derivative discretization}{41}}
+\citation{middleburry}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Sparse Matrix vs Iterative approach}{42}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Downsamplig and Pyramidal Implementation}{42}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Output and MATLAB Colorspace}{42}}
+\newlabel{colors}{{6.4}{43}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Colour encoding.}}{43}}
+\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{44}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Title}{33}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Other title}{33}}
-\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Title}{44}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Other title}{44}}
+\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{45}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Title}{34}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Other title}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Title}{45}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Other title}{45}}
 \bibstyle{IEEEtran}
 \bibdata{thesis}
-\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{35}}
+\@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{46}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {9.1}Title}{35}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.2}Other title}{35}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.1}Title}{46}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.2}Other title}{46}}
 \bibcite{gibson1950perception}{1}
 \bibcite{HSOpticalFlow}{2}
 \bibcite{sun2010}{3}
@@ -140,6 +174,8 @@
 \bibcite{fleet2006}{9}
 \bibcite{drulea2013}{10}
 \bibcite{tomasi1998bilateral}{11}
-\bibcite{middleburry}{12}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{36}}
+\bibcite{fu2006efficient}{12}
+\bibcite{middleburry}{13}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{47}}
+\bibcite{baker2011database}{14}
 \@input{apendix.aux}
