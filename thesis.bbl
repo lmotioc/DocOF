@@ -24,6 +24,11 @@
 \bibitem{gibson1950perception}
 J.~J. Gibson, ``The perception of the visual world.'' 1950.
 
+\bibitem{drulea2013}
+M.~Drulea and S.~Nedevschi, ``Motion estimation using the correlation
+  transform,'' \emph{Image Processing, IEEE Transactions on}, vol.~22, no.~8,
+  pp. 3260--3270, 2013.
+
 \bibitem{HSOpticalFlow}
 B.~K. Horn and B.~Schunck, ``Determining optical flow,'' in \emph{1981
   Technical Symposium East}.\hskip 1em plus 0.5em minus 0.4em\relax
@@ -65,15 +70,15 @@ D.~Fleet and Y.~Weiss, ``Optical flow estimation,'' in \emph{Handbook of
   Mathematical Models in Computer Vision}.\hskip 1em plus 0.5em minus
   0.4em\relax Springer, 2006, pp. 237--257.
 
-\bibitem{drulea2013}
-M.~Drulea and S.~Nedevschi, ``Motion estimation using the correlation
-  transform,'' \emph{Image Processing, IEEE Transactions on}, vol.~22, no.~8,
-  pp. 3260--3270, 2013.
-
 \bibitem{tomasi1998bilateral}
 C.~Tomasi and R.~Manduchi, ``Bilateral filtering for gray and color images,''
   in \emph{Computer Vision, 1998. Sixth International Conference on}.\hskip 1em
   plus 0.5em minus 0.4em\relax IEEE, 1998, pp. 839--846.
+
+\bibitem{nagel1983constraints}
+H.-H. Nagel \emph{et~al.}, ``Constraints for the estimation of displacement
+  vector fields from image sequences.'' in \emph{IJCAI}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Citeseer, 1983, pp. 945--951.
 
 \bibitem{fu2006efficient}
 H.~Fu, M.~K. Ng, M.~Nikolova, and J.~L. Barlow, ``Efficient minimization

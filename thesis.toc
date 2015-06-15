@@ -7,57 +7,57 @@
 \contentsline {section}{\numberline {3.1}First Approaches}{18}
 \contentsline {subsection}{\numberline {3.1.1}Horn Schunk}{19}
 \contentsline {subsection}{\numberline {3.1.2}Lucas Kanade}{19}
-\contentsline {section}{\numberline {3.2}Coarse-to-fine}{19}
+\contentsline {section}{\numberline {3.2}Coarse-to-fine}{20}
 \contentsline {paragraph}{Pyramid Height}{20}
 \contentsline {paragraph}{Downsamplig}{20}
 \contentsline {paragraph}{Warping}{20}
 \contentsline {paragraph}{Interpolation technoques}{20}
 \contentsline {paragraph}{Drawbacks}{20}
-\contentsline {section}{\numberline {3.3}Solving the minimization problem}{20}
+\contentsline {section}{\numberline {3.3}Solving the minimization problem}{21}
 \contentsline {section}{\numberline {3.4}$L^1$ techniques}{21}
-\contentsline {section}{\numberline {3.5}Improvements}{21}
-\contentsline {subsection}{\numberline {3.5.1}Low Pass Filter}{21}
+\contentsline {section}{\numberline {3.5}Improvements}{22}
+\contentsline {subsection}{\numberline {3.5.1}Low Pass Filter}{22}
 \contentsline {subsection}{\numberline {3.5.2}Cross Correlation}{22}
 \contentsline {subsection}{\numberline {3.5.3}Bilateral Filter}{23}
-\contentsline {subsection}{\numberline {3.5.4}Census transform}{24}
-\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{25}
-\contentsline {section}{\numberline {4.1}Differential Methods}{25}
-\contentsline {subsection}{\numberline {4.1.1}The Brightness Constraint}{25}
-\contentsline {subsection}{\numberline {4.1.2}The Aperture Problem}{26}
-\contentsline {subsection}{\numberline {4.1.3}Lucas-Kanade}{27}
-\contentsline {subsection}{\numberline {4.1.4}Correcting term}{29}
-\contentsline {section}{\numberline {4.2}Coarse-to-fine}{30}
-\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{30}
-\contentsline {paragraph}{Building The pyramid}{30}
-\contentsline {paragraph}{Choosing the pyramid height}{32}
-\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{32}
-\contentsline {section}{\numberline {4.3}$L^2$ Solutions}{33}
-\contentsline {subsection}{\numberline {4.3.1}Gauss-Seidel Iterations}{33}
-\contentsline {subsection}{\numberline {4.3.2}Jacobi Iterations}{34}
-\contentsline {section}{\numberline {4.4}$L^1$ approach}{35}
-\contentsline {subsection}{\numberline {4.4.1}Projected Proximal Point}{35}
-\contentsline {subsection}{\numberline {4.4.2}Least Mixed Norm}{35}
-\contentsline {section}{\numberline {4.5}Error Measurement}{37}
-\contentsline {subsection}{\numberline {4.5.1}Cross correlation}{38}
-\contentsline {subsection}{\numberline {4.5.2}Endpoint error}{38}
-\contentsline {subsection}{\numberline {4.5.3}Angular error}{38}
-\contentsline {chapter}{Chapter{} \numberline {5}Proposed algorithm}{40}
-\contentsline {chapter}{Chapter{} \numberline {6}Detailed Design and Implementation}{41}
-\contentsline {section}{\numberline {6.1}Derivative discretization}{41}
-\contentsline {section}{\numberline {6.2}Sparse Matrix vs Iterative approach}{42}
-\contentsline {section}{\numberline {6.3}Downsamplig and Pyramidal Implementation}{42}
-\contentsline {section}{\numberline {6.4}Output and MATLAB Colorspace}{42}
-\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{44}
-\contentsline {section}{\numberline {7.1}Title}{44}
-\contentsline {section}{\numberline {7.2}Other title}{44}
-\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{45}
-\contentsline {section}{\numberline {8.1}Title}{45}
-\contentsline {section}{\numberline {8.2}Other title}{45}
-\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{46}
-\contentsline {section}{\numberline {9.1}Title}{46}
-\contentsline {section}{\numberline {9.2}Other title}{46}
-\contentsline {chapter}{Bibliography}{47}
-\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{49}
-\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{50}
-\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{50}
-\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{52}
+\contentsline {subsection}{\numberline {3.5.4}Census transform}{23}
+\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{26}
+\contentsline {section}{\numberline {4.1}Differential Methods}{26}
+\contentsline {subsection}{\numberline {4.1.1}The Brightness Constraint}{26}
+\contentsline {subsection}{\numberline {4.1.2}The Aperture Problem}{27}
+\contentsline {subsection}{\numberline {4.1.3}Lucas-Kanade}{28}
+\contentsline {subsection}{\numberline {4.1.4}Correcting term}{30}
+\contentsline {section}{\numberline {4.2}Coarse-to-fine}{31}
+\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{33}
+\contentsline {paragraph}{Building The pyramid}{33}
+\contentsline {paragraph}{Choosing the pyramid height}{34}
+\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{35}
+\contentsline {section}{\numberline {4.3}$L^2$ Solutions}{35}
+\contentsline {subsection}{\numberline {4.3.1}Gauss-Seidel Iterations}{35}
+\contentsline {subsection}{\numberline {4.3.2}Jacobi Iterations}{36}
+\contentsline {section}{\numberline {4.4}$L^1$ approach}{37}
+\contentsline {subsection}{\numberline {4.4.1}Projected Proximal Point}{38}
+\contentsline {subsection}{\numberline {4.4.2}Least Mixed Norm}{38}
+\contentsline {section}{\numberline {4.5}Error Measurement}{40}
+\contentsline {subsection}{\numberline {4.5.1}Cross correlation}{40}
+\contentsline {subsection}{\numberline {4.5.2}Endpoint error}{40}
+\contentsline {subsection}{\numberline {4.5.3}Angular error}{41}
+\contentsline {chapter}{Chapter{} \numberline {5}Proposed algorithm}{42}
+\contentsline {chapter}{Chapter{} \numberline {6}Detailed Design and Implementation}{44}
+\contentsline {section}{\numberline {6.1}Derivative discretization}{44}
+\contentsline {section}{\numberline {6.2}Sparse Matrix vs Iterative approach}{45}
+\contentsline {section}{\numberline {6.3}Downsamplig and Pyramidal Implementation}{45}
+\contentsline {section}{\numberline {6.4}Output and MATLAB Colorspace}{45}
+\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{47}
+\contentsline {section}{\numberline {7.1}Title}{47}
+\contentsline {section}{\numberline {7.2}Other title}{47}
+\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{48}
+\contentsline {section}{\numberline {8.1}Title}{48}
+\contentsline {section}{\numberline {8.2}Other title}{48}
+\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{49}
+\contentsline {section}{\numberline {9.1}Title}{49}
+\contentsline {section}{\numberline {9.2}Other title}{49}
+\contentsline {chapter}{Bibliography}{50}
+\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{52}
+\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{53}
+\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{53}
+\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{55}

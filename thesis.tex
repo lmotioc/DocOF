@@ -224,13 +224,13 @@ Data \hspace{8cm} Nume, Prenume
 
 Optical flow is big area of research form computer vision. It is given by a vector field of velocities which describe the movement of the elements of the projected environment. With a large range of applications, it is a rich source of information. 
 
-The optical flow problem does not originate in computer vision, but in psychology, psychophysics. One of th most influential man in this field is J.J. Gibson. He was the one who stated the problem as "How do we see the world around us?". In his many publications around the 50's, he tries to explain this phenomena and describes some principles that stand at the foundation of modern day approaches.  In his book\cite{gibson1950perception}, Gibson explains how the stimuli are correlated to the perception of motion. 
+The optical flow problem does not originate in computer vision, but in psychology, psychophysics. One of the most influential man in this field is J.J. Gibson. He was the one who stated the problem as "How do we see the world around us?". In his many publications around the 50's, he tries to explain this phenomena and describes some principles that stand at the foundation of modern day approaches.  In his book\cite{gibson1950perception}, Gibson explains how the stimuli are correlated to the perception of motion. 
 We perceive the motion in 2D as a projection of the 3D world. This projection is nothing else but the light reflected from the environment, hitting our retina, referred as the optical array. In a analytical context, he defines the movement for a perception. Each element is detected and associated a pair of coordinates. Then each element has a motion descriptor as either a pair of elements or a speed and direction component, in successive moments in time. 
 
 As the nature is the grand engineer, the same model is taken in computer vision for computing the optical flow. The changes in the optical array are stocked in a series of frames. The perceived image is a 2D array of pixels. Each pixel is a element in the movement. An accurate and robust flow estimation implies an approximation for each pixel of the frame. The result will be a vector field indicating the direction and that each pixel takes between frames.
  
 This is a old field of study.
-Further we will discuss dense flow algorithms. Unlike sparse algorithms that precess only relevant features op th frame sequence, like corners or edges, dense methods compute the flow for each pixel of the image.
+Further we will discuss dense flow algorithms. Unlike sparse algorithms that precess only relevant features op the frame sequence, like corners or edges, dense methods compute the flow for each pixel of the image.
 
  The first algorithms were published in 1980. They are the foundations of modern approaches. Computing a energy function fro the sequence of frames and the flow, and trying to minimize it is the short description for most of the algorithms. For example, the brightness constraint formulated by Horn and Schunk is still the starting point of many algorithms in describing the energy function. Also, the pyramidal implementation of Horn and Schunk's it is also present in modern approaches, solving the large displacement problem. This are some of the fundamental concepts stated by the fathers of optical flow. All this will be further discussed in the next chapters.
   
@@ -275,7 +275,7 @@ Taking an more complex example, \ref{moreflow} the optical field is composed fro
 
 \section{Solving the Optical Flow System}
 
-Solving the system is the expensive part of the algorithm. The solution available is based on the chosen model. The classic formulation are based om a $L^2$ norm. With variational calculus, their derivatives are equated to 0. For this simple solvers are available. Gauss-Seidel and Jacobi iterations are th most handy solution. They are simple, fast, and memory inexpensive. This are classic approaches for the $L^2$ norm. We used them to implement the Horn and Schunk method and they are discussed in the next chapters.
+Solving the system is the expensive part of the algorithm. The solution available is based on the chosen model. The classic formulation are based om a $L^2$ norm. With variational calculus, their derivatives are equated to 0. For this simple solvers are available. Gauss-Seidel and Jacobi iterations are the most handy solution. They are simple, fast, and memory inexpensive. This are classic approaches for the $L^2$ norm. We used them to implement the Horn and Schunk method and they are discussed in the next chapters.
 
 In latest approaches there is a tendency to lose the $L^2$ formulation in favour of the $L^1$. Although it is more computationally expensive to solve then, this formulations are preferred because of it's robustness. Our final implementation is based on such a formulation. 
 
@@ -290,7 +290,7 @@ With a highly complex mathematical model and a large numbers of approaches, the 
 \chapter{Bibliographic research}
 
 
-{\color{red}{must be about 9 pages}}
+
 
 Optical Flow problem is an old subject in computer vision. The fundamental method for robust optical flow, referenced in over $10000$ articles up to the newest, was published in 1980, by Horn and Schunch ~\cite{HSOpticalFlow}. They define the optical flow as
 \begin{quote}
@@ -327,10 +327,17 @@ Further, each vector is estimated with Gauss-Seidel iterations. This means that 
 
 \subsection{Lucas Kanade}
 
-Published in th same year with Horn and Schunk, the Lucas Kanade method, offers a local approach for solving the optical flow problem. 
+Published in the same year with Horn and Schunk, the Lucas Kanade method, offers a local approach for solving the optical flow problem. 
 
 It is also based on the brightness constraint, but the solution is local.
-It is based on the least square fit.
+It is based on the least square fit. It assumes that the flow is more or less constant in a small neighbourhood. 
+\begin{equation} 
+\iint_{\substack{x \in \Omega}}
+W^2(x)[\nabla I(x)\cdot \boldsymbol{v}+I_t(x)]^2
+\end{equation}
+
+Only small motion can be detected because of the Euler-Lagrange expansions, but the accuracy is at subpixel level. To obtain satisfactory results, a multilevel approach is considered. Usualy Gaussian pyramids are used, as proposed in the original article, \cite{lucas1981}, solving first the low resolution levels, based on which the higher resolutions are build. 
+
 
 \section{Coarse-to-fine}
 Differential methods work well when the motion is small, about 1-2 pixels, but on greater speeds, the algorithm fails, because the partial derivatives will not capture the motion.
@@ -338,6 +345,8 @@ The coarse to fine method, as described by Lucas and Kanade in ~\cite{lucas1981}
 \begin{equation}
 	\frac{1}{\sqrt{2d}}
 \end{equation} where $d$ is the downsamplig factor.
+
+The pyramid consists of the image in lower and lower resolutions, obtained from unsampling and filtering. Staked, with the higher resolution at the bottom and the lowest on the top, they look like a pyramid.
 
 The flow is estimated between each level, from the bottom, then warped to the next, finer level. At each finer scale, the residual motion is computed between the first image and the second image warped to the first. 
 
@@ -359,7 +368,7 @@ Most of the formulation of the optical flow are stated as a minimization problem
 
 This is the case of the differential methods like Horn and Schunk. They first computed the partial derivatives for $u$ and $v$, then to solve the system of equations they apply Jacobi iterative method. In this algorithm, in a iteration $k$ each flow vector is computed from the results from the precious iteration $k-1$
 
-Gauss-Seidel and Jacobi iterations are methods for solving linear equations with many unknowns. They start from one initial guess from which they iteratively compute the solution. the Gauss-Seidel solves for an upper dominant coefficient matrix, while th Jacoby method is used when the linear system is more symmetric. In their paper, Horn and Schunk used the Jacobi method, because the coefficient matrix is a sparse bended matrix.
+Gauss-Seidel and Jacobi iterations are methods for solving linear equations with many unknowns. They start from one initial guess from which they iteratively compute the solution. the Gauss-Seidel solves for an upper dominant coefficient matrix, while the Jacoby method is used when the linear system is more symmetric. In their paper, Horn and Schunk used the Jacobi method, because the coefficient matrix is a sparse bended matrix.
 
 Squared penalties are very sensitive to noises. because of this the $L^1$ norm was introduced.
 
@@ -372,12 +381,16 @@ $L^1$ penalty functions were introduced in the optical flow energy function in t
 
  A example of how the errors throw off a $L^1$ vs a $L^2$ function is exemplified in figure \ref{func}. After values greater than one the difference is quite noticeable. As the function is a sum of errors from each vector of an image, the error function builds up and quickly. $L^2$ functions have the tendency to spread the error. Imagine, in a minimization function, as most of the vectors are $0$, but there is one that is erroneous. It is obvious that the $L^2$ norm, let's sat sum of squares, will be way bigger than the $L^1$ norm, let's say absolute-value norm. As noisy images are quite common, a more robust formulation is needed.
  
-Algorithms studied involve a mixed norm formulation. They were implemented either with Proximal Point Projection or Least Mixed Norm. The detailed mathematical scheme is presented in the next chapter.
+Some of the algorithms use a mixed  $L^2-L^1$ norm. The argument for this is that the smoothness constraint is th one predisposed to outliers. 
+ 
+Algorithms studied involve such a norm. They were implemented either with Proximal Point Projection or Least Mixed Norm. The detailed mathematical scheme is presented in the next chapter.
 \begin{figure} \label{func}
 	\centering
 	\includegraphics[width = 3in]{img/func} 
 	\caption{  throw off of $L^1$ vs $L^2$ function }
 \end{figure}
+
+
 \section{Improvements}
 \subsection{Low Pass Filter}
 
@@ -386,9 +399,9 @@ One of the downside of this approach is that if any outliers are present in the 
 
 In the papers comparing some of the existing algorithms, the implementations take a median filter somewhere in the algorithm.
 
-In \cite{fleet2006}, the problem of aliasing is considered for bigger displacements, in th sampling procedure. The authors solve this problem by applying a blurring filer over the images, before computing the gradients of the images. From this they apply estimate the velocities for each level.
+In \cite{fleet2006}, the problem of aliasing is considered for bigger displacements, in the sampling procedure. The authors solve this problem by applying a blurring filer over the images, before computing the gradients of the images. From this they apply estimate the velocities for each level.
 
-Also, in \cite{sun2010}, by analysing the best practices in solving the optical flow problem, it is proven that, if a median filter applied after each warp, th robustness and the accuracy of the algorithms is increased.
+Also, in \cite{sun2010}, by analysing the best practices in solving the optical flow problem, it is proven that, if a median filter applied after each warp, the robustness and the accuracy of the algorithms is increased.
 The robustness is a weak point of the differential methods. Outliers can completely throw off the energy function, especially in $L^2$ methods.
 Their results compare different sizes of the median filter, and no filer of different algorithms. The best results are obtained with a $5 \times 5$ kernel. Also the accuracy of the results when no filter was applied is significantly lower.  
 
@@ -413,7 +426,7 @@ In the Gaussian case, one could get the normalization term, which is
 	e^{-\big(\ \frac{\Delta_c(i,s)}{2\sigma_c^2}+ \frac{\Delta_d(i,s)}{2\sigma_d^2}\big)}
 \end{equation}
 
-This normalization term can measure the likelihood of being on the edge of a pixel. An exaple of the bilateral filter transform is given in \ref{BFexaple}. It can be observed in the left figure, \ref{bfb}, the brighter areas on th planes of the object indicate a value near to $1$, and the darker areas, indicating $0$ are present on th edges of the objects.
+This normalization term can measure the likelihood of being on the edge of a pixel. An exaple of the bilateral filter transform is given in \ref{BFexaple}. It can be observed in the left figure, \ref{bfb}, the brighter areas on the planes of the object indicate a value near to $1$, and the darker areas, indicating $0$ are present on the edges of the objects.
 
 \begin{figure} \label{BFexaple}
 	\subfloat[]{\label{bfa}\includegraphics[width = 3in]{img/frame10}} 
@@ -425,8 +438,39 @@ In \cite{drulea2013}, this formulation of the bilateral filter is used as a comp
 
 \subsection{Census transform}
 
-There must be a balance when choosing th threshold, between a value that is to high and causes insensitivity to light chances and a value that is too small where the uniqueness of the signature bit is affected.
+In Census transform, the intensities of pixels are mapped in a string of bits. The string is formed based on the relation of the current pixel to its neighbours.  Considering a $3\times3$ window, the centre is compared with its neighbours after the function:
 
+\begin{equation} \label{censtr}
+	\mathcal{C}(x,x') =
+	\left\{
+	\begin{array}{ll}
+	1  & \mbox{if } I(x) - I(x') > th \\
+	1  & \mbox{if } |I(x) - I(x')| \leq th  \\
+	-x & \mbox{if } I(x) - I(x') <- th 
+	\end{array}
+	\right.
+\end{equation}
+where $I(x)$ is the intensity of the pixel $x$ and $x'$ is the neighbour. After the neighbour matrix was transformed, it is unwrapped, usually from the upper left corner, clockwise. Let us take an example. In figure \ref{cens}, the Census transform is applied \ref{censtr}, with a threshold of 10.
+
+\begin{figure} \label{cens}
+	\centering
+	\includegraphics[width = 5in]{img/cens} 
+	\caption{ Census Transform example to signature vector }
+\end{figure}
+
+
+There must be a balance when choosing the threshold, between a value that is to high and causes insensitivity to light chances and a value that is too small where the uniqueness of the signature bit is affected.
+
+The transform is applied on each pixel of a image. The image will be described by a series of signature vectors. Each of this vectors are stored in a Hash-Table together with their coordinates.
+Then the second image is transformed too. A matching is done between the signatures of the second image and the signatures in the table, resulting in a list of possible correspondences for each entry or a null if the signature has no match. In case of multiple match, the pixels' intensities are compared or, if there is still no unique solution, the closest match, distance wise, is taken.
+
+
+An advantage of this solution is that the algorithm can detect large displacements, like objects jumping from one side to another of the image, unlike classic differential methods. 
+
+Due to the nature of the algorithm, it can be implemented on parallel hardware, like FPGAs, allowing for real-time computation. 
+
+
+But because of the transform, and the threshold, ignoring pixels with low variance, there is important loss in accuracy.
 
 
 \chapter{Analysis and Theoretical Foundation of existing algorithms}
@@ -482,7 +526,7 @@ The brain solves this ambiguity by composing a big picture from each neuron's pe
  
 As in our seeing mechanism, in optical flow detection, when a solution is computed locally, a uncertainty of the motion arises. Of course, it is more likely to have bigger uncertainties in special cases. 
 
-For example when there is no texture on the objects. As shown in figure \ref{apertureimg}, let the rectangle be the aperture, and the motion be given by the line moving from left to right. Let us consider the bolted point. the viewer can only say with certainty that the bolted dot will move from left to right, having no information about the movement on vertical, not th speed of the dot. The line can move either pure horizontally, slightly up, or slightly down. It is only when the viewer takes in account the end points of the line, he can state that the line is moving slightly up.  
+For example when there is no texture on the objects. As shown in figure \ref{apertureimg}, let the rectangle be the aperture, and the motion be given by the line moving from left to right. Let us consider the bolted point. the viewer can only say with certainty that the bolted dot will move from left to right, having no information about the movement on vertical, not the speed of the dot. The line can move either pure horizontally, slightly up, or slightly down. It is only when the viewer takes in account the end points of the line, he can state that the line is moving slightly up.  
 
 \begin{figure}
 	\label{apertureimg}
@@ -491,7 +535,7 @@ For example when there is no texture on the objects. As shown in figure \ref{ape
 	\caption{Example of aperture problem by the movement of a line.}
 \end{figure}
 
-On the other hand, if the texture is to structured, it may also bring uncertainty to the solution. If we take for example a sinusoidal wave like in \ref{apertureimgSin}, there is no telling if the signal moves up or down. As states in \cite{barron1994}, the authors encounter problems when testing the solutions based on SSD on such input sequences. Because of the periodical signal, the algorithms found more than one solution. As they made th search window bigger, the more (ghost as they called it) local minimas the algorithm found. 
+On the other hand, if the texture is to structured, it may also bring uncertainty to the solution. If we take for example a sinusoidal wave like in \ref{apertureimgSin}, there is no telling if the signal moves up or down. As states in \cite{barron1994}, the authors encounter problems when testing the solutions based on SSD on such input sequences. Because of the periodical signal, the algorithms found more than one solution. As they made the search window bigger, the more (ghost as they called it) local minimas the algorithm found. 
 
 \begin{figure}
 	\label{apertureimgSin}
@@ -595,9 +639,24 @@ by simple calculations we obtain
 \end{equation}
 
 \subsection{Correcting term}
-As in the Lucas Kanade method, the flow equation can be solved, neglecting the aperture problem, as a local solution. But, as the window is getting bigger, the flow vector will be influenced by more neighbours, and the aperture problem is felt more as the results are more noisy. Why would one try to enlarge the system of equations? Well, because put it in a context and everything can change. By connecting the pixels with their neighbours, all te pieces will be connected and the system can be viewed as an ensemble. The results get better by solving the aperture problems. For example, as stated before, on surfaces with smooth, or no texture, the flow cannot be computed with a local method. But, if for a pixel in a textureless area, the flow is computed taking in account its neighbours, flow information will be propagated to it.
+As in the Lucas Kanade method, the flow equation can be solved, neglecting the aperture problem, as a local solution. But, as the window is getting bigger, the flow vector will be influenced by more neighbours, and the aperture problem is felt more as the results are more noisy. Why would one try to enlarge the system of equations? Well, because put it in a context and everything can change. By connecting the pixels with their neighbours, all te pieces will be connected and the system can be viewed as an ensemble. The results get better by solving the aperture problems. 
 
-In addition to the brightness constraint, Horn and Schunk take a second term in equation, the smoothness constraint. The value of a pixel will be probably very close to its neighbours.
+
+For example, as stated before, on surfaces with smooth, or no texture, the flow cannot be computed with a local method. But, if for a pixel in a textureless area, the flow is computed taking in account its neighbours, flow information will be propagated to it. In image \ref{HSExamplep}, it is shown the flow output for a square moving right and upwards. it can be sen the propagation of the flow between iterations 3 and 100.
+
+\begin{figure} \label{HSExamplep}
+	\centering
+	\subfloat[]{\label{hspa}\includegraphics[width = 2in]{img/1}} 
+	\subfloat[]{\label{hspb}\includegraphics[width = 2in]{img/firsto}}
+	\subfloat[]{\label{hspc}\includegraphics[width = 2in]{img/firsto1}}
+	\caption{In \ref{hspa} is the square on which the propagation was tested. in \ref{hspb} and \ref{hspc} , example of flow propagation from iteration 3 to 100}
+\end{figure}
+
+In addition to the brightness constraint, Horn and Schunk take a second term in equation, the smoothness constraint. The value of a pixel will be probably very close to its neighbours. It is probably the simplest regularizator. 
+
+
+
+
 
 \begin{equation} \label{smoothEq}
 	E_{smooth} = \iint (\left\Vert\nabla u \right\Vert_2^2 +\left\Vert\nabla v \right\Vert_2^2)dxdy
@@ -608,6 +667,13 @@ where
 \end{equation}
 which means if the flow differs from a pixel to another (on $x$ and $y$ directions), the smoothness equation, \ref{smoothEq} will be high. As the algorithm tries to minimize the energy function\ref{HSEq}, the second term, \ref{smoothEq}, will also be minimized. If this term is closer to zero, the flow derivatives over $x$ and $y$  are smaller, which means the difference with the  neighbours is also smaller, in other words the flow is smooth.
 
+Nagel, in \cite{nagel1983constraints} proposes another smoothing term, in which he introduces also the gradient. It is based on the idea that errors often occur over the edges and the gradient has its greatest value on the edges. As it takes the gradient with the flow, the term is anisotropic. 
+
+\begin{equation}
+	\frac{\alpha^2}{\Arrowvert \nabla I\Arrowvert_2^2 \delta}[(u_xI_y- u_y I_x)^2+ (v_xI_y- v_y I_x)^2+ \delta(u_x^2+ u_y^2+v_x^2+ v_y^2)]
+\end{equation}
+ 
+
 The smooth term is more or less taken in account, depending on the nature of the input sequence. On some it works better with a higher weight, or in some, lower. Probably the best approach is to vary $\lambda$ weight of the second term in the flow equation \ref{HSEq}, and compare the results, like in a training stage of the program. Usually $\lambda$ is less than $1$ to avoid over smoothing.
 \begin{equation}
 	E = E_{data}+\lambda E_{smooth}
@@ -615,7 +681,7 @@ The smooth term is more or less taken in account, depending on the nature of the
 
 To avoid this overall smoothing, as pixels may not be acting as a whole, $\lambda$ could be a matrix instead of a term, so each pixel can be influenced in his own percent of the neighbours.
 An solution in computing this weight can be taken form the bilateral filter. The weight can be computed as explained in
-\ref{bf}, so the smoothing term will influence each pixel differently. As when the pixel is on the edge, there should not be any influence from the neighbours, otherwise resulting in noisy results on the edges; but when the pixel is in the middle of an object, the velocity should ve influenced by its neighbours.
+\ref{bf}, so the smoothing term will influence each pixel differently. As when the pixel is on the edge, there should not be any influence from the neighbours, otherwise resulting in noisy results on the edges; but when the pixel is in the middle of an object, the velocity should be influenced by its neighbours.
 
 \section{Coarse-to-fine}
 Differential methods cannot approximate large displacements. This is due to the small motion assumption from the data term.
@@ -641,6 +707,14 @@ For example, in the original Horn Schunk formulation, the algorithm contains no 
 Firstly, Gaussian Pyramids are built by successively blurring and unsampling into images of smaller and smaller resolutions. The unsampeling is done until the smallest resolution is about 30 pixels width or height.  Then, the flow is iteratively computed between each level of the pyramid, from the corest to the finest.
 \subsection{Gaussian Pyramids}
 The pyramid of an image is a multi-scale representation of it. In order to obtain the pyramids, successive smoothing and subsampling techniques are applied.  Each level is computed from the previous, recursively.
+
+\begin{figure}
+	\label{PyrGr}
+	\centering
+	\includegraphics[width = 4in]{img/pyrLvls}
+	\caption{visual representation of a pyramid. Taken from \cite{wedel2011stereo}}
+\end{figure}
+
 
 
 \paragraph{Building The pyramid} 
@@ -677,7 +751,7 @@ Choosing the number of levels of aa pyramid depends of the nature of motion in t
 	pyramid_{height} = \frac{\log\left(\frac{p}{\min(ht,wt)}\right)}
 							{\log(d)}
 \end{equation}
-where p is the number of pixels on th top level on the minimum between  width $wt$ or the height $ht$.
+where p is the number of pixels on the top level on the minimum between  width $wt$ or the height $ht$.
 \subsection{Warping the flow on the image}
 
 
@@ -695,7 +769,7 @@ where $w_l$ is the flow computed until the level $l$ and $dw$ the  residual flow
 First formulations were in the $L^2$ norm. For this simple approaches are used. As the function is convex and derivable, the solution is classic. First compute the partial derivatives, then equate them to 0. This are simple solutions, that run fast and don't consume to much memory. But this methods are very sensitive to noise. 
 
 \subsection{Gauss-Seidel Iterations} \label{GaussSeidel}
-Gauss Seidel is a iterative method for solving simultaneous equations. If we consider th system 
+Gauss Seidel is a iterative method for solving simultaneous equations. If we consider the system 
 \begin{equation}
 A\boldsymbol{x} = b
 \end{equation}
@@ -761,7 +835,7 @@ $A_{2*i, 2*j+1} = I_{xi}I_{yi}$,
 \subsection{Jacobi Iterations}
 Like Gauss Seidel, the Jacobi method solves a system of linear equations. It is generally used when the system is diagonally dominant. 
 
-If we consider th system 
+If we consider the system 
 \begin{equation}
 	A\boldsymbol{x} = b
 \end{equation}
@@ -833,7 +907,7 @@ The smoothness term is the on that is more likely to give erroneous results, as 
 \subsection{Projected Proximal Point}
 
 
-\subsection{Least Mixed Norm}
+\subsection{Least Mixed Norm} \label{lmn}
 The Least Mixed Norm (LMN) solution originates from the image restoration problems, belonging from the family of interior point algorithms. The objective is to minimize a $L^2-L^1$ function:
 \begin{equation} \label{l2l1}
 	\min_{\boldsymbol{f}}\Arrowvert g - H\boldsymbol{f}\Arrowvert_2^2+ \alpha\Arrowvert R \boldsymbol{f}\Arrowvert_1
@@ -857,7 +931,7 @@ The function becomes:
 \end{equation}
 
 where
-\begin{equation}
+\begin{equation} \label{lmnBigM}
 	\begin{split}
 	G = \begin{bmatrix}
 	2H^TH & 0 & 0\\
@@ -1002,7 +1076,7 @@ by removing $\Delta \boldsymbol{v}^+$ and $\Delta \boldsymbol{v}^-$ we obtain:
  where $\tilde{\boldsymbol{r}}_{c1} = \hat{\boldsymbol{r}}_{c1} + \alpha R ^T( D_2^{2} +  D_3^{2} )^{-1} \hat{\boldsymbol{r}}_{b}$
  
  The system will be solved for $\boldsymbol{f}$ with equation  \ref{lmnXeq}, and then the other unknowns can be computed:
- \begin{equation}
+ \begin{equation} \label{lmnReq}
  	\begin{split}
  	\boldsymbol{\lambda} = ( D_2^{2} +  D_3^{2} )^{-1}
  	(-\hat{\boldsymbol{r}}_{b} - \alpha R \boldsymbol{f})\\
@@ -1055,12 +1129,92 @@ As we are talking about vectors, we need a complementary measurements over the m
 
 \chapter{Proposed algorithm}
 
+Our solution starts from the optical flow formulation in \cite{drulea2013}.
+
+\begin{equation} \label{druleaEq}
+	E = \sum_{i \in \omega} \sum_{k}
+	(C_t(i,k)+ \nabla C(i,k)\cdot(w_i-w_{0,i}))^2 + 
+	\lambda
+	\sum_k bf_{i,k} \cdot \Arrowvert w_k - w_i\Arrowvert_1
+\end{equation}
+
+To minimize this convex function, we will use the LMN method described in \ref{lmn},
+To save computational time and memory, we compute directly the matrices from \ref{lmnBigM}.Finally the whole system will b determind by large sparse matrices. Let us take them one by on.
+
+To compute $G$ we need $H^T H$, where $H$ the coefficient of the flow in the $L^2$ norm. From equation \ref{druleaEq}, with the flow  coefficient  $\nabla C(i,k)$ we get:
+\begin{equation}
+	H^TH = \begin{bmatrix}
+	C_{x1}^2 & C_{x1} C_{y1} & 0 & 0 & \ldots & 0 & 0 \\
+	 C_{x1} C_{y1} & C_{y1}^2 & 0 & 0 & \ldots & 0 & 0 \\
+	 0 & 0 & C_{x2}^2 & C_{x2} C_{y2} & \ldots & 0 & 0 \\
+	  0 & 0 &  C_{x2} C_{y2} & C_{y2}^2 & \ldots & 0  & 0\\
+	  \vdots\\
+	   0 & 0 &  0  & 0  & \ldots & C_{x\Omega}^2 & C_{x\Omega} C_{y\Omega} \\
+	  	   0 & 0 &  0  & 0  & \ldots & C_{x\Omega} C_{y\Omega} & C_{y\Omega}^2\\
+	\end{bmatrix}
+\end{equation}
+
+From this G matrix will be computed:
+\begin{equation}
+	G = \begin{bmatrix}
+		2H^TH & 0 & 0\\
+		0 & 0 & 0 \\
+		0 & 0& 0
+	\end{bmatrix}
+\end{equation}
+
+Regarding dimension, if $\Omega = m\times n$, is the image dimension, the matrix $H^TH$ will be $2\Omega \times 2 \Omega$ and G will be $6\Omega \times 6 \Omega$. It is important that all the matrices are sparse, and bended. 
+
+Next, let us consider matrix $\boldsymbol{c}$; for this we need $H^T\boldsymbol{g}$. We now H, and ne notice the free term from \ref{druleaEq} Note $(C_{t1} - C_{xn}u_{old} - C_{yn}v_{old})$  with $e_n$. Then, $\boldsymbol{g}$ is:
+$$
+H^T \boldsymbol{g} = 
+\begin{bmatrix}
+& C_{x1}e_1 & 0 &\ldots & 0 & 0 \\ 
+& 0 &  C_{y1}e1 &\ldots & 0  & 0\\
+\vdots \\
+& 0 & 0 &\ldots &  C_{x\Omega}e_{t\Omega}   & 0\\
+& 0 & 0 &\ldots & 0 & C_{y\Omega}e_{t\Omega} 
+\end{bmatrix}
+$$
+
+Now, to compute $A$ from the $L^1$ norm, we need $\alpha R$. We identify $\alpha$ as the $bf$ coefficient in \ref{druleaEq}
+the  $\alpha$ will be:
+
+\begin{equation}
+ \alpha = \begin{bmatrix}
+ &	bf_1  & 0  & 0  & 0  & \ldots & 0  & 0 \\
+ &	0  & bf_1  & 0  & 0  & \ldots & 0  & 0 \\
+ &			0  & 0  & bf_2  & 0  & \ldots & 0  & 0\\
+ &				0  & 0  & 0  & bf_2  & \ldots & 0  & 0\\
+ &				\vdots\\
+& 			0 & 0  & 0  & 0  &\ldots & bf_\Omega  & 0 \\
+& 				0  & 0  & 0  & 0  &\ldots & 0  & bf_\Omega\\
+ \end{bmatrix}
+\end{equation}
+and $K$
+\begin{equation}
+K = \begin{bmatrix}
+&	9  & 0  & 1  & 0  & 0  & 0  & \ldots & 0  & 0 \\
+&	0  & 9  & 0  & 1  & 0  & 0  & \ldots & 0  & 0 \\
+&	1  & 0  & 9  & 0  & 1  & 0  &\ldots & 0  & 0\\
+&	0  & 1  & 0  & 9  & 0  & 1  &\ldots & 0  & 0\\
+&	\vdots\\
+& 	0 & 0  & 0  & 0  & 0  & 0  &\ldots &9  & 0 \\
+& 	0  & 0  & 0  & 0  & 0  & 0  &\ldots & 0  & 9\\
+\end{bmatrix}
+\end{equation}
+The $K$
+ matrix has elements on the principal diagonal 9, on the diagonal shifted up and down it has groups of 6 ones and 2 zeros, on the diagonal shifted up and down with $2* column_{number}-2$ we have sequences of 2 zeros and 6 ones, on the diagonal shifted up and down with  $2* column_{number}$ we have full ones, and on $2* column_{number}+2$  shift we have groups of 6 ones and 2 zeros.
+  
+  A matrix will be defined as in \ref{lmnBigM}, with the size $2\Omega \times 6\Omega$
+ 
+ Now that we have all the big matrices are determined, we can find the vector $\boldsymbol{x}$  and the other unknowns from equations \ref{lmnXeq} and \ref{lmnReq} .  
 \chapter{Detailed Design and Implementation}
 
 
 \section{Derivative discretization}
 
- For obtaining the derivatives of the image and also the gradient we used th discretized formula:
+ For obtaining the derivatives of the image and also the gradient we used the discretized formula:
 \begin{equation}
 		\frac{\partial f(x, y)}{\partial x} =  \frac{f(x-h, y) - f(x+h,y)}{2h}
 \end{equation}
