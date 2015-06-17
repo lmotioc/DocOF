@@ -31,6 +31,11 @@
 \usepackage{color}
 \usepackage{color}
 
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont}
+
 % \mastersthesis
 \diplomathesis
 % \leftchapter
@@ -220,39 +225,94 @@ Data \hspace{8cm} Nume, Prenume
 
 \chapter{Introduction - Project Context}
 \pagestyle{headings}
-{\color{red}{must be about 3 pages}}
 
-Optical flow is big area of research form computer vision. It is given by a vector field of velocities which describe the movement of the elements of the projected environment. With a large range of applications, it is a rich source of information. 
+This chapter will present an introduction to the field of optical flow. General concepts from the domain will be described, as they are placed in a historical context.
 
-The optical flow problem does not originate in computer vision, but in psychology, psychophysics. One of the most influential man in this field is J.J. Gibson. He was the one who stated the problem as "How do we see the world around us?". In his many publications around the 50's, he tries to explain this phenomena and describes some principles that stand at the foundation of modern day approaches.  In his book\cite{gibson1950perception}, Gibson explains how the stimuli are correlated to the perception of motion. 
-We perceive the motion in 2D as a projection of the 3D world. This projection is nothing else but the light reflected from the environment, hitting our retina, referred as the optical array. In a analytical context, he defines the movement for a perception. Each element is detected and associated a pair of coordinates. Then each element has a motion descriptor as either a pair of elements or a speed and direction component, in successive moments in time. 
+\section{Project Context}
 
-As the nature is the grand engineer, the same model is taken in computer vision for computing the optical flow. The changes in the optical array are stocked in a series of frames. The perceived image is a 2D array of pixels. Each pixel is a element in the movement. An accurate and robust flow estimation implies an approximation for each pixel of the frame. The result will be a vector field indicating the direction and that each pixel takes between frames.
- 
-This is a old field of study.
-Further we will discuss dense flow algorithms. Unlike sparse algorithms that precess only relevant features op the frame sequence, like corners or edges, dense methods compute the flow for each pixel of the image.
+Optical flow can be defined as the change of light in an image, for example on the retina, that happens as a result of movement of the scene or the viewer.
 
- The first algorithms were published in 1980. They are the foundations of modern approaches. Computing a energy function fro the sequence of frames and the flow, and trying to minimize it is the short description for most of the algorithms. For example, the brightness constraint formulated by Horn and Schunk is still the starting point of many algorithms in describing the energy function. Also, the pyramidal implementation of Horn and Schunk's it is also present in modern approaches, solving the large displacement problem. This are some of the fundamental concepts stated by the fathers of optical flow. All this will be further discussed in the next chapters.
-  
-This core algorithms were for a long time considered the benchmark for other algorithms in dense optical flow. 
-In time others researchers brought their contribution to the field of study by small changes in the previous algorithms. Changes vary from particularizing the weight of contribution of each pixel to the computation to adding new terms to the minimization problem, to even rewriting the energy function in a different penalty. 
 
-With decades of small steps to improvement, algorithms today reach a high accuracy, increased with up to 13 times from the original Lucas-Kanade in terms of angular error as can be seen on Middlebury database, and can reach near real time speed.
+The optical flow problem does not originate in computer vision, but in psychology, psychophysics. One of the most influential man in this field is J.J. Gibson, who, in 1940s describes the visual stimulus that animals use to navigate through the world around them. 
 
-In the next section this fundamental algorithms will be discussed in detail.
+Gibson stated the problem as "How do we see the world around us?". In his many publications around the 50's, he tries to explain this phenomena and describes some principles that stand at the foundation of modern day approaches to calculate the optical flow. In his book\cite{gibson1950perception}, Gibson explains how the stimuli are correlated to the perception of motion. 
 
-In the next chapter,  \ref{POS} we will discuss what is the optical flow and some examples will be explained. Then we will shortly talk in ensemble about what is its mathematical form, what are the main approaches in finding it. 
+We perceive the motion in 2D as a projection of the 3D world. This projection is nothing else but the light reflected from the environment, hitting our retina, referred as the optical array. In a analytical context, he defines this movement as a perception. Each element is detected and a pair of coordinates are associated to it. Then each element receives a motion descriptor as either a pair of elements or a speed and direction component, in successive moments in time. 
+
+As the nature is the grand engineer, the same model is applied in the field of computer vision. Optical flow methods are concerned with calculating the motion between two consecutive images. 
+
+\section{Project Domain}
+Optical flow applicability resides mostly in computer vision domain, where algorithms for detecting image depth are used to introduce depth in 2D scenes. Optical flow computation  aims to estimate motion vectors, which are used to describe how consecutive 2D image frames transforms in time . 
+
+Optical flow is also used in robotics, where problems like object detection and tracking, movement detection and robot navigation need to be solved.
+
+Optical flow can be used in video compression to reduce redundancy in video data, by encoding the flow on consecutive frames.
+
+In driver assisted systems, optical flow algorithms can be applied in collision detection, to detect dangerous situations, e.g. detecting pedestrians or other vehicles. Also the depth can be computed from optical flow, in a steroevision problem.
+
+The wide range of applicability of optical flow techniques make this domain a continuous interest for the scientific community. However, the task of calculating optical flow is not a simple one and various approaches exist to this problem. 
+
+In the next chapter the fundamental algorithms used in optical flow will be presented and discussed. Then we will briefly discuss about various mathematical models and what are the main approaches for finding the flow.
+
+\section{Thesis structure}
+This section will shortly describe the chapters contained in the thesis. There are a total of eight chapters, as follows:
+
+\begin{itemize}
+	\item \textbf{Chapter 1 Introduction - Project Context}
+	In this chapter, a general introduction is offered and the project domain is described. Here, we define the context in which optical flow computation exist, motivations for such algorithms and their application. 
+	
+	\item \textbf{Chapter 2 Project Objectives and Specifications}
+	This chapter will establish the main objectives in computing the optical flow. Intuitive examples of what the optical flow is will be presented.
+	
+	\item \textbf{Chapter 3 Bibliographic research}
+	Chapter three will present main aspects of the field and will shortly describe relevant approaches from related work. Some key features of the algorithm will be shortly discussed.
+	
+	\item \textbf{Chapter 4 Analysis and Theoretical Foundation}
+	This chapter will analyse mathematical models of classic algorithms and other improvement features will be discussed in detail. We will look at different formulations for the optical flow, improvements and solving models.
+	
+	\item \textbf{Chapter 5 Detailed Design and Implementation}
+	Here, we will present our detailed approach in solving the flow problem based on a cross correlation formulation and a LMN minimization technique.
+	
+	\item \textbf{Chapter 6 Detailed Design and Implementation}
+	This chapter will present how can the key elements of the problem  be implemented.
+	
+	\item \textbf{Chapter 7 Testing and Validation}
+	Details of the output and testing of our implementation compared with others studied will be discussed here.
+	
+	\item \textbf{Chapter 8 User's manual}
+	
+	
+	\item \textbf{Chapter 9 Conclusions}
+	Conclusions regarding the project will be highlighted in this chapter. Further possibilities for development of the algorithm are presented.
+\end{itemize}
+
 
 
 
 \chapter{Project Objectives and Specifications} \label{POS}
-{\color{red}{must be about 6 pages}}
+
+ From the first methods published around 1980, the field advanced trough the decades little by little, up to these days when it can bee computed with high accuracy, and the computation time comes close to real time.
 
 
-Optical field computation is a complex area of study. From the first methods published around 1980, the field advanced trough the decades little by little, up to these days when it can bee computed with high accuracy, and the computation time comes close to real time.
+Optical flow is a big area of research form computer vision. It is given by a vector field of velocities which describe the movement of the elements of the projected environment. With a large range of applications, it is a rich source of information. 
 
 
-\section{Optical Flow definitions and examples}
+ The changes in the optical array are stocked in a series of frames. The perceived image is a 2D array of pixels. Each pixel is a element in the movement. An accurate and robust flow estimation implies an approximation for each pixel of the frame. The result will be a vector field indicating the direction and that each pixel takes between frames. Further we will discuss dense flow algorithms. Unlike sparse algorithms that process only relevant features of the frame sequence, like corners or edges, dense methods compute the flow for each pixel of the image.
+ 
+ Optical flow is an old field of study. 
+ The first algorithms were published in 1980. They are the foundations of modern approaches. 
+ 
+ Computing an energy function from the sequence of frames and the flow, and trying to minimize it is the short description for most of the algorithms. For example, the brightness constraint formulated by Horn and Schunk is still the starting point of many algorithms in describing the energy function. Also, the pyramidal implementation of Horn and Schunk's it is also present in modern approaches, solving the large displacement problem. This are some of the fundamental concepts stated by the fathers of optical flow. All this will be further discussed in the next chapters.
+ 
+ These core algorithms were for a long time considered the benchmark for other algorithms in dense optical flow. 
+ In time other researchers brought their contribution to the field of study by small changes in the previous algorithms. Changes vary from particularizing the weight of contribution of each pixel to the computation to adding new terms to the minimization problem, to even rewriting the energy function in a different penalty. 
+ 
+ With decades of small steps to improvement, algorithms today reach a high accuracy, increased with up to 13 times from the original Lucas-Kanade in terms of angular error as can be seen on Middlebury database, and can reach near real time speed.
+ 
+
+
+
+\section{Optical Flow Definitions and Examples}
 
 The optical flow is defined from a field of vectors $(u,v)$ which define the velocities of the pixels in a image.
 Solving the optical flow means finding this $(u,v)$ correspondence between the pixels of 2 consecutive frames.
@@ -275,16 +335,68 @@ Taking an more complex example, \ref{moreflow} the optical field is composed fro
 
 \section{Solving the Optical Flow System}
 
-Solving the system is the expensive part of the algorithm. The solution available is based on the chosen model. The classic formulation are based om a $L^2$ norm. With variational calculus, their derivatives are equated to 0. For this simple solvers are available. Gauss-Seidel and Jacobi iterations are the most handy solution. They are simple, fast, and memory inexpensive. This are classic approaches for the $L^2$ norm. We used them to implement the Horn and Schunk method and they are discussed in the next chapters.
+Solving the system is the expensive part of the algorithm. 
+As we have 2 equations for each pixel, this is the most critical part of the algorithm. The final system will have thousands of equations. The solution can be computed iteratively or it can be parallelized in sparse matrices. 
 
-In latest approaches there is a tendency to lose the $L^2$ formulation in favour of the $L^1$. Although it is more computationally expensive to solve then, this formulations are preferred because of it's robustness. Our final implementation is based on such a formulation. 
+The solution available is based on the chosen model. The classic formulation are based om a $L^2$ norm. With variational calculus, their derivatives are equated to 0. For this simple solvers are available. Gauss-Seidel and Jacobi iterations are the most handy solution. They are simple, fast, and memory inexpensive. This are classic approaches for the $L^2$ norm. We used them to implement the Horn and Schunk method and they are discussed in the next chapters.
+
+In latest approaches there is a tendency to lose the $L^2$ formulation in favour of the $L^1$. Although it is more computationally expensive to solve then, this formulations are preferred because of it's robustness. We study the Proximal Projected Point and the Least Mixes Squares strategies.
 
 \section{Project Objectives}
 
+With a highly complex mathematical model and a large numbers of approaches, the main scope of this project is to familiarize with the basic concepts and methods of the optical flow computation. In the project we study some classical algorithms, Horn Schunk and Lucas Kanade at different levels.
 
-The project has two objectives, one is gathering some research in the field, and the second is implementing our solution with a new minimizing strategy.
+Horn and Schunk is a global method of computing the optical flow. Based on the brightness and the smoothness constraint, an error function is described. The function depends on thee intensity of the pixels and the flow. Taking a initial guess for the flow field, the scope of the algorithm is to minimize this error function by varying the flow vectors. The minimization problem transforms in a system of equations by differentiating with respect to the horizontal and vertical component of the flow. Using a Jacobi approximation, the flow is updated trough iterations, until the desired output is achieved.
 
-With a highly complex mathematical model and a large numbers of approaches, the main scope of this project is to familiarize with the basic concepts and methods of the optical flow computation. The two ground approaches, Horn Schunk and Lucas Kanade were studied, implemented, and will be discussed in detail in the next chapters. Then as a starting point for our algorithm we stareted from Drulea's paper, \cite{drulea2013}, which was studied, implemented and tested. Then a new strategy of minimization was studied, then implemented wit the formulation from the previous algorithm. The results are compared with the starting algorithm and other small modifications are implemented to learn the effect and possible improvements.
+Lucas Kanade is a local method. The error function is based this time on the brightness constraint only is constructed. It is also dependent of the intensity of the pixels and the flow. For each pixel the computation is done by searching in its near vicinity. The minimization problem it is again written as a system of equation by differentiation technique. For the system is solved by taking an initial guess and then computing the remaining flow.
+
+We've implemented this algorithms and their pyramidal version.
+
+As a staring point for our algorithm we have started from a correlation approach \cite{drulea2013}. The energy function is formulated with the correlation transform of the intensity of the pixels. It is based on a sum of squared differences to which an $L^1$ smoothness term is added. 
+
+In \ref{druleaEq}, this energy function is solved with Projected Proximal Point(PPP). We've tried a different approach for minimization, Least Mixed Norm (LMN), for which we hope for a faster convergence. 
+
+The final purpose of this thesis is to study the results of both minimization techniques. We compare them in terms of computation time, angular error and end point error.   
+
+\section{General Flow of events}
+
+In this section we present a flow of events which all our implementations will respect.
+ 
+
+\begin{figure} \label{fflow}
+	\centering
+	\includegraphics[height = 8in]{img/genFlow} 
+	\caption{General Flow of the System}
+\end{figure}
+
+\begin{enumerate}
+	
+	\item Basic Flow \\ 		\textbf{Use-Case Start} \\
+	This use-case starts when user launches the system.
+	\begin{enumerate}
+		\item System reads the settings from a file.
+		\item System loads the images from the provided location. \label{load}
+		\item System prepares matrices, pyramids and other components
+		\item System solves linear system. \label{solve}
+		\item System displays the resulting vector field
+	\end{enumerate}
+	\textbf{Use-Case End}
+	This use-case ends after the computed flow is displayed on the screen.
+	\item Alternative Flows
+	\begin{enumerate}
+		\item System encountered an error at reading the files. \\ Can occur at step \ref{load}	
+			\begin{enumerate}
+				\item Program displays error message and asks user to revise settings
+				\item Starts again the basic flow.
+			\end{enumerate}
+		\item Comparing the output with the results.  \\Occur after step \ref{solve}, if it is asked in settings.
+			\begin{enumerate}
+				\item Ground truth data is read by the system.
+				\item System compares results.
+				\item System display statistics.
+			\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
 
 
 \chapter{Bibliographic research}
@@ -317,7 +429,7 @@ Smoothness constraint is a variational method, that means it takes into account 
 
 By combining the two constraints, the results a convex energy function:
 \begin{equation} \label{HSEq}
-	\iint  ((\nabla I + I_t)^2 + \lambda(\left\Vert(\nabla u) \right\Vert_2^2 +\left\Vert(\nabla v) \right\Vert_2^2))dxdy
+	\iint  ((\nabla Iu + I_t)^2 + \lambda(\left\Vert(\nabla u) \right\Vert_2^2 +\left\Vert(\nabla v) \right\Vert_2^2))dxdy
 \end{equation}
 where $\lambda$ is the smoothness term coefficient. Although, $\lambda$ is set to $100$ in the by Horn and Schunk, in the original version, some later analysis of the algorithm claim that if the coefficient ot set to values down to $0.5$ \cite{barron1994}, the algorithm yields better results. This proves that there is no optimal general value for $\lambda$, it should be approximated for each different set of images.
 
@@ -339,7 +451,7 @@ W^2(x)[\nabla I(x)\cdot \boldsymbol{v}+I_t(x)]^2
 Only small motion can be detected because of the Euler-Lagrange expansions, but the accuracy is at subpixel level. To obtain satisfactory results, a multilevel approach is considered. Usualy Gaussian pyramids are used, as proposed in the original article, \cite{lucas1981}, solving first the low resolution levels, based on which the higher resolutions are build. 
 
 
-\section{Coarse-to-fine}
+\section{Coarse-to-Fine}
 Differential methods work well when the motion is small, about 1-2 pixels, but on greater speeds, the algorithm fails, because the partial derivatives will not capture the motion.
 The coarse to fine method, as described by Lucas and Kanade in ~\cite{lucas1981} allows computation of greater displacements. For each image is computed a Gaussian Pyramid. Usually~\cite{sun2010}, the standard deviation used for the Gauss anti-aliasing filter is 
 \begin{equation}
@@ -363,7 +475,7 @@ The diference between them is not significantly high, but they found that spline
 
 \paragraph{Drawbacks}In chapter 15 of ~\cite{fleet2006} the pyramid method is discussed. The author draws attention over the drawbacks of the coarse to fine methods. Each level's flow depends on its predecessor. If at some point in the computation of the velocities is erroneous, for example if aliasing or occlusions occur, it will be propagated up to the finest level.
  
-\section{Solving the minimization problem}
+\section{Solving the Minimization Problem}
 Most of the formulation of the optical flow are stated as a minimization problem. If the penalty function is squared the solution can be achieved trough variational calculus. This applies when the energy function is derivable, and preferably easy. Then, most important, the function must be convex. Because of the convexity of the function, the minimum can be found by equate the derivative with 0. 
 
 This is the case of the differential methods like Horn and Schunk. They first computed the partial derivatives for $u$ and $v$, then to solve the system of equations they apply Jacobi iterative method. In this algorithm, in a iteration $k$ each flow vector is computed from the results from the precious iteration $k-1$
@@ -375,7 +487,7 @@ Squared penalties are very sensitive to noises. because of this the $L^1$ norm w
 For the L1 the classic methods do not apply  any more.
 
 
-\section{$L^1$ techniques}
+\section{$L^1$ Techniques}
 
 $L^1$ penalty functions were introduced in the optical flow energy function in the need for robustness. They are more computational expensive, but they are more resistant to noise.
 
@@ -392,90 +504,84 @@ Algorithms studied involve such a norm. They were implemented either with Proxim
 
 
 \section{Improvements}
-\subsection{Low Pass Filter}
 
-As stated above, most of the algorithms use a coarse to fine estimation, and, for each level, an iterative approximation is performed.
-One of the downside of this approach is that if any outliers are present in the for at a lower level, this error will be propagated to all finer levels up to the final result, damaging the overall outcome of the algorithm.
+Trough the decades, many algorithms were proposed with different ideas of solving the optical flow. Most of them are based a typical formulation like Horn and Schunks or Lucas Kanade, or a combinations of the two, adding a small improvement. The reliability and  accuracy of the results increased in time, as did the time of computation, or the memory cost of the algorithms. 
 
-In the papers comparing some of the existing algorithms, the implementations take a median filter somewhere in the algorithm.
+There are many suggested improvements, but there are some that proved to be very efficient and were adopted by most of the formulations.
 
-In \cite{fleet2006}, the problem of aliasing is considered for bigger displacements, in the sampling procedure. The authors solve this problem by applying a blurring filer over the images, before computing the gradients of the images. From this they apply estimate the velocities for each level.
+They start by formulating the energy function based on th brightness constraint and a correcting term formulated with smoothness, rigidity constraint,  or image segmentation. 
 
-Also, in \cite{sun2010}, by analysing the best practices in solving the optical flow problem, it is proven that, if a median filter applied after each warp, the robustness and the accuracy of the algorithms is increased.
-The robustness is a weak point of the differential methods. Outliers can completely throw off the energy function, especially in $L^2$ methods.
-Their results compare different sizes of the median filter, and no filer of different algorithms. The best results are obtained with a $5 \times 5$ kernel. Also the accuracy of the results when no filter was applied is significantly lower.  
+Most of them solve the large displacement problem with a coarse to fine approach.
 
+Median filters are us to increase robustness. It may be used as a preprocessing technique, or in between the iteration. The second usage presents a particular interest in flow computation, especially in a coarse to fine approach. It is important to eliminate outliers as soon as possible. If not the propagate to the higher levels and spread in th neighbourhood with each iteration.
 
-\subsection{Cross Correlation}
-The cross correlation function measures the similarity between 2 signals.
-The normalized cross correlation takes values in $[0,1]$, where $1$ is a total match between the signals and $0$ is a total mismatch between them.
+The penalty function tend to a $L^1$ norm. The classical squared penalty functions are replaced with the absolute value. The important properties of a penalty function is to have a small constant grow, to increase robustness of the algorithm, and to be convex for easy calculations. 
 
-In \cite{drulea2013}, the classical sum of squared difference, the data term is expressed as a zero normal cross correlation, this being more discriminative. 
- 
- \begin{equation}
- C(i) = \frac{I(s)- \mu(i)}{\sigma(i)}
- \end{equation}
-As shown above, each point of the image, if passed trough a cross correlation transom, from which results a matrix of the same size as the neighbourhood considered. to find the minimum, the data term is further expanded with classic differential methods it is added the smoothness term.
+Some use a bilateral filter as weight for the correcting term. The bilateral filter describe the pixel by its similarity with his neighbours. As the smoothness constraint propagates the flow to the neighbours, such a weight is important as when a pixel is similar to its neighbours we want the propagation, but on the other case, e.g. when a pixel is on the edge we want no influence from its neighbours, tu maintain edge accuracy. 
 
-\subsection{Bilateral Filter} \label{bf}
-The bilateral filter is a smoothing filter, but the accuracy along edges is kept. 
-As proposed in \cite{tomasi1998bilateral}, the filter has two elements. The geometric distance, from the classical lowpass filter, let's take Gaussian for example. Each neighbour pixel will influence the output proportionally with its distance to the current pixel. On the other hand, the chromatic component measures the photochromacy between the neighbours and the central pixel. This can be expressed as the difference between the intensity of the neighbour pixel and the centre. 
+Another improvement to the classical methods is expressing the data term. Some us a correlation transform, to increase robustness of the algorithm. The term is described by the relation with the neighbours, not by its intensity. Another advantage in using the correlation transform is solving some of the occlusions, as new pixels can relay on their neighbours.
 
-In the Gaussian case, one could get the normalization term, which is
-\begin{equation} \label{bilateralFilterTerm}
-	e^{-\big(\ \frac{\Delta_c(i,s)}{2\sigma_c^2}+ \frac{\Delta_d(i,s)}{2\sigma_d^2}\big)}
-\end{equation}
+Census transform is also used in for describing the data term as a special type of correlation. The relation is encoded resulting in memory efficiency. Census methods are a little different of classical methods. They use special types of data structures on which they base their matching techniques.
 
-This normalization term can measure the likelihood of being on the edge of a pixel. An exaple of the bilateral filter transform is given in \ref{BFexaple}. It can be observed in the left figure, \ref{bfb}, the brighter areas on the planes of the object indicate a value near to $1$, and the darker areas, indicating $0$ are present on the edges of the objects.
+All of this improvements and their mathematical model will be discussed in detail in the next chapter.   
 
-\begin{figure} \label{BFexaple}
-	\subfloat[]{\label{bfa}\includegraphics[width = 3in]{img/frame10}} 
-	\subfloat[]{\label{bfb}\includegraphics[width = 3in]{img/bf}}
-	\caption{Example of the bilateral filter transform. \ref{bfa} is the original image, on which the formula \ref{bilateralFilterTerm} was applied. The result is shown on the right in \ref{bfb}}
-\end{figure}
+\section{Problem formulation}
+The optical flow problem is, generally speaking, an optimization problem applied to a function which consists of two terms. One of them is the function to be minimized and the other is a correlation term called \textit{diffusion term} which could correct or prevent errors (outliers) carried by the data term. 
 
-In \cite{drulea2013}, this formulation of the bilateral filter is used as a component of smoothness term. The smoothness constraint says that, the velocity of the neighbour pixels is the same. This applies, of course only if the neighbour pixels belong to the same object. The classic methods based on the smoothness constraint have large errors along the edges. By considering the bilateral filter term \ref{bilateralFilterTerm}, one can easily reduce the smoothness penalty for velocities that do not belong to the same object, by simply applying the dot product between the bilateral filter term and the first norm of the difference. 
+From a mathematical perspective we should point from the beginning one should major aspect. There are two kinds of data and diffusion terms from the isotropy perspective. The $L^2$ problem generally gives isotropic terms, as opposed to? $L^1$ which gives rise to anisotropic ones. The anisotropic property is very important, geometrically it means a direction dependence of the terms. Also the approach is more robust.
 
-\subsection{Census transform}
+Examples of the data term and the correction term are shown in the next tables,  as they are presented in \cite{trobin}.
 
-In Census transform, the intensities of pixels are mapped in a string of bits. The string is formed based on the relation of the current pixel to its neighbours.  Considering a $3\times3$ window, the centre is compared with its neighbours after the function:
-
-\begin{equation} \label{censtr}
-	\mathcal{C}(x,x') =
-	\left\{
-	\begin{array}{ll}
-	1  & \mbox{if } I(x) - I(x') > th \\
-	1  & \mbox{if } |I(x) - I(x')| \leq th  \\
-	-x & \mbox{if } I(x) - I(x') <- th 
-	\end{array}
-	\right.
-\end{equation}
-where $I(x)$ is the intensity of the pixel $x$ and $x'$ is the neighbour. After the neighbour matrix was transformed, it is unwrapped, usually from the upper left corner, clockwise. Let us take an example. In figure \ref{cens}, the Census transform is applied \ref{censtr}, with a threshold of 10.
-
-\begin{figure} \label{cens}
-	\centering
-	\includegraphics[width = 5in]{img/cens} 
-	\caption{ Census Transform example to signature vector }
-\end{figure}
+\begin{center}
+	\begin{tabular}{  | l | l | p{5cm} |}
+		\hline
+		Data Term & Constancy Assumption & Motion Type \\ \hline
+		$\Psi \left((\tilde{u}^T\tilde{\nabla}I)^2\right)$ & brightness & any \\ \hline
+		
+		$\Psi \left((\sum_{i=1}^{2}{(\tilde{u}^T\tilde{\nabla}I_{\chi_i})^2})\right)$ & gradient & translational,
+		divergent,
+		slow rotational \\ \hline
+		
+		$\Psi{\left(\sum_{i=1}^{2}\sum_{j=1}^{2}\left(\tilde{u}^T\tilde{\nabla}I_{\chi_i\chi_j}\right)^2\right)}$ & Hessian & translational,
+		divergent,
+		slow rotational \\
+		\hline
+		
+		$\Psi \left( \left( \tilde{u}^T \tilde{\nabla} |\nabla I| \right)^2 \right)$ & gradient magnitude & any \\
+		\hline
+		
+		$\Psi\left( \left( \tilde{u}^T\tilde{\nabla} \left( \Delta I \right) \right)^2 \right)$ & Laplacian & any \\
+		\hline
+		
+		$\Psi \left( \left( \tilde{u}^T \tilde{\nabla} det \left( \mathcal{H} \left( I \right) \right) \right)^2 \right) $ & Hessian determinant & any \\
+		\hline
+	\end{tabular}
+\end{center}
 
 
-There must be a balance when choosing the threshold, between a value that is to high and causes insensitivity to light chances and a value that is too small where the uniqueness of the signature bit is affected.
-
-The transform is applied on each pixel of a image. The image will be described by a series of signature vectors. Each of this vectors are stored in a Hash-Table together with their coordinates.
-Then the second image is transformed too. A matching is done between the signatures of the second image and the signatures in the table, resulting in a list of possible correspondences for each entry or a null if the signature has no match. In case of multiple match, the pixels' intensities are compared or, if there is still no unique solution, the closest match, distance wise, is taken.
-
-
-An advantage of this solution is that the algorithm can detect large displacements, like objects jumping from one side to another of the image, unlike classic differential methods. 
-
-Due to the nature of the algorithm, it can be implemented on parallel hardware, like FPGAs, allowing for real-time computation. 
-
-
-But because of the transform, and the threshold, ignoring pixels with low variance, there is important loss in accuracy.
-
+{\renewcommand{\arraystretch}{2}
+	\begin{center}
+		
+		\begin{tabular}{| l | c |}
+			\hline
+			Data Term & Correction term  \\ \hline
+			$S_1 = \sum_{i=1}^{2}{|\nabla u_i|^2}$ & Homogeneous \\ \hline
+			
+			$S_2 = g \left( |\nabla I|^2 \right) \sum_{i=1}^{2} {|\nabla u_i|^2}$ & image-driven, isotropic  \\ \hline
+			
+			$S_3 = \sum_{i=1}^{2} \left( \nabla u_i \right)^T D \left( \nabla I \right) \nabla u_i$ & image-driven, anisotropic  \\
+			\hline
+			
+			$S_4 = \Psi \left( \sum_{i=1}^{2} |\nabla u_i|^2 \right)$ & flow-driven, isotropic  \\
+			\hline
+			
+			$S_5 = trace \Psi \left( \sum_{i=1}^{2} \nabla u_i \left( \nabla u_i \right)^T \right)$  & flow-driven, anisotropic \\
+			\hline
+		\end{tabular}
+	\end{center}
 
 \chapter{Analysis and Theoretical Foundation of existing algorithms}
 \label{ch:analysis}
-
 There are different approaches in computing the optical flow. From the fundamental methods, the field of study advanced tremendously in terms of speed and accuracy of solving the problem. Although highly improved results, the newer approaches are based on the same assumptions and start from the same point as the original formulation of Horn and Schunch, and Lucas and Kanade. 
 
 Although this algorithms are quite different, one being global formulation and the other a local one, modern approaches apply principles from both. The brightness consistency assumption is a good start point for many approaches, but it might be formulated in different form. Some algorithms use the Lukas Kanade approach style for a region based detection or feature tracking algorithms.
@@ -638,11 +744,15 @@ by simple calculations we obtain
 \end{split}
 \end{equation}
 
+One  of the advantages of this technique is that the flow can be computed locally, without the need to rely on the entire image. In the case of a nonhomogeneous image, e.g. formed of small, textured objects, this algorithm gives good estimation. 
+
+On the other hand, when the elements of the image are big and textureless, when the image is homogeneous,  this algorithm's performances will decrease. It will find the flow on the edges of the objects but it will fail to fill in homogeneous areas.
+
 \subsection{Correcting term}
 As in the Lucas Kanade method, the flow equation can be solved, neglecting the aperture problem, as a local solution. But, as the window is getting bigger, the flow vector will be influenced by more neighbours, and the aperture problem is felt more as the results are more noisy. Why would one try to enlarge the system of equations? Well, because put it in a context and everything can change. By connecting the pixels with their neighbours, all te pieces will be connected and the system can be viewed as an ensemble. The results get better by solving the aperture problems. 
 
 
-For example, as stated before, on surfaces with smooth, or no texture, the flow cannot be computed with a local method. But, if for a pixel in a textureless area, the flow is computed taking in account its neighbours, flow information will be propagated to it. In image \ref{HSExamplep}, it is shown the flow output for a square moving right and upwards. it can be sen the propagation of the flow between iterations 3 and 100.
+For example, as stated before, on surfaces with smooth, or no texture, the flow cannot be computed with a local method. But, if for a pixel in a textureless area, the flow is computed taking in account its neighbours, flow information will be propagated to it. In image \ref{HSExamplep}, it is shown the flow output for a square moving right and upwards. It can be seen the propagation of the flow between iterations 3 and 100.
 
 \begin{figure} \label{HSExamplep}
 	\centering
@@ -711,7 +821,7 @@ The pyramid of an image is a multi-scale representation of it. In order to obtai
 \begin{figure}
 	\label{PyrGr}
 	\centering
-	\includegraphics[width = 4in]{img/pyrLvls}
+	\includegraphics[width = 3in]{img/pyrLvls}
 	\caption{visual representation of a pyramid. Taken from \cite{wedel2011stereo}}
 \end{figure}
 
@@ -747,13 +857,12 @@ The result of such computation is shown in figure \ref{cameraPyr}.
 \paragraph{Choosing the pyramid height} 
 Choosing the number of levels of aa pyramid depends of the nature of motion in the frame sequence and the downsampling factor.
  As stated in the chapter before \ref{pyrHeight}, the height of the pyramids is usually chosen to have around 20-30 pixels on the height of the image, or width, respectively. The height is given by
-\begin{equation}
+\begin{equation} \label{pyrheight}
 	pyramid_{height} = \frac{\log\left(\frac{p}{\min(ht,wt)}\right)}
 							{\log(d)}
 \end{equation}
 where p is the number of pixels on the top level on the minimum between  width $wt$ or the height $ht$.
 \subsection{Warping the flow on the image}
-
 
 At new level of the pyramid, the second image is warped to the first.
 The new computed flow is considered.
@@ -893,6 +1002,103 @@ Notice the difference between Gauss-Seidel and Jacobi method. The first one uses
 
 
 The math between equation \ref{partialDer} and the iteration equations \ref{GSEq} and \ref{JEq} can be found in Appendix B \ref{GSDemo}.
+\section{Improvements}
+
+As the algorithms are based on the same formulations of Horn and Scunk and Lucas Kanade, algorithm's performance evolve in time by small transformations and changes added to the classical algorithms. Some of them have proven high efficiency, that were adopted as a standard by fallowing algorithms.
+
+\subsection{Low Pass Filter}
+
+As stated above, most of the algorithms use a coarse to fine estimation, and, for each level, an iterative approximation is performed.
+One of the downside of this approach is that if any outliers are present in the for at a lower level, this error will be propagated to all finer levels up to the final result, damaging the overall outcome of the algorithm.
+
+In the papers comparing some of the existing algorithms, the implementations take a median filter somewhere in the algorithm.
+
+In \cite{fleet2006}, the problem of aliasing is considered for bigger displacements, in the sampling procedure. The authors solve this problem by applying a blurring filer over the images, before computing the gradients of the images. From this they apply estimate the velocities for each level.
+
+Also, in \cite{sun2010}, by analysing the best practices in solving the optical flow problem, it is proven that, if a median filter applied after each warp, the robustness and the accuracy of the algorithms is increased.
+The robustness is a weak point of the differential methods. Outliers can completely throw off the energy function, especially in $L^2$ methods.
+Their results compare different sizes of the median filter, and no filer of different algorithms. The best results are obtained with a $5 \times 5$ kernel. Also the accuracy of the results when no filter was applied is significantly lower.  
+
+
+\subsection{Cross Correlation}
+The cross correlation function measures the similarity between 2 signals.
+The normalized cross correlation takes values in $[0,1]$, where $1$ is a total match between the signals and $0$ is a total mismatch between them.
+
+It is used in computing the data term, as a function derived from the brightness constraint. The pixels are not described anymore by their intensity, but by their relation with the neighbours.
+
+In \cite{drulea2013}, the classical sum of squared difference, the data term is expressed as a zero normal cross correlation, this being more discriminative. 
+
+\begin{equation} \label{crosscorrtrans}
+C(i) = \frac{I(s)- \mu(i)}{\sigma(i)}
+\end{equation}
+As shown above, each point of the image, if passed trough a cross correlation transom, from which results a matrix of the same size as the neighbourhood considered. to find the minimum, the data term is further expanded with classic differential methods it is added the smoothness term.
+
+One of the advantages in using the cross correlation transform instead of the regular pixel intensity, is the steadiness to noise. As a pixel is described by it's  neighbourhood it will not be as exposed to small noise. 
+
+Also occlusions in the image are resolved from the correlation transform. When parts of the environment are reviled from a frame to another, the pixels capturing this will be described by their neighbours and the flow will be normally computed in this areas.
+
+\subsection{Bilateral Filter} \label{bf}
+The bilateral filter is a smoothing filter, but the accuracy along edges is kept. 
+As proposed in \cite{tomasi1998bilateral}, the filter has two elements. The geometric distance, from the classical lowpass filter, let's take Gaussian for example. Each neighbour pixel will influence the output proportionally with its distance to the current pixel. On the other hand, the chromatic component measures the photochromacy between the neighbours and the central pixel. This can be expressed as the difference between the intensity of the neighbour pixel and the centre. 
+
+In the Gaussian case, one could get the normalization term, which is
+\begin{equation} \label{bilateralFilterTerm}
+e^{-\big(\ \frac{\Delta_c^2(i,s)}{2\sigma_c^2}+ \frac{\Delta_d^2(i,s)}{2\sigma_d^2}\big)}
+\end{equation}
+
+In a $L^1$ context, better results are yield by the a Laplacian formulation:
+
+\begin{equation} \label{bilateralFilterTermLaplac}
+e^{-\big(\ \frac{|\Delta_c(i,s)|}{\sqrt{2}\sigma_c}+ \frac{|\Delta_d(i,s)|}{\sqrt{2}\sigma_d}\big)}
+\end{equation}
+
+
+This normalization term can measure the likelihood of being on the edge of a pixel. An exaple of the bilateral filter transform is given in \ref{BFexaple}. It can be observed in the left figure, \ref{bfb}, the brighter areas on the planes of the object indicate a value near to $1$, and the darker areas, indicating $0$ are present on the edges of the objects.
+
+\begin{figure} \label{BFexaple}
+	\subfloat[]{\label{bfa}\includegraphics[width = 3in]{img/frame10}} 
+	\subfloat[]{\label{bfb}\includegraphics[width = 3in]{img/bf}}
+	\caption{Example of the bilateral filter transform. \ref{bfa} is the original image, on which the formula \ref{bilateralFilterTerm} was applied. The result is shown on the right in \ref{bfb}}
+\end{figure}
+
+In \cite{drulea2013}, this formulation of the bilateral filter is used as a component of smoothness term. The smoothness constraint says that, the velocity of the neighbour pixels is the same. This applies, of course only if the neighbour pixels belong to the same object. The classic methods based on the smoothness constraint have large errors along the edges. By considering the bilateral filter term \ref{bilateralFilterTerm}, one can easily reduce the smoothness penalty for velocities that do not belong to the same object, by simply applying the dot product between the bilateral filter term and the first norm of the difference. 
+
+\subsection{Census transform}
+
+In Census transform, the intensities of pixels are mapped in a string of bits. The string is formed based on the relation of the current pixel to its neighbours.  Considering a $3\times3$ window, the centre is compared with its neighbours after the function:
+
+\begin{equation} \label{censtr}
+\mathcal{C}(x,x') =
+\left\{
+\begin{array}{ll}
+0  & \mbox{if } I(x) - I(x') > th \\
+1  & \mbox{if } |I(x) - I(x')| \leq th  \\
+2 & \mbox{if } I(x) - I(x') <- th 
+\end{array}
+\right.
+\end{equation}
+where $I(x)$ is the intensity of the pixel $x$ and $x'$ is the neighbour. After the neighbour matrix was transformed, it is unwrapped, usually from the upper left corner, clockwise. Let us take an example. In figure \ref{cens}, the Census transform is applied \ref{censtr}, with a threshold of 10.
+
+\begin{figure} \label{cens}
+	\centering
+	\includegraphics[width = 5in]{img/cens} 
+	\caption{ Census Transform example to signature vector }
+\end{figure}
+
+
+There must be a balance when choosing the threshold, between a value that is to high and causes insensitivity to light chances and a value that is too small where the uniqueness of the signature bit is affected.
+
+The transform is applied on each pixel of a image. The image will be described by a series of signature vectors. Each of this vectors are stored in a Hash-Table together with their coordinates.
+Then the second image is transformed too. A matching is done between the signatures of the second image and the signatures in the table, resulting in a list of possible correspondences for each entry or a null if the signature has no match. In case of multiple match, the pixels' intensities are compared or, if there is still no unique solution, the closest match, distance wise, is taken.
+
+
+An advantage of this solution is that the algorithm can detect large displacements, like objects jumping from one side to another of the image, unlike classic differential methods. 
+
+Due to the nature of the algorithm, it can be implemented on parallel hardware, like FPGAs, allowing for real-time computation. 
+
+
+But because of the transform, and the threshold, ignoring pixels with low variance, there is important loss in accuracy.
+
 
 
 \section{$L^1$ approach}
@@ -905,7 +1111,79 @@ For this kind of formulations, the minimization can not be done any more trough 
 The smoothness term is the on that is more likely to give erroneous results, as the most outliers are present in the edge areas. Further will be presented two methods studied for solving thee $L^1$ norm. Both of the have only the correction term in $L^1$, the first remaining in $L^2$.
 
 \subsection{Projected Proximal Point}
+Proximal point algorithms are used in minimizing a sum of a convex function and a $L^2$ norm:
 
+$$prox_p(x) = arg \min_y \frac{1}{2}\Arrowvert x - y\Arrowvert_2^2 + P(y) $$
+
+The optimization method is presented as in \cite{drulea2013}, as an adaptation to the optical flow problem. First let us consider the function to be minimized:
+$$ \min_{\boldsymbol{v}} \{\lambda \cdot E_d(\boldsymbol{v})+F(K\boldsymbol{v})\}$$
+
+In this function, $\boldsymbol{v}$ is th unknown and $E_d(\boldsymbol{v})$ is the $L^2$ function. $F(K\boldsymbol{v})$ must be taken in such way that the function to be minimized stays convex in $\boldsymbol{v}$. Now to optimize this problem let us use a dual approach by replacing $F$ with a concave function. 
+$$ \label{minmax1}
+ \min_{\boldsymbol{v}} \{\lambda \cdot E_d(\boldsymbol{v})+ 
+[\max_q\{\langle K\boldsymbol{v}, q rangle - F^*(q)\}]
+\}$$
+where
+\begin{equation} 
+F(q) =
+\left\{
+\begin{array}{ll}
+0  & \mbox{if } q \in Q \\
+\infty  & , \  otherwise
+\end{array}
+\right.
+\end{equation}
+and $Q$ the definition domain for $q$ is 
+
+\begin{equation} \label{qconstraints}
+Q =
+\left\{
+\begin{array}{ll}
+q \in R^{2\times|\Omega|\times \mathcal{N}} : q_{i,s} = qu_{i,s}, qv_{i,s} \\
+\Arrowvert qu_{i,s}\Arrowvert \leq b_{i,s}, \Arrowvert qv_{i,s}\Arrowvert \leq b_{i,s} , \forall i \in \Omega, \forall s \in \mathcal{N}_i 
+\end{array}
+\right.
+\end{equation}
+
+where $b_{i,s}$ is the coefficient of $F(y) = b_{i,s}y$. 
+We can say that the \ref{minmax1} function is convex in $\boldsymbol{v}$ and concave in $q$. The algorithm can be written as a gradient descent for $\boldsymbol{v}$ and a gradient ascent for $q$.
+As the min and max functions can be combined and swapped, the \ref{minmax1} becomes
+$$
+\min_{\boldsymbol{v}} \max_{q} \{\alpha E_d(\boldsymbol{v})+\langle K\boldsymbol{v}, q \rangle - F^*(q)\}
+$$
+
+we can now build the function 
+
+$$
+\Phi(\boldsymbol{v}, q) = \alpha E_d(\boldsymbol{v})+\langle K\boldsymbol{v}, q \rangle - F^*(q) + \frac{1}{2\tau} \Arrowvert \boldsymbol{v} - \boldsymbol{v}^k \Arrowvert^2 -  \frac{1}{2\eta} \Arrowvert {q} - {q}^k \Arrowvert^2
+$$
+
+where $\boldsymbol{v}^k$ and $q^k$ are values from the previous estimation, and $\tau$ and $\eta$ ar control parameters. From this function we can compute iteratively the primal-dual variables, by considering one fixed and updating the other one.
+$$
+\left\{
+\begin{array}{ll}
+\boldsymbol{v}^{k+1}  = arg \min_{\boldsymbol{v}} \Phi(\boldsymbol{v}, q^k)  \\
+q^{k+1}  = arg \max_q \Phi(\boldsymbol{v}^{k+1}, q)
+\end{array}
+\right.
+$$
+$\Phi$ is differentiable, therefore the gradient can be computed to tu find the function's minimum.
+
+$$ \label{pppeq}
+\left\{
+\begin{array}{ll}
+\frac{\partial \Phi}{\partial \boldsymbol{v}}(\boldsymbol{v}, q^k)  = \alpha \frac{\partial E_d}{\partial\boldsymbol{v}}+ K^Tq + \tau^{-1}(\boldsymbol{v}- \boldsymbol{v}^{k}) \\
+\frac{\partial \Phi}{\partial \boldsymbol{v}}(\boldsymbol{v}^{k+1}, q^k)  = K\boldsymbol{v}^{k+1} - \eta^{-1}(q - q^k)
+\end{array}
+\right.
+$$
+Now, to satisfy the constraints from \ref{qconstraints}, we need to project the $q$ solution into its domain.
+
+$$ \label{projction}
+Pr(q) = (\frac{qu}{\max(|qu|, b)}\cdot b ,\frac{qv}{\max(|qv|, b)}\cdot b  )
+$$ 
+
+To solve the system the algorithm goes trough a series of iterations. In each iteration, it updates the $\boldsymbol{v}$ and $q$ variables one at a time from \ref{pppeq}. After each update of $q$, it is projected into its domain.  
 
 \subsection{Least Mixed Norm} \label{lmn}
 The Least Mixed Norm (LMN) solution originates from the image restoration problems, belonging from the family of interior point algorithms. The objective is to minimize a $L^2-L^1$ function:
@@ -919,14 +1197,14 @@ Let us now discuss the solution presented in \cite{fu2006efficient}.
 
 First le us write the data term, as a sun of it's positive and negative values:  $\alpha R \boldsymbol{f} = \boldsymbol{v}^+ + \boldsymbol{v}^-$, where $\boldsymbol{v}^+ = \max(\alpha R \boldsymbol{f}, 0) $, and  $\boldsymbol{v}^- = \max(-\alpha R \boldsymbol{f}, 0) $. Considering $\boldsymbol{1}$ a column of ones, the function becomes:
 
-\begin{equation} \label{l2l1}
+\begin{equation} 
 \min_{\boldsymbol{f}}\Arrowvert g - H\boldsymbol{f}\Arrowvert_2^2+ 
 \boldsymbol{1}^T \boldsymbol{v}^+ +\boldsymbol{1}^T \boldsymbol{v}^-
 \end{equation}
 The function becomes:
 
 \begin{equation}
-	\min_{\boldsymbol{x}}\frac{1}{2}\boldsymbol{x}G\boldsymbol{x} + \boldsymbol{c}^T\boldsymbol{x} \ \ \
+	\min_{\boldsymbol{x}}\frac{1}{2}\boldsymbol{x}^TG\boldsymbol{x} + \boldsymbol{c}^T\boldsymbol{x} \ \ \
 	\textnormal{ subject to } \ \ \  A\boldsymbol{x} = \boldsymbol{b}
 \end{equation}
 
@@ -1092,7 +1370,12 @@ by removing $\Delta \boldsymbol{v}^+$ and $\Delta \boldsymbol{v}^-$ we obtain:
 
 
 \section{Error Measurement}
-Now that the problem is stated, in order to get an idea of which behaves better on what conditions, we can compare the flow results with a ground truth. Middlebury's website\cite{middleburry} proposes a challenging data sheet containing some of the top algorithms in optical flow, as they state in \cite{baker2011database}, by which they hope to encourage improvement. It \cite{middleburry} has a big database of the existing algorithms, classified by accuracy.
+
+In this chapter we focus towards the task of error measurement. We look at several techniques for finding the computation errors, briefly describing each approach. 
+
+Now that the problem is stated, in order to get an idea of which behaves better on what conditions, we can compare the flow results with a ground truth.
+
+ Middlebury's website\cite{middleburry} proposes a challenging data sheet containing some of the top algorithms in optical flow, as they state in \cite{baker2011database}, by which they hope to encourage improvement. In \cite{middleburry}, a large database of the existing algorithms and their performance can be found. They are classified by accuracy.
 They have available a set of images on which the algorithms can be tested and measure their performance. Both realistic high speed camera and synthetic images can be downloaded from their database. For the artificially generated also the exact flow is available. This stands as a reference for the output of the algorithms. The error can be computed between this ground truth output and the result from the algorithms.
 
  Being referenced in most of the latest articles, it seems that this database is a good reference to modern approaches and their metrics.
@@ -1129,17 +1412,65 @@ As we are talking about vectors, we need a complementary measurements over the m
 
 \chapter{Proposed algorithm}
 
-Our solution starts from the optical flow formulation in \cite{drulea2013}.
+In this chapter we will present our algorithm. We start from the cross correlation transform formulation of the optical flow from \cite{drulea2013}, and use the minimization technique described in chapter \ref{lmn}.
 
-\begin{equation} \label{druleaEq}
-	E = \sum_{i \in \omega} \sum_{k}
-	(C_t(i,k)+ \nabla C(i,k)\cdot(w_i-w_{0,i}))^2 + 
-	\lambda
-	\sum_k bf_{i,k} \cdot \Arrowvert w_k - w_i\Arrowvert_1
+
+\section{Energy Function Formulation}
+
+Our solution starts from the optical flow formulation in \cite{drulea2013}.
+The flow equation is composed from a data term and a smoothness term.
+
+The data term we choose a cross correlation transform to increase robustness and tolerance to occlusions. 
+
+We start from the normalized cross correlation. 
+$$
+\frac{1}{|\mathcal{N}|}\cdot \frac{\langle f - \mu_f , g - \mu_g \rangle}{\sigma_f \sigma_g} 
+$$
+The cross correlation measures the similarity between 2 signals. The results for the normalized cross correlation vary in $[0,1]$, where $1$ is a total match.
+
+If we compute the cross correlation between the frame $1$ warped with the flow and the second frame, the result should be $1$.\textbf{ As the normalized cross correlation is linear}, our data minimization function can be:
+$$ \label{ccEd}
+E_d = 1-\frac{1}{|\mathcal{N}|}\cdot \sum_i \frac{\langle \tilde{I}_2(i+dw) - \mu_1 , I1(i) - \mu_1 \rangle}{\sigma_1 \sigma_2} 
+$$
+where $\tilde{I2} $ is the image 2 warped with the flow and $I2$ is the first image. 
+If we say that the cross transform is 
+$$
+C(i,k) = \frac{f_k-\mu}{\sigma} \in [0,1]
+$$
+where k is the vicinity of i. Than we can rewrite \ref{ccEd} as a sum of square differences.
+$$
+\frac{1}{|\mathcal{N}|}\cdot \sum_i( \frac{\tilde{I}_2(i+dw)-\mu_2}{\sigma_2}- \frac{I_1(i)-\mu_1}{\sigma_1})^2
+$$
+Considering that $\tilde{C}_2(i+dw) = \tilde{C}_2(i) + \nabla\tilde(C)_2(i)\cdot dw_i$ , then $ \tilde{C}_2(i) + \nabla\tilde(C)_2(i)\cdot dw_i + C_1(i) = 0 $. Further more, if $\tilde{C}_2(i) -C_1(i)  = C_t(i)  $, the data function becomes
+
+$$
+E_d = \sum_{i \in \omega} \sum_{k}
+(C_t(i,k)+ \nabla C(i,k)\cdot(w_i-w_{0,i}))^2
+$$
+
+
+Now, as the data term is in $L^2$, to increase the robustness of the formulation, the correction term will be in $L^1$. It will subject to the smoothness constraint as $\Arrowvert w-w_i\Arrowvert_1$. As we don't want the moistness constraint to affect all the pixels in the same way, we will formulate the weight of each pixel as a normal bilateral filter transform. The weight will be described by the similarity of the pixel with his neighbours. Unlike the classic bilateral filter who uses a Gaussian function, we will us a Laplace function:
+
+\begin{equation} \label{ourbilateralFilterTermLaplac}
+e^{-\big(\ \frac{|\Delta_c(i,s)|}{\sqrt{2}\sigma_c}+ \frac{|\Delta_d(i,s)|}{\sqrt{2}\sigma_d}\big)}
 \end{equation}
 
-To minimize this convex function, we will use the LMN method described in \ref{lmn},
-To save computational time and memory, we compute directly the matrices from \ref{lmnBigM}.Finally the whole system will b determind by large sparse matrices. Let us take them one by on.
+The energy function becomes:
+
+\begin{equation} \label{druleaEq}
+E = \sum_{i \in \omega} \sum_{k}
+(C_t(i,k)+ \nabla C(i,k)\cdot(w_i-w_{0,i}))^2 + 
+\lambda
+\sum_k bf_{i,k} \cdot \Arrowvert w_k - w_i\Arrowvert_1
+\end{equation}
+
+\section{Minimization procedure} \label{minproclmn}
+
+
+
+To minimize this convex function, we will use the LMN method described in \ref{lmn}. We chose this optimization method because the generality of its formulation and its potential for improvement. It is more expensive than the proximal point approach, memory and computation wise, but it should have a faster convergence towards the result. 
+
+To save computational time and memory, we compute directly the matrices from \ref{lmnBigM}.Finally the whole system will be determined by large sparse matrices. Let us take them one by on.
 
 To compute $G$ we need $H^T H$, where $H$ the coefficient of the flow in the $L^2$ norm. From equation \ref{druleaEq}, with the flow  coefficient  $\nabla C(i,k)$ we get:
 \begin{equation}
@@ -1208,11 +1539,144 @@ The $K$
   
   A matrix will be defined as in \ref{lmnBigM}, with the size $2\Omega \times 6\Omega$
  
- Now that we have all the big matrices are determined, we can find the vector $\boldsymbol{x}$  and the other unknowns from equations \ref{lmnXeq} and \ref{lmnReq} .  
+ Now that we have all the big matrices are determined, we can find the vector $\boldsymbol{x}$  and the other unknowns from equations \ref{lmnXeq} and \ref{lmnReq}.  
+
+
+\begin{algorithm}
+	\caption{LMN approach}
+	\label{CHalgorithm}
+	\begin{algorithmic}[1]
+		\State Set up pyramids $I_1$ $I_2$
+		\State If the coarsest level initialize $\boldmath{f^0}$, $\boldmath{s^0}$, $\boldmath{\lambda^0}$
+		\State If not, unsample $\boldmath{f^0}$, $\boldmath{s^0}$, $\boldmath{\lambda^0}$
+		\State Compute A
+		\For{k = 0, 1, 2 ...}
+		\State Compute G and $\boldsymbol{c}$ as they are dependent on $\boldsymbol{}$
+		\State Solve for $\Delta x$ \ref{lmnXeq}
+		\State Recover $\boldmath{f^0}$, $\boldmath{s^0}$, $\boldmath{\lambda^0}$ from \ref{lmnReq}
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+
+
 \chapter{Detailed Design and Implementation}
 
 
-\section{Derivative discretization}
+This offers a brief description of the tool used to develop our system, motivating why this solution was chosen. We present an overview over te system, and it's components.
+
+Some of the key concepts are detailed from the implementation point of view. We present the concept of derivative discretization, the sparse matrix and their advantages are explained. 
+Downsampling concept is explained in (more) detail, as we show the implementation details of this (algorithm?).
+Finally, the MATLAB output and color space is
+
+\section{Implementation Environment}
+
+MATrix LABoratory (MATLAB) is a high-level software tool  and a programming language used in many disciplines, mostly for performing complex mathematical calculations, but also for  signal and image processing, communications, control systems and computational finance. 
+
+
+It is mostly used to build prototype systems, the aim of which is to demonstrate certain concepts or working principles.
+
+
+MATLAB's basic data element is the matrix, as the system was originally built for factoring matrices and solving linear equations.  It offers a large number of built-in functions and various extensions, like Simulink, which is a graphical tool for modeling multidomain dynamic systems.
+
+
+We have chosen MATLAB because of to the scientific nature of our project. The mathematical model and the proposed algorithms are implemented using this tool, as we focus on demonstrating their theoretical values and validate the system.
+However, because MATLAB uses mostly matrices for performing calculations, we had to adapt our implementation to match these requirements. In this sense, we often had to make modifications to the algorithms.
+
+
+
+\section{General Overview}
+
+The system is represented in figure \ref{bigd}.
+The two most representative components of the system are the optimization procedure and the error measurement.
+
+The optimization procedure contains the minimisation algorithm wrapped in coarse to fine approach. The implementation of this coarse to fine method will be discussed in detail in \ref{pyr}. This component takes as an input two frames and computes the optical flow between them and sends it to the error measurement component. A timer is started at the beginning of this process and stopped right after the output is computed.
+
+
+The other component is represented by the error measurement part. This takes the output of the algorithm from the previous component and reads a .flo file with thee ground truth. The comparison between the two is made by computing the mean angular error and the endpoint error.  
+
+Finally, the results from the error measurement, the timer are displayed. Also a graphic representation of optical field, encoded in MATLAB's colour space, is displayed.
+
+
+\begin{figure}
+	\label{bigd}
+	\centering
+	\includegraphics[width = 6.2in]{img/bigflow} 
+	\caption{Conceptual architecture of the system.}
+\end{figure}
+
+\section{Proposed algorithm implementation}
+
+In this section we present the main functions of the system placed in a hierarchy. Also, we will detail each function's behaviour and usage.
+
+
+\begin{figure}
+	\label{funcdiag}
+	\centering
+	\includegraphics[width = 6in]{img/functions} 
+	\caption{Hierarchical representation of the system functions.}
+\end{figure}
+
+\paragraph{Main} This is the function which starts the program. it can be run by itself or can be accessed from a GUI function.
+Its tasks are reading the images, and  calling the 2 sub functions, \textit{CoarseToFine} and \textit{ComputeError}. After the flow and the error are computed, it displays the results and the encoded flow result.
+
+\paragraph{CoarseToFine(Im1, Im2, params)} This function holds the implementation for the coarse-to-fine method. 
+
+The input parameters are:
+\begin{itemize}
+	\item Im1 : the first image of the sequence.
+	\item Im2 : the second image of the sequence.
+	\item params : this is a general notation for the control parameters of the system. To save space, we have noted them as a group and will be explained only in th function that uses them. 
+\end{itemize}
+
+The flow of this function is represented in figure \ref{CTFflow}. First the maximum height is computed with formula from \ref{pyrheight}. Then, the \textit{BuildPyramid} function is calld for each image. After the pyramids are built, in an iteration trough each level of the pyramid, starting from the coarsest, first the flow parameters are initialized if they are not, otherwise an up sampling is done with \textit{resize}, then the \textit{ComputeFlow} function is called for each level. 
+
+At the initialization level, a flow structure is build, from the flow and its auxiliary variables needed in the next step.
+
+\paragraph{BuildPyramid(Im1)} This function has the task of building the pyramid. The input parameter is the image and the number of levels that it should have. It uses  MATLAB's \textit{resize} function for a with a sampling factor of $0.5$. The function returns a cell structure of images with the higher level corresponding to the coarsest.
+
+\paragraph{ResizeFlow(Flow, size)}
+This function is used for up sampling. The input parameter is a flow vector and the desired size of the output flow. The sampling factor used for resizing the flow is the ratio between the new size and the old one. 
+
+\paragraph{Compute flow(Im1, Im2, wrs, maxIt, sigmaR, sigmaD)} This function is called on every level of the pyramid. The \textit{Im1} and \textit{Im2} inputs are the images that correspond to the current level of the pyramid. \textit{wrs} is the number of warps the system will perford, and \textit{maxIt} is maximum number of iterations. \textit{sigmaR} and \textit{sigmaD} are userd in comuting the bilateral filter.
+
+ In this function are computed matrices of the system that do not change trough iterations. 
+ The structure of the function is: in an outer while loop, first the I2 is warped with the flow towards I1. ThenMatrices that do not change trough the iteration are computed : [see notations \ref{minproclmn}]  $G$, $\boldmath c$ , $K$, $bf \cdot K$,$bf^2 \cdot K$, $A$. 
+ After the system  in prepared, after the matricas are computed, the systm starts to iterate trough \textit{OptimizationFlow} function.. 
+
+\paragraph{OptimizeFlow(X, S, Lambda)}
+
+
+
+\paragraph{CorrelationTransforn(Im)}
+
+The correlation transform function, used in expressing the data term transforms an image vector into its cross correlate form. The formula in computing the correlation transform is described at \ref{crosscorrtrans}.
+
+ 
+
+\section{Pyramidal Implementation} \label{pyr}
+The pyramidal approach wraps every implementation we did. 
+
+For the pyramid constriction, the image needed to be repeatedly unsampled. For this we used MATLAB's resizing operation,  \textit{imresize}. This function takes as input the image and the desired output size, and returns the matrix resized. 
+
+The method of the resizing is an optional parameter. By default is bicubic, where the interpolation is done a weighted average of the 4 by 4 vicinity. Another option is bilinear, in which the 2 by 2 vicinity is considered. Because  out sampling factor is 2, we have chosen the bilinear interpolation. Also bilinear interpolation yield slightly better results in our optical flow computation.
+\begin{figure}
+	\label{CTFflow}
+	\centering
+	\includegraphics[width = 3in]{img/ctfflow} 
+	\caption{Pyramidal Flowchart}
+\end{figure}
+
+We consider the lowest level, when the minimum between the height and the width is at least  20 pixels.  
+$$
+\min\left(\frac{\log(20/N)}{\log(0.5)},
+\frac{\log(20/M)}{\log(0.5)}\right)
+$$
+
+At the coarsest level, the algorithm starts optimizing the initial guess. After at most 5 iterations, it goes to the next level, rescaling the flow. The same \textit{imresize} function is used. 
+
+Al this steps repat until the algorithm reaches the finest level, where the last optimization is done.  
+
+\section{Derivative Discretization}
 
  For obtaining the derivatives of the image and also the gradient we used the discretized formula:
 \begin{equation}
@@ -1241,18 +1705,64 @@ f(x, y) =  \frac{f(x-h, y) + f(x+h,y) +f(x,y-h) +f(x+h,y) - 4f(x,y)}
 
 Notice the property of the differentiative krnels, both Perwitt and Laplce, the sum of the elements must alwais be 0. 
 
-\section{Sparse Matrix vs Iterative approach}
+\section{Sparse Matrix}
 
 Sparse matrices are usually large matrices with most of the elements $0$. They are popular with solving large linear systems.
 
 The memory advantage of sparse over full matrices is that in sparse only the non zero values and their indexes are stored. 
 
+An example was run in MATLAB. We created a  $5000\times5000$ matrix, one full\textit{ M\_full }and one sparse \textit{M\_sparse}. In both of them we inserted 50 elements non null. When we check the properties of the matrices, we observe the difference in the memory.
+Even if the matrices are identical, by keeping a matrix sparse, only the non zero elements are kept in the memory. 
+\\
+
+\begin{tabular}{ l l l l l }
+	\hline
+		Name  &           Size  &                Bytes & Class   &  Attributes \\
+	\hline
+M\_full    &    $5000\times5000$      &      200000000 & double  &            \\
+M\_sparse  &    $5000\times5000$       &         41608  & double &   sparse    
+
+\end{tabular}
+\\
+\\
+
+
 Computational wise it skips redundant operations with 0 such as addition and multiplication.
 
-A special type of sparse are band matrices. This are regular sparse, the non-zero elements are grouped diagonally. This allows even more efficient memory use and computation time. 
+Let us take another example. In our flow algorithms we have to solve equations, so considering $A\boldsymbol{x} = b$, A takes first full then sparse, with the size $5000\times5000$ and with 60 elements that are not $0$. $b$ will be a column vector with $5000$ random elements. For our experiment we use the MATLAB function \textit{mldivide} to solve the system for $\boldmath{x}$. The time for each operation is shown in the table below.
+\\
 
-\section{Downsamplig and Pyramidal Implementation}
+\begin{tabular}{ l l  l l }
+	\hline
+	Name  &           Size  &                Elapsed time   &  Attributes \\
+	\hline
+	M\_full    &    $5000\times5000$      &      8.389874   &            \\
+	M\_sparse  &    $5000\times5000$       &         0.103146   &   sparse    
+	
+\end{tabular}
+\\
+\\
 
+A special type of sparse are band matrices. This are regular sparse, the non-zero elements are grouped diagonally. This allows even more efficient memory use and a lower computation time.  Our system works with such matrices. 
+
+First, in solving the system we used the \textit{mldivide} function, but the program run very slow and on a 4GB of RAM it did not support other programs to run in parallel. The maximum default memory given by MATLAB for stocking matrices in 1 GB, and \textit{mldivide} took most of it.
+We've switched to the \textit{gmres} which is specialized in banded matrices and the memory consumption decreased to almost a half and the execution time shorten to about 10%.
+
+To proov this in a simple way we have chosen to test on a  $500000 \times 500000$ sparse matrix with three five-columns bands. It is important that the matrix is symmetric. We've tested and timed both \textit{mldivide} and \textit{gmres}. The results are shown in the table below.
+\\
+
+\begin{tabular}{ l l  l l }
+	\hline
+	Function  &           Size  &                Elapsed time   \\
+	\hline
+mldivide    &    $500000\times 500000$      &      28.587425   \\
+gmres  &    $500000\times 500000$       &         2.625163   
+	
+\end{tabular}
+\\
+\\
+
+Sparse matrix don't perform this well only in solving systems, but also in simpler algebraic operations. The function are optimised to improve metrics of such implementation and ar worth using as much as it may be.
 
 \section{Output and MATLAB Colorspace}
 
@@ -1262,7 +1772,12 @@ As their ground truth flow was encoded in .flo format, we kept the same conventi
 
 Middlebury\cite{middleburry} provides functions for writing and reading this files. 
 
-For visualizing the output each vector is encoded to the MATLAB's colour space. As shown in \ref{colors}, the vectors on the write, expressed as arrows are encoded trough colour code. The colour notation is  used more that ht vector, because the changes in direction are more obvious. Also, the magnitude of the vector is encoded by the level of saturation of the colour, white representing no movement, and a full, saturated colour represents the widest movement of the flow. The pixel range between white and full colours vary, depending on the flow output. The function adapts this range to the needs. As can be observed, the encodings for the main directions are: indigo for up, red for right, yellow for down and cyan for left. On Middlebury's site, thy provide a function for the colour transform in the same package as the read and write functions mentioned earlier. They can be found on the datasets section as "flow-code".  
+For visualizing the output each vector is encoded to the MATLAB's colour space. As shown in \ref{colors}, the vectors on the write, expressed as arrows, are encoded trough colour code. The colour notation is  used more that the vectors, because the changes in direction are more obvious. Also, the magnitude of the vector is encoded by the level of saturation of the colour, white representing no movement, and a full, saturated colour represents the widest movement of the flow.
+
+ The pixel range between white and full colours vary, depending on the flow output. The function adapts this range to the needs. As can be observed, the encodings for the main directions are: indigo for up, red for right, yellow for down and cyan for left.
+ 
+ 
+  On Middlebury's site, thy provide a function for the colour transform in the same package as the read and write functions mentioned earlier. They can be found on the datasets section as "flow-code".  
 
 \begin{figure}
 	\label{colors}
@@ -1281,6 +1796,8 @@ About 5\% of the paper
 
 \chapter{User's manual}
 
+
+
 In the installation description section your should detail the hardware and software resources needed for installing and running the application, and a step by step description of how your application can be deployed/installed. An administrator should be able to perform the installation/deployment based on your instructions.
 
 In the user manual section you describe how to use the application from the point of view of a user with no inside technical information; this should be done with screen shots and a stepwize explanation of the interaction. Based on user's manual, a person should be able to use your product.
@@ -1290,16 +1807,45 @@ In the user manual section you describe how to use the application from the poin
 
 \chapter{Conclusions}
 
-About. 5\% of the whole
+In this thesis we discussed the main aspects of optical flow computation. We've studied and implemented the classical algorithms from this field. Also we have studied ways of improvement for the algorithm. We've implemented a LMN solution, a new approach in solving the optical flow.
 
-Here your write:
-\begin{itemize}
-\item a summary of your contributions/achievements,
-\item a critical analysis of the achieved results,
-\item a description of the possibilities of improving/further development.
-\end{itemize}
-\section{Title}
-\section{Other title}
+
+\section{Research}
+The scope of this thesis is accommodation with the field of optical flow. With a large number of approaches and a highly complex mathematical model, we have started with the classical models an their implementation. 
+
+We've seen the problem has two parts, the formulation of the optical flow system and the optimization method.
+
+The formulation may be local or global. Although some later works included a local approach, the global formulation achieves more attention in dense computation. This is due the great results and potential for development.
+
+The norm of the formulation ca be in $L^2$ or $L^1$. $L^2$ was present in the first approaches of the optical flow, but the last solutions incline to a $L^2$ formulation, as the robustness it gives to the algorithm counterbalances the extra computational cost.
+
+\section{Proposed Solution}
+
+After we have studied some $L^1$ techniques for optical flow computation we have implemented a new approach in this domain, the Least Mixed Norm optimization.
+
+The $L^1$ technique is preferred over $L2$. This is due to the robustness given to the algorithm, and the non-isotropy property. Although is more computational expensive, it can be implemented on modern computers with good run time.  
+
+ We've used as a formulation model the cross correlation formulation. We've compared our results with the Projection of Proximal Point method, which was recognized for great results.
+ 
+ AT our first implementation of the two algorithms, Projected Proximal Point and Least Mixed Norm, we have observed how fast the LMN techniques converges compared to the PPP.
+ 
+ At th first implementation our results from the LMN optimization are comparable with those from PPP implementation. 
+ 
+ The LMN implementation will be improved in the near future, as it gives satisfying results even with very little optimization. 
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
 
 
 %\addcontentsline {toc}{chapter}{Bibliography} 

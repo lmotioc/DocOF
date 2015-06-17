@@ -1,63 +1,81 @@
-\contentsline {chapter}{Chapter{} \numberline {1}Introduction - Project Context}{12}
-\contentsline {chapter}{Chapter{} \numberline {2}Project Objectives and Specifications}{14}
-\contentsline {section}{\numberline {2.1}Optical Flow definitions and examples}{14}
-\contentsline {section}{\numberline {2.2}Solving the Optical Flow System}{15}
-\contentsline {section}{\numberline {2.3}Project Objectives}{15}
-\contentsline {chapter}{Chapter{} \numberline {3}Bibliographic research}{18}
-\contentsline {section}{\numberline {3.1}First Approaches}{18}
-\contentsline {subsection}{\numberline {3.1.1}Horn Schunk}{19}
-\contentsline {subsection}{\numberline {3.1.2}Lucas Kanade}{19}
-\contentsline {section}{\numberline {3.2}Coarse-to-fine}{20}
-\contentsline {paragraph}{Pyramid Height}{20}
-\contentsline {paragraph}{Downsamplig}{20}
-\contentsline {paragraph}{Warping}{20}
-\contentsline {paragraph}{Interpolation technoques}{20}
-\contentsline {paragraph}{Drawbacks}{20}
-\contentsline {section}{\numberline {3.3}Solving the minimization problem}{21}
-\contentsline {section}{\numberline {3.4}$L^1$ techniques}{21}
-\contentsline {section}{\numberline {3.5}Improvements}{22}
-\contentsline {subsection}{\numberline {3.5.1}Low Pass Filter}{22}
-\contentsline {subsection}{\numberline {3.5.2}Cross Correlation}{22}
-\contentsline {subsection}{\numberline {3.5.3}Bilateral Filter}{23}
-\contentsline {subsection}{\numberline {3.5.4}Census transform}{23}
-\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{26}
-\contentsline {section}{\numberline {4.1}Differential Methods}{26}
-\contentsline {subsection}{\numberline {4.1.1}The Brightness Constraint}{26}
-\contentsline {subsection}{\numberline {4.1.2}The Aperture Problem}{27}
-\contentsline {subsection}{\numberline {4.1.3}Lucas-Kanade}{28}
-\contentsline {subsection}{\numberline {4.1.4}Correcting term}{30}
-\contentsline {section}{\numberline {4.2}Coarse-to-fine}{31}
-\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{33}
-\contentsline {paragraph}{Building The pyramid}{33}
-\contentsline {paragraph}{Choosing the pyramid height}{34}
-\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{35}
-\contentsline {section}{\numberline {4.3}$L^2$ Solutions}{35}
-\contentsline {subsection}{\numberline {4.3.1}Gauss-Seidel Iterations}{35}
-\contentsline {subsection}{\numberline {4.3.2}Jacobi Iterations}{36}
-\contentsline {section}{\numberline {4.4}$L^1$ approach}{37}
-\contentsline {subsection}{\numberline {4.4.1}Projected Proximal Point}{38}
-\contentsline {subsection}{\numberline {4.4.2}Least Mixed Norm}{38}
-\contentsline {section}{\numberline {4.5}Error Measurement}{40}
-\contentsline {subsection}{\numberline {4.5.1}Cross correlation}{40}
-\contentsline {subsection}{\numberline {4.5.2}Endpoint error}{40}
-\contentsline {subsection}{\numberline {4.5.3}Angular error}{41}
-\contentsline {chapter}{Chapter{} \numberline {5}Proposed algorithm}{42}
-\contentsline {chapter}{Chapter{} \numberline {6}Detailed Design and Implementation}{44}
-\contentsline {section}{\numberline {6.1}Derivative discretization}{44}
-\contentsline {section}{\numberline {6.2}Sparse Matrix vs Iterative approach}{45}
-\contentsline {section}{\numberline {6.3}Downsamplig and Pyramidal Implementation}{45}
-\contentsline {section}{\numberline {6.4}Output and MATLAB Colorspace}{45}
-\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{47}
-\contentsline {section}{\numberline {7.1}Title}{47}
-\contentsline {section}{\numberline {7.2}Other title}{47}
-\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{48}
-\contentsline {section}{\numberline {8.1}Title}{48}
-\contentsline {section}{\numberline {8.2}Other title}{48}
-\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{49}
-\contentsline {section}{\numberline {9.1}Title}{49}
-\contentsline {section}{\numberline {9.2}Other title}{49}
-\contentsline {chapter}{Bibliography}{50}
-\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{52}
-\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{53}
-\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{53}
-\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{55}
+\contentsline {chapter}{Chapter{} \numberline {1}Introduction - Project Context}{13}
+\contentsline {section}{\numberline {1.1}Project Context}{13}
+\contentsline {section}{\numberline {1.2}Project Domain}{13}
+\contentsline {section}{\numberline {1.3}Thesis structure}{14}
+\contentsline {chapter}{Chapter{} \numberline {2}Project Objectives and Specifications}{16}
+\contentsline {section}{\numberline {2.1}Optical Flow Definitions and Examples}{17}
+\contentsline {section}{\numberline {2.2}Solving the Optical Flow System}{18}
+\contentsline {section}{\numberline {2.3}Project Objectives}{18}
+\contentsline {section}{\numberline {2.4}General Flow of events}{19}
+\contentsline {chapter}{Chapter{} \numberline {3}Bibliographic research}{22}
+\contentsline {section}{\numberline {3.1}First Approaches}{22}
+\contentsline {subsection}{\numberline {3.1.1}Horn Schunk}{23}
+\contentsline {subsection}{\numberline {3.1.2}Lucas Kanade}{23}
+\contentsline {section}{\numberline {3.2}Coarse-to-Fine}{24}
+\contentsline {paragraph}{Pyramid Height}{24}
+\contentsline {paragraph}{Downsamplig}{24}
+\contentsline {paragraph}{Warping}{24}
+\contentsline {paragraph}{Interpolation technoques}{24}
+\contentsline {paragraph}{Drawbacks}{24}
+\contentsline {section}{\numberline {3.3}Solving the Minimization Problem}{25}
+\contentsline {section}{\numberline {3.4}$L^1$ Techniques}{25}
+\contentsline {section}{\numberline {3.5}Improvements}{26}
+\contentsline {section}{\numberline {3.6}Problem formulation}{27}
+\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{29}
+\contentsline {section}{\numberline {4.1}Differential Methods}{29}
+\contentsline {subsection}{\numberline {4.1.1}The Brightness Constraint}{29}
+\contentsline {subsection}{\numberline {4.1.2}The Aperture Problem}{30}
+\contentsline {subsection}{\numberline {4.1.3}Lucas-Kanade}{31}
+\contentsline {subsection}{\numberline {4.1.4}Correcting term}{33}
+\contentsline {section}{\numberline {4.2}Coarse-to-fine}{34}
+\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{36}
+\contentsline {paragraph}{Building The pyramid}{36}
+\contentsline {paragraph}{Choosing the pyramid height}{37}
+\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{38}
+\contentsline {section}{\numberline {4.3}$L^2$ Solutions}{38}
+\contentsline {subsection}{\numberline {4.3.1}Gauss-Seidel Iterations}{38}
+\contentsline {subsection}{\numberline {4.3.2}Jacobi Iterations}{39}
+\contentsline {section}{\numberline {4.4}Improvements}{40}
+\contentsline {subsection}{\numberline {4.4.1}Low Pass Filter}{41}
+\contentsline {subsection}{\numberline {4.4.2}Cross Correlation}{41}
+\contentsline {subsection}{\numberline {4.4.3}Bilateral Filter}{42}
+\contentsline {subsection}{\numberline {4.4.4}Census transform}{43}
+\contentsline {section}{\numberline {4.5}$L^1$ approach}{44}
+\contentsline {subsection}{\numberline {4.5.1}Projected Proximal Point}{44}
+\contentsline {subsection}{\numberline {4.5.2}Least Mixed Norm}{46}
+\contentsline {section}{\numberline {4.6}Error Measurement}{48}
+\contentsline {subsection}{\numberline {4.6.1}Cross correlation}{49}
+\contentsline {subsection}{\numberline {4.6.2}Endpoint error}{49}
+\contentsline {subsection}{\numberline {4.6.3}Angular error}{49}
+\contentsline {chapter}{Chapter{} \numberline {5}Proposed algorithm}{51}
+\contentsline {section}{\numberline {5.1}Energy Function Formulation}{51}
+\contentsline {section}{\numberline {5.2}Minimization procedure}{52}
+\contentsline {chapter}{Chapter{} \numberline {6}Detailed Design and Implementation}{56}
+\contentsline {section}{\numberline {6.1}Implementation Environment}{56}
+\contentsline {section}{\numberline {6.2}General Overview}{57}
+\contentsline {section}{\numberline {6.3}Proposed algorithm implementation}{57}
+\contentsline {paragraph}{Main}{57}
+\contentsline {paragraph}{CoarseToFine(Im1, Im2, params)}{57}
+\contentsline {paragraph}{BuildPyramid(Im1)}{59}
+\contentsline {paragraph}{ResizeFlow(Flow, size)}{59}
+\contentsline {paragraph}{Compute flow(Im1, Im2, wrs, maxIt, sigmaR, sigmaD)}{59}
+\contentsline {paragraph}{OptimizeFlow(X, S, Lambda)}{59}
+\contentsline {paragraph}{CorrelationTransforn(Im)}{59}
+\contentsline {section}{\numberline {6.4}Pyramidal Implementation}{60}
+\contentsline {section}{\numberline {6.5}Derivative Discretization}{61}
+\contentsline {section}{\numberline {6.6}Sparse Matrix}{61}
+\contentsline {section}{\numberline {6.7}Output and MATLAB Colorspace}{63}
+\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{65}
+\contentsline {section}{\numberline {7.1}Title}{65}
+\contentsline {section}{\numberline {7.2}Other title}{65}
+\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{66}
+\contentsline {section}{\numberline {8.1}Title}{66}
+\contentsline {section}{\numberline {8.2}Other title}{66}
+\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{67}
+\contentsline {section}{\numberline {9.1}Research}{67}
+\contentsline {section}{\numberline {9.2}Proposed Solution}{67}
+\contentsline {chapter}{Bibliography}{69}
+\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{71}
+\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{72}
+\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{72}
+\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{74}
