@@ -70,6 +70,11 @@ D.~Fleet and Y.~Weiss, ``Optical flow estimation,'' in \emph{Handbook of
   Mathematical Models in Computer Vision}.\hskip 1em plus 0.5em minus
   0.4em\relax Springer, 2006, pp. 237--257.
 
+\bibitem{stein2004efficient}
+F.~Stein, ``Efficient computation of optical flow using the census transform,''
+  in \emph{Pattern Recognition}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Springer, 2004, pp. 79--86.
+
 \bibitem{trobin}
 W.~Trobin, ``Local, semi-global, and global optimization for motion
   estimation,'' 2009.
@@ -83,6 +88,10 @@ H.-H. Nagel \emph{et~al.}, ``Constraints for the estimation of displacement
 C.~Tomasi and R.~Manduchi, ``Bilateral filtering for gray and color images,''
   in \emph{Computer Vision, 1998. Sixth International Conference on}.\hskip 1em
   plus 0.5em minus 0.4em\relax IEEE, 1998, pp. 839--846.
+
+\bibitem{parikh2013proximal}
+N.~Parikh and S.~Boyd, ``Proximal algorithms,'' \emph{Foundations and Trends in
+  optimization}, vol.~1, no.~3, pp. 123--231, 2013.
 
 \bibitem{fu2006efficient}
 H.~Fu, M.~K. Ng, M.~Nikolova, and J.~L. Barlow, ``Efficient minimization

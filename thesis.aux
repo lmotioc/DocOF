@@ -37,6 +37,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}First Approaches}{22}}
 \citation{HSOpticalFlow}
 \citation{barron1994}
+\citation{HSOpticalFlow}
+\citation{lucas1981}
 \citation{lucas1981}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Horn Schunk}{23}}
 \newlabel{HSEq}{{3.1}{23}}
@@ -59,6 +61,7 @@
 \newlabel{func}{{3.4}{26}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  throw off of $L^1$ vs $L^2$ function }}{26}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.5}Improvements}{26}}
+\citation{stein2004efficient}
 \citation{trobin}
 \@writefile{toc}{\contentsline {section}{\numberline {3.6}Problem formulation}{27}}
 \@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{29}}
@@ -72,16 +75,18 @@
 \newlabel{Idt0}{{4.1}{30}}
 \newlabel{Idt0_lagr}{{4.2}{30}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}The Aperture Problem}{30}}
+\citation{lucas1981}
 \newlabel{apertureimg}{{4.1.2}{31}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Example of aperture problem by the movement of a line.}}{31}}
 \newlabel{apertureimgSin}{{4.1.2}{31}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of aperture problem by the movement of a sinusoidal signal.}}{31}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Lucas-Kanade}{31}}
-\newlabel{gradientSumN}{{4.6}{31}}
-\citation{nagel1983constraints}
+\newlabel{gradientSumN}{{4.6}{32}}
+\citation{lucas1981}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Correcting term}{33}}
 \newlabel{smoothEq}{{4.14}{33}}
 \newlabel{mynabla}{{4.15}{33}}
+\citation{nagel1983constraints}
 \newlabel{HSExamplep}{{4.1.4}{34}}
 \newlabel{hspa}{{4.3a}{34}}
 \newlabel{sub@hspa}{{(a)}{a}}
@@ -93,32 +98,32 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{34}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{34}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{34}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Coarse-to-fine}{34}}
-\newlabel{HSExample}{{4.2}{35}}
-\newlabel{hsa}{{4.4a}{35}}
-\newlabel{sub@hsa}{{(a)}{a}}
-\newlabel{hsb}{{4.4b}{35}}
-\newlabel{sub@hsb}{{(b)}{b}}
-\newlabel{hsc}{{4.4c}{35}}
-\newlabel{sub@hsc}{{(c)}{c}}
-\newlabel{hsd}{{4.4d}{35}}
-\newlabel{sub@hsd}{{(d)}{d}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of the improvement the coarse to fine approach gives an algorithm. In picture 4.4a\hbox {} is one of the 2 images of the sequence on which the flow is to be computed. In 4.4b\hbox {} is the flow according to Middlebury. In 4.4c\hbox {} is the flow computed with classical Horn and Schunk algorithm. And in 4.4d\hbox {} is the same algorithm which was encapsulated in a coarse to fine strategy.}}{35}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{35}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{35}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{35}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{35}}
 \citation{wedel2011stereo}
-\newlabel{PyrGr}{{4.2.1}{36}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces visual representation of a pyramid. Taken from \cite  {wedel2011stereo}}}{36}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{36}}
-\@writefile{toc}{\contentsline {paragraph}{Building The pyramid}{36}}
-\newlabel{cameraPyr}{{4.2.1}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Example of a pyramid with 4 levels.}}{37}}
-\newlabel{eq1}{{4.18}{37}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Coarse-to-fine}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Gaussian Pyramids}{35}}
+\@writefile{toc}{\contentsline {paragraph}{Building The pyramid}{35}}
+\newlabel{eq1}{{4.18}{35}}
+\newlabel{HSExample}{{4.2}{36}}
+\newlabel{hsa}{{4.4a}{36}}
+\newlabel{sub@hsa}{{(a)}{a}}
+\newlabel{hsb}{{4.4b}{36}}
+\newlabel{sub@hsb}{{(b)}{b}}
+\newlabel{hsc}{{4.4c}{36}}
+\newlabel{sub@hsc}{{(c)}{c}}
+\newlabel{hsd}{{4.4d}{36}}
+\newlabel{sub@hsd}{{(d)}{d}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of the improvement the coarse to fine approach gives an algorithm. In picture 4.4a\hbox {} is one of the 2 images of the sequence on which the flow is to be computed. In 4.4b\hbox {} is the flow according to Middlebury. In 4.4c\hbox {} is the flow computed with classical Horn and Schunk algorithm. And in 4.4d\hbox {} is the same algorithm which was encapsulated in a coarse to fine strategy.}}{36}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{36}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{36}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{36}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{36}}
+\newlabel{PyrGr}{{4.2.1}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces visual representation of a pyramid. Taken from \cite  {wedel2011stereo}}}{37}}
 \@writefile{toc}{\contentsline {paragraph}{Choosing the pyramid height}{37}}
 \newlabel{pyrheight}{{4.19}{37}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Warping the flow on the image}{37}}
+\newlabel{cameraPyr}{{4.2.1}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Example of a pyramid with 4 levels.}}{38}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}$L^2$ Solutions}{38}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Gauss-Seidel Iterations}{38}}
 \newlabel{GaussSeidel}{{4.3.1}{38}}
@@ -147,10 +152,12 @@
 \newlabel{bf}{{4.4.3}{42}}
 \newlabel{bilateralFilterTerm}{{4.31}{42}}
 \newlabel{bilateralFilterTermLaplac}{{4.32}{42}}
+\citation{stein2004efficient}
 \newlabel{cens}{{4.4.4}{43}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces  Census Transform example to signature vector }}{43}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Census transform}{43}}
 \newlabel{censtr}{{4.33}{43}}
+\citation{parikh2013proximal}
 \citation{drulea2013}
 \@writefile{toc}{\contentsline {section}{\numberline {4.5}$L^1$ approach}{44}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Projected Proximal Point}{44}}
@@ -163,16 +170,16 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Least Mixed Norm}{46}}
 \newlabel{lmn}{{4.5.2}{46}}
 \newlabel{l2l1}{{4.36}{46}}
-\newlabel{lmnBigM}{{4.39}{46}}
+\newlabel{lmnBigM}{{4.39}{47}}
 \citation{middleburry}
 \citation{baker2011database}
 \citation{middleburry}
-\newlabel{lmnXeq}{{4.49}{48}}
-\newlabel{lmnReq}{{4.50}{48}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Error Measurement}{48}}
+\newlabel{lmnXeq}{{4.49}{49}}
+\newlabel{lmnReq}{{4.50}{49}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Error Measurement}{49}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Cross correlation}{49}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Endpoint error}{49}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Angular error}{49}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Endpoint error}{50}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Angular error}{50}}
 \citation{drulea2013}
 \citation{drulea2013}
 \@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {5}Proposed algorithm}{51}}
@@ -202,9 +209,9 @@
 \@writefile{toc}{\contentsline {paragraph}{ResizeFlow(Flow, size)}{59}}
 \@writefile{toc}{\contentsline {paragraph}{Compute flow(Im1, Im2, wrs, maxIt, sigmaR, sigmaD)}{59}}
 \@writefile{toc}{\contentsline {paragraph}{OptimizeFlow(X, S, Lambda)}{59}}
-\@writefile{toc}{\contentsline {paragraph}{CorrelationTransforn(Im)}{59}}
 \newlabel{CTFflow}{{6.4}{60}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Pyramidal Flowchart}}{60}}
+\@writefile{toc}{\contentsline {paragraph}{CorrelationTransforn(Im)}{60}}
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Pyramidal Implementation}{60}}
 \newlabel{pyr}{{6.4}{60}}
 \@writefile{toc}{\contentsline {section}{\numberline {6.5}Derivative Discretization}{61}}
@@ -221,8 +228,8 @@
 \@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{66}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Title}{66}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Other title}{66}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Required resources}{66}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Application Setup}{66}}
 \@writefile{toc}{\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{67}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -230,6 +237,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {9.2}Proposed Solution}{67}}
 \bibstyle{IEEEtran}
 \bibdata{thesis}
+\@writefile{toc}{\contentsline {section}{\numberline {9.3}Further development}{68}}
 \bibcite{gibson1950perception}{1}
 \bibcite{drulea2013}{2}
 \bibcite{HSOpticalFlow}{3}
@@ -240,11 +248,13 @@
 \bibcite{wedel2011stereo}{8}
 \bibcite{barron1994}{9}
 \bibcite{fleet2006}{10}
-\bibcite{trobin}{11}
-\bibcite{nagel1983constraints}{12}
-\bibcite{tomasi1998bilateral}{13}
-\bibcite{fu2006efficient}{14}
+\bibcite{stein2004efficient}{11}
+\bibcite{trobin}{12}
+\bibcite{nagel1983constraints}{13}
+\bibcite{tomasi1998bilateral}{14}
 \@writefile{toc}{\contentsline {chapter}{Bibliography}{69}}
-\bibcite{middleburry}{15}
-\bibcite{baker2011database}{16}
+\bibcite{parikh2013proximal}{15}
+\bibcite{fu2006efficient}{16}
+\bibcite{middleburry}{17}
+\bibcite{baker2011database}{18}
 \@input{apendix.aux}

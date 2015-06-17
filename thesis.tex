@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,a4paper,twoside]{report} 
-
+\usepackage[obeyspaces]{url}
 \usepackage{cs}              
 \usepackage{times}
 \usepackage{float}
@@ -346,6 +346,12 @@ In latest approaches there is a tendency to lose the $L^2$ formulation in favour
 
 With a highly complex mathematical model and a large numbers of approaches, the main scope of this project is to familiarize with the basic concepts and methods of the optical flow computation. In the project we study some classical algorithms, Horn Schunk and Lucas Kanade at different levels.
 
+We study and implement some new approaches based on mixed $L^2-L^1$ norm optimization problems. 
+
+The main achievement is the implementation of an Least Mixed Norm (LMN) algorithm, which will be presented in section \ref{lmn}.
+
+Such kind of algorithms are successfully used in image restoration and one of their strongest points is the adaptation to the overall problems ($L^2-L^1, L^1-L^1$) and tasks.
+
 Horn and Schunk is a global method of computing the optical flow. Based on the brightness and the smoothness constraint, an error function is described. The function depends on thee intensity of the pixels and the flow. Taking a initial guess for the flow field, the scope of the algorithm is to minimize this error function by varying the flow vectors. The minimization problem transforms in a system of equations by differentiating with respect to the horizontal and vertical component of the flow. Using a Jacobi approximation, the flow is updated trough iterations, until the desired output is achieved.
 
 Lucas Kanade is a local method. The error function is based this time on the brightness constraint only is constructed. It is also dependent of the intensity of the pixels and the flow. For each pixel the computation is done by searching in its near vicinity. The minimization problem it is again written as a system of equation by differentiation technique. For the system is solved by taking an initial guess and then computing the remaining flow.
@@ -439,7 +445,7 @@ Further, each vector is estimated with Gauss-Seidel iterations. This means that 
 
 \subsection{Lucas Kanade}
 
-Published in the same year with Horn and Schunk, the Lucas Kanade method, offers a local approach for solving the optical flow problem. 
+Published in the same year with Horn and Schunk \cite{HSOpticalFlow}, the Lucas Kanade method\cite{lucas1981}, offers a local approach for solving the optical flow problem. 
 
 It is also based on the brightness constraint, but the solution is local.
 It is based on the least square fit. It assumes that the flow is more or less constant in a small neighbourhood. 
@@ -476,26 +482,26 @@ The diference between them is not significantly high, but they found that spline
 \paragraph{Drawbacks}In chapter 15 of ~\cite{fleet2006} the pyramid method is discussed. The author draws attention over the drawbacks of the coarse to fine methods. Each level's flow depends on its predecessor. If at some point in the computation of the velocities is erroneous, for example if aliasing or occlusions occur, it will be propagated up to the finest level.
  
 \section{Solving the Minimization Problem}
-Most of the formulation of the optical flow are stated as a minimization problem. If the penalty function is squared the solution can be achieved trough variational calculus. This applies when the energy function is derivable, and preferably easy. Then, most important, the function must be convex. Because of the convexity of the function, the minimum can be found by equate the derivative with 0. 
+Most of the formulation of the optical flow are stated as a minimization problem. If the penalty function is squared the solution can be achieved trough variational calculus. This applies when the energy function is differentiable. Then, most important, the function must be convex. Because of the convexity of the function, the minimum can be found Euler-Lagrange. 
 
 This is the case of the differential methods like Horn and Schunk. They first computed the partial derivatives for $u$ and $v$, then to solve the system of equations they apply Jacobi iterative method. In this algorithm, in a iteration $k$ each flow vector is computed from the results from the precious iteration $k-1$
 
 Gauss-Seidel and Jacobi iterations are methods for solving linear equations with many unknowns. They start from one initial guess from which they iteratively compute the solution. the Gauss-Seidel solves for an upper dominant coefficient matrix, while the Jacoby method is used when the linear system is more symmetric. In their paper, Horn and Schunk used the Jacobi method, because the coefficient matrix is a sparse bended matrix.
 
-Squared penalties are very sensitive to noises. because of this the $L^1$ norm was introduced.
+Squared penalties are very sensitive to noises and are also isotropic. because of this the $L^1$ norm was used in the last years approaches.
 
 For the L1 the classic methods do not apply  any more.
 
 
 \section{$L^1$ Techniques}
 
-$L^1$ penalty functions were introduced in the optical flow energy function in the need for robustness. They are more computational expensive, but they are more resistant to noise.
+$L^1$ penalty functions were introduced in the optical flow energy function in the need for robustness and for the non isotropy property. They are more computational expensive, but they are more resistant to noise.
 
  A example of how the errors throw off a $L^1$ vs a $L^2$ function is exemplified in figure \ref{func}. After values greater than one the difference is quite noticeable. As the function is a sum of errors from each vector of an image, the error function builds up and quickly. $L^2$ functions have the tendency to spread the error. Imagine, in a minimization function, as most of the vectors are $0$, but there is one that is erroneous. It is obvious that the $L^2$ norm, let's sat sum of squares, will be way bigger than the $L^1$ norm, let's say absolute-value norm. As noisy images are quite common, a more robust formulation is needed.
  
 Some of the algorithms use a mixed  $L^2-L^1$ norm. The argument for this is that the smoothness constraint is th one predisposed to outliers. 
  
-Algorithms studied involve such a norm. They were implemented either with Proximal Point Projection or Least Mixed Norm. The detailed mathematical scheme is presented in the next chapter.
+Algorithms studied in this thesis involve such a norm. They were implemented either with Proximal Point Projection or Least Mixed Norm. The detailed mathematical scheme is presented in the next chapter.
 \begin{figure} \label{func}
 	\centering
 	\includegraphics[width = 3in]{img/func} 
@@ -515,13 +521,13 @@ Most of them solve the large displacement problem with a coarse to fine approach
 
 Median filters are us to increase robustness. It may be used as a preprocessing technique, or in between the iteration. The second usage presents a particular interest in flow computation, especially in a coarse to fine approach. It is important to eliminate outliers as soon as possible. If not the propagate to the higher levels and spread in th neighbourhood with each iteration.
 
-The penalty function tend to a $L^1$ norm. The classical squared penalty functions are replaced with the absolute value. The important properties of a penalty function is to have a small constant grow, to increase robustness of the algorithm, and to be convex for easy calculations. 
+The penalty function tend to a $L^1$ norm. The classical squared penalty functions are replaced with the absolute value. The important properties of a penalty function is to have a small constant grow, to increase robustness of the algorithm, to be convex for easy calculations and to be non isotropic.
 
 Some use a bilateral filter as weight for the correcting term. The bilateral filter describe the pixel by its similarity with his neighbours. As the smoothness constraint propagates the flow to the neighbours, such a weight is important as when a pixel is similar to its neighbours we want the propagation, but on the other case, e.g. when a pixel is on the edge we want no influence from its neighbours, tu maintain edge accuracy. 
 
 Another improvement to the classical methods is expressing the data term. Some us a correlation transform, to increase robustness of the algorithm. The term is described by the relation with the neighbours, not by its intensity. Another advantage in using the correlation transform is solving some of the occlusions, as new pixels can relay on their neighbours.
 
-Census transform is also used in for describing the data term as a special type of correlation. The relation is encoded resulting in memory efficiency. Census methods are a little different of classical methods. They use special types of data structures on which they base their matching techniques.
+Census transform, \cite{stein2004efficient} is also used in for describing the data term as a special type of correlation. The relation is encoded resulting in memory efficiency. Census methods are a little different of classical methods. They use special types of data structures on which they base their matching techniques. Despite the fact that Census transform does not have the best test results in the field it is used for their easy computation.
 
 All of this improvements and their mathematical model will be discussed in detail in the next chapter.   
 
@@ -590,7 +596,7 @@ Although this algorithms are quite different, one being global formulation and t
 
 
 \section{Differential Methods}
-The Horn and Schunk's solution is the basis of modern differential approaches. The optical flow is formulated as a equation that must be minimized.
+The Horn and Schunk's solution is the basis of modern differential approaches. The optical flow is formulated variational problem. The critical points, minizors, must be found.
 
 To avoid the aperture problem, the equation is formulated from two constraints. Originally, the brightness constraint and the smoothness constraint. In most algorithms from this category the brightness constraint is kept and the second constraint is modified.
 \subsection{The Brightness Constraint} \label{BrightnessConstr}
@@ -654,7 +660,7 @@ On the other hand, if the texture is to structured, it may also bring uncertaint
 In optical flow, the simplest solution is the brightness assumption, that neighbouring pixels have the same movement.
 
 \subsection{Lucas-Kanade}
-Lucas-Kanade method solves the flow as a feature tracking algorithm. This differential method takes in account only the neighbourhood, solving for each pixel with last square estimation. From the brightness assumption, for a neighbourhood $\Omega$, the flow vector $[u_i,v_i]$ must satisfy: 
+Lucas-Kanade method \cite{lucas1981} solves the flow as a feature tracking algorithm. This differential method takes in account only the neighbourhood, solving for each pixel with last square estimation. From the brightness assumption, for a neighbourhood $\Omega$, the flow vector $[u_i,v_i]$ must satisfy: 
 \begin{equation}
 \begin{split}
 	&I_x(x_1)+I_y(x_1) = - I_t	\\
@@ -749,7 +755,7 @@ One  of the advantages of this technique is that the flow can be computed locall
 On the other hand, when the elements of the image are big and textureless, when the image is homogeneous,  this algorithm's performances will decrease. It will find the flow on the edges of the objects but it will fail to fill in homogeneous areas.
 
 \subsection{Correcting term}
-As in the Lucas Kanade method, the flow equation can be solved, neglecting the aperture problem, as a local solution. But, as the window is getting bigger, the flow vector will be influenced by more neighbours, and the aperture problem is felt more as the results are more noisy. Why would one try to enlarge the system of equations? Well, because put it in a context and everything can change. By connecting the pixels with their neighbours, all te pieces will be connected and the system can be viewed as an ensemble. The results get better by solving the aperture problems. 
+As in the Lucas Kanade method \cite{lucas1981}, the flow equation can be solved, neglecting the aperture problem, as a local solution. But, as the window is getting bigger, the flow vector will be influenced by more neighbours, and the aperture problem is felt more as the results are more noisy. Why would one try to enlarge the system of equations? Well, because put it in a context and everything can change. By connecting the pixels with their neighbours, all te pieces will be connected and the system can be viewed as an ensemble. The results get better by solving the aperture problems. 
 
 
 For example, as stated before, on surfaces with smooth, or no texture, the flow cannot be computed with a local method. But, if for a pixel in a textureless area, the flow is computed taking in account its neighbours, flow information will be propagated to it. In image \ref{HSExamplep}, it is shown the flow output for a square moving right and upwards. It can be seen the propagation of the flow between iterations 3 and 100.
@@ -875,7 +881,7 @@ where $w_l$ is the flow computed until the level $l$ and $dw$ the  residual flow
 
 \section{$L^2$ Solutions}
 
-First formulations were in the $L^2$ norm. For this simple approaches are used. As the function is convex and derivable, the solution is classic. First compute the partial derivatives, then equate them to 0. This are simple solutions, that run fast and don't consume to much memory. But this methods are very sensitive to noise. 
+First formulations were in the $L^2$ norm. For this some classical approaches are used. As the function is convex and derivable, the solution of the optimization problem is the solution of the associated Euler-Lagrang equations. First compute the partial derivatives, then equate them to 0. This are simple solutions, that run fast and don't consume to much memory. But this methods are very sensitive to noise. 
 
 \subsection{Gauss-Seidel Iterations} \label{GaussSeidel}
 Gauss Seidel is a iterative method for solving simultaneous equations. If we consider the system 
@@ -1065,7 +1071,7 @@ In \cite{drulea2013}, this formulation of the bilateral filter is used as a comp
 
 \subsection{Census transform}
 
-In Census transform, the intensities of pixels are mapped in a string of bits. The string is formed based on the relation of the current pixel to its neighbours.  Considering a $3\times3$ window, the centre is compared with its neighbours after the function:
+In Census transform \cite{stein2004efficient}, the intensities of pixels are mapped in a string of bits. The string is formed based on the relation of the current pixel to its neighbours.  Considering a $3\times3$ window, the centre is compared with its neighbours after the function:
 
 \begin{equation} \label{censtr}
 \mathcal{C}(x,x') =
@@ -1103,7 +1109,7 @@ But because of the transform, and the threshold, ignoring pixels with low varian
 
 \section{$L^1$ approach}
 
-When the penalty function, $E(x)$ is of type $L^2$, like $\sigma^2(x)$,  the minimization problem is simple. One can reach the solution trough variational calculus, by differentiating the whole energy function with respect to $u$ and $v$, equalising with 0, and solving the system.  
+When the penalty function, $E(x)$ is of type $L^2$, like $\sigma^2(x)$,  the minimization problem is simple. One can reach the solution trough variational calculus, by Euler-Lagrange equations.  
 For a higher robustness, current algorithms tend to use a $L^1$ penalty function, like modulus, others use a combination of both $L^2$ and $L^1$ penalty functions, for example, one for the data energy and one for the smoothness energy.
 
 For this kind of formulations, the minimization can not be done any more trough differential techniques, and other approaches are used.
@@ -1111,7 +1117,7 @@ For this kind of formulations, the minimization can not be done any more trough 
 The smoothness term is the on that is more likely to give erroneous results, as the most outliers are present in the edge areas. Further will be presented two methods studied for solving thee $L^1$ norm. Both of the have only the correction term in $L^1$, the first remaining in $L^2$.
 
 \subsection{Projected Proximal Point}
-Proximal point algorithms are used in minimizing a sum of a convex function and a $L^2$ norm:
+Proximal point algorithms are used in minimizing a sum of a convex function and a $L^2$ norm \cite{parikh2013proximal}:
 
 $$prox_p(x) = arg \min_y \frac{1}{2}\Arrowvert x - y\Arrowvert_2^2 + P(y) $$
 
@@ -1186,10 +1192,12 @@ $$
 To solve the system the algorithm goes trough a series of iterations. In each iteration, it updates the $\boldsymbol{v}$ and $q$ variables one at a time from \ref{pppeq}. After each update of $q$, it is projected into its domain.  
 
 \subsection{Least Mixed Norm} \label{lmn}
-The Least Mixed Norm (LMN) solution originates from the image restoration problems, belonging from the family of interior point algorithms. The objective is to minimize a $L^2-L^1$ function:
+The Least Mixed Norm (LMN) solution was also approached image restoration problems, belonging from the family of interior point algorithms. The objective is to minimize a $L^2-L^1$ function:
 \begin{equation} \label{l2l1}
 	\min_{\boldsymbol{f}}\Arrowvert g - H\boldsymbol{f}\Arrowvert_2^2+ \alpha\Arrowvert R \boldsymbol{f}\Arrowvert_1
 \end{equation}
+
+Basically this approach uses the interior point method. One of th main benefits of this approach is that it can be applied on a large number of algorithms. Other benefit is that, despite of its great dimension, the problems are sparse and banded, so many fast solving procedures can be applied.
 
 In \cite{fu2006efficient}, the problem is explained as a image restoration solution, but as the general function, \ref{l2l1}, matches the optical flow total energy function, this solution can be applied in the optical flow computation, considering $\boldsymbol{f}$ the pair of field vectors $(u,v)$.
 
@@ -1356,11 +1364,11 @@ by removing $\Delta \boldsymbol{v}^+$ and $\Delta \boldsymbol{v}^-$ we obtain:
  The system will be solved for $\boldsymbol{f}$ with equation  \ref{lmnXeq}, and then the other unknowns can be computed:
  \begin{equation} \label{lmnReq}
  	\begin{split}
- 	\boldsymbol{\lambda} = ( D_2^{2} +  D_3^{2} )^{-1}
+ 	\Delta\boldsymbol{\lambda} = ( D_2^{2} +  D_3^{2} )^{-1}
  	(-\hat{\boldsymbol{r}}_{b} - \alpha R \boldsymbol{f})\\
- 	\boldsymbol{v}^+ = D_2^{2}(-\hat{\boldsymbol{r}}_{c2} - \boldsymbol{\lambda})\\
-	\boldsymbol{v}^- = D_3^{2}(-\hat{\boldsymbol{r}}_{c3} + \boldsymbol{\lambda})\\
- 	\boldsymbol{s} =  G  \boldsymbol{x} -  A^T\boldsymbol{\lambda} + \boldsymbol{r}_c
+ 	\Delta\boldsymbol{v}^+ = D_2^{2}(-\hat{\boldsymbol{r}}_{c2} - \boldsymbol{\lambda})\\
+	\Delta\boldsymbol{v}^- = D_3^{2}(-\hat{\boldsymbol{r}}_{c3} + \boldsymbol{\lambda})\\
+ 	\Delta\boldsymbol{s} =  G  \boldsymbol{x} -  A^T\boldsymbol{\lambda} + \boldsymbol{r}_c
  	\end{split}
  \end{equation}
  
@@ -1793,31 +1801,41 @@ For visualizing the output each vector is encoded to the MATLAB's colour space. 
 About 5\% of the paper
 \section{Title}
 \section{Other title}
-
 \chapter{User's manual}
-
-
-
 In the installation description section your should detail the hardware and software resources needed for installing and running the application, and a step by step description of how your application can be deployed/installed. An administrator should be able to perform the installation/deployment based on your instructions.
 
 In the user manual section you describe how to use the application from the point of view of a user with no inside technical information; this should be done with screen shots and a stepwize explanation of the interaction. Based on user's manual, a person should be able to use your product.
 
-\section{Title}
-\section{Other title}
+Here we present a tutorial on how to setup the system and list the necessary resources for this.
+
+\section{Required resources}
+For setting up the application, any operating system capable of running MATLAB can be used. In this presentation, we used Windows 7 OS. For a faster computation a 8GB of RAM and high speed processor are recommended. 
+
+The implementation and testing were made on a Intel i3 processor and a 4 GB of RAM, but the execution times were relatively high.
+
+
+
+\section{Application Setup}
+\begin{enumerate}
+	\item Copy the contents of the CD to \path{C:\ } and extract the archive.
+	\item Start MATLAB.
+	\item Set MATLAB working directory to \path{C:\APPNAMEHERE\} <screenshot?>
+		\item In the MATLAB command window, type the following command:\textit{YOUR\_COMMAND\_HERE}.
+	\end{enumerate}
 
 \chapter{Conclusions}
 
-In this thesis we discussed the main aspects of optical flow computation. We've studied and implemented the classical algorithms from this field. Also we have studied ways of improvement for the algorithm. We've implemented a LMN solution, a new approach in solving the optical flow.
+In this thesis we discussed the main aspects of optical flow computation. We have studied and implemented the classical algorithms from this field. Also we have studied ways of improvement for the algorithm. We've implemented a Least Mixed Norm solution, which is a new approach in solving the optical flow.
 
 
 \section{Research}
-The scope of this thesis is accommodation with the field of optical flow. With a large number of approaches and a highly complex mathematical model, we have started with the classical models an their implementation. 
+The scope of this thesis is accommodation with the field of optical flow. With a large number of approaches and a highly complex mathematical model, we have started with the classical models and their implementation. 
 
-We've seen the problem has two parts, the formulation of the optical flow system and the optimization method.
+We have seen the problem has two parts, the formulation of the optical flow system and the optimization method.
 
-The formulation may be local or global. Although some later works included a local approach, the global formulation achieves more attention in dense computation. This is due the great results and potential for development.
+The formulation may be local or global. Although some later works included a local approach, the global formulation achieves more attention in dense computation. This is due the good results and potential for development.
 
-The norm of the formulation ca be in $L^2$ or $L^1$. $L^2$ was present in the first approaches of the optical flow, but the last solutions incline to a $L^2$ formulation, as the robustness it gives to the algorithm counterbalances the extra computational cost.
+The norm of the formulation ca be in $L^2$ or $L^1$. $L^2$ is present in the first approaches of the optical flow, but the last solutions incline to a $L^1$ formulation, as the robustness it gives to the algorithm counterbalances the extra computational cost.
 
 \section{Proposed Solution}
 
@@ -1830,14 +1848,16 @@ The $L^1$ technique is preferred over $L2$. This is due to the robustness given 
  AT our first implementation of the two algorithms, Projected Proximal Point and Least Mixed Norm, we have observed how fast the LMN techniques converges compared to the PPP.
  
  At th first implementation our results from the LMN optimization are comparable with those from PPP implementation. 
+
+ 
+
+
+\section{Further development}
+
  
  The LMN implementation will be improved in the near future, as it gives satisfying results even with very little optimization. 
  
-
-
-
-
-
+ The bottleneck of our implantation is the sparse system solver, because is the most costly
  
 
 
