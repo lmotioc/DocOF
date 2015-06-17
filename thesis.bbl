@@ -70,6 +70,33 @@ D.~Fleet and Y.~Weiss, ``Optical flow estimation,'' in \emph{Handbook of
   Mathematical Models in Computer Vision}.\hskip 1em plus 0.5em minus
   0.4em\relax Springer, 2006, pp. 237--257.
 
+\bibitem{bergen1992hierarchical}
+J.~R. Bergen, P.~Anandan, K.~J. Hanna, and R.~Hingorani, ``Hierarchical
+  model-based motion estimation,'' in \emph{Computer Vision—ECCV'92}.\hskip
+  1em plus 0.5em minus 0.4em\relax Springer, 1992, pp. 237--252.
+
+\bibitem{bab1998robust}
+A.~Bab-Hadiashar and D.~Suter, ``Robust optic flow computation,''
+  \emph{International Journal of Computer Vision}, vol.~29, no.~1, pp. 59--77,
+  1998.
+
+\bibitem{wedel2008}
+A.~Wedel, T.~Pock, J.~Braun, U.~Franke, and D.~Cremers, ``Duality tv-l1 flow
+  with fundamental matrix prior,'' in \emph{Image and Vision Computing New
+  Zealand, 2008. IVCNZ 2008. 23rd International Conference}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2008, pp. 1--6.
+
+\bibitem{wedel2009}
+A.~Wedel, T.~Pock, C.~Zach, H.~Bischof, and D.~Cremers, ``An improved algorithm
+  for tv-l 1 optical flow,'' in \emph{Statistical and Geometrical Approaches to
+  Visual Motion Analysis}.\hskip 1em plus 0.5em minus 0.4em\relax Springer,
+  2009, pp. 23--45.
+
+\bibitem{molnar2010illumination}
+J.~Moln{\'a}r, D.~Chetverikov, and S.~Fazekas, ``Illumination-robust
+  variational optical flow using cross-correlation,'' \emph{Computer Vision and
+  Image Understanding}, vol. 114, no.~10, pp. 1104--1114, 2010.
+
 \bibitem{stein2004efficient}
 F.~Stein, ``Efficient computation of optical flow using the census transform,''
   in \emph{Pattern Recognition}.\hskip 1em plus 0.5em minus 0.4em\relax

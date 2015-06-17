@@ -517,15 +517,15 @@ There are many suggested improvements, but there are some that proved to be very
 
 They start by formulating the energy function based on th brightness constraint and a correcting term formulated with smoothness, rigidity constraint,  or image segmentation. 
 
-Most of them solve the large displacement problem with a coarse to fine approach.
+Most of them solve the large displacement problem with a coarse to fine approach \cite{bergen1992hierarchical}.
 
-Median filters are us to increase robustness. It may be used as a preprocessing technique, or in between the iteration. The second usage presents a particular interest in flow computation, especially in a coarse to fine approach. It is important to eliminate outliers as soon as possible. If not the propagate to the higher levels and spread in th neighbourhood with each iteration.
+Median filters are us to increase robustness \cite{bab1998robust}. It may be used as a preprocessing technique, or in between the iteration. The second usage presents a particular interest in flow computation, especially in a coarse to fine approach. It is important to eliminate outliers as soon as possible. If not the propagate to the higher levels and spread in th neighbourhood with each iteration.
 
-The penalty function tend to a $L^1$ norm. The classical squared penalty functions are replaced with the absolute value. The important properties of a penalty function is to have a small constant grow, to increase robustness of the algorithm, to be convex for easy calculations and to be non isotropic.
+The penalty function tend to a $L^1$ norm \cite{wedel2008,wedel2009}. The classical squared penalty functions are replaced with the absolute value. The important properties of a penalty function is to have a small constant grow, to increase robustness of the algorithm, to be convex for easy calculations and to be non isotropic.
 
-Some use a bilateral filter as weight for the correcting term. The bilateral filter describe the pixel by its similarity with his neighbours. As the smoothness constraint propagates the flow to the neighbours, such a weight is important as when a pixel is similar to its neighbours we want the propagation, but on the other case, e.g. when a pixel is on the edge we want no influence from its neighbours, tu maintain edge accuracy. 
+Some use a bilateral filter as weight for the correcting term\cite{drulea2013}. The bilateral filter describe the pixel by its similarity with his neighbours. As the smoothness constraint propagates the flow to the neighbours, such a weight is important as when a pixel is similar to its neighbours we want the propagation, but on the other case, e.g. when a pixel is on the edge we want no influence from its neighbours, tu maintain edge accuracy. 
 
-Another improvement to the classical methods is expressing the data term. Some us a correlation transform, to increase robustness of the algorithm. The term is described by the relation with the neighbours, not by its intensity. Another advantage in using the correlation transform is solving some of the occlusions, as new pixels can relay on their neighbours.
+Another improvement to the classical methods is expressing the data term. Some us a correlation transform, to increase robustness of the algorithm\cite{molnar2010illumination}. The term is described by the relation with the neighbours, not by its intensity. Another advantage in using the correlation transform is solving some of the occlusions, as new pixels can relay on their neighbours.
 
 Census transform, \cite{stein2004efficient} is also used in for describing the data term as a special type of correlation. The relation is encoded resulting in memory efficiency. Census methods are a little different of classical methods. They use special types of data structures on which they base their matching techniques. Despite the fact that Census transform does not have the best test results in the field it is used for their easy computation.
 
