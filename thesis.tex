@@ -1350,7 +1350,7 @@ by removing $\Delta \boldsymbol{v}^+$ and $\Delta \boldsymbol{v}^-$ we obtain:
 \end{equation}
 
  where 
- $-\hat{\boldsymbol{r}}_b =  \boldsymbol{-r_b} + D^2_2\hat{\boldsymbol{r}}_{c2} - D^2_3\hat{\boldsymbol{r}}_{c3}$
+ $\hat{\boldsymbol{r}}_b =  \boldsymbol{-r_b} + D^2_2\hat{\boldsymbol{r}}_{c2} - D^2_3\hat{\boldsymbol{r}}_{c3}$
  and finally, eliminating $\Delta\boldsymbol{\lambda}$,
  \begin{equation} \label{lmnXeq}
  \begin{bmatrix}
@@ -1371,9 +1371,8 @@ by removing $\Delta \boldsymbol{v}^+$ and $\Delta \boldsymbol{v}^-$ we obtain:
  	\Delta\boldsymbol{s} =  G  \boldsymbol{x} -  A^T\boldsymbol{\lambda} + \boldsymbol{r}_c
  	\end{split}
  \end{equation}
- 
- Now the system will be approximated iteratively. A initial guess is taken from the condition $A\boldsymbol{x} = b$ 
 
+ Now the system will be approximated iteratively. A initial guess is taken from the condition $A\boldsymbol{x} = b$ 
 
 
 
@@ -1614,10 +1613,10 @@ Finally, the results from the error measurement, the timer are displayed. Also a
 
 \section{Proposed algorithm implementation}
 
-In this section we present the main functions of the system placed in a hierarchy. Also, we will detail each function's behaviour and usage.
+In this section we present the main functions of the system placed in a hierarchy. Also, we will detail each of these functions' behaviour and usage. In \ref{funcDiagram}, we present the hierarchical representations of our system's functions. In the diagram we note the types Image a two dimensional array and flow a 3 dimensional array and flowStructure, the flow vector and his auxiliary variables, $\boldsymbol{\lambda}$, $\boldsymbol{s}$, $\boldsymbol{x}$, described in \ref{minproclmn}.
 
 
-\begin{figure}
+\begin{figure} \label{funcDiagram}
 	\label{funcdiag}
 	\centering
 	\includegraphics[width = 6in]{img/functions} 
@@ -1629,31 +1628,58 @@ Its tasks are reading the images, and  calling the 2 sub functions, \textit{Coar
 
 \paragraph{CoarseToFine(Im1, Im2, params)} This function holds the implementation for the coarse-to-fine method. 
 
-The input parameters are:
-\begin{itemize}
-	\item Im1 : the first image of the sequence.
-	\item Im2 : the second image of the sequence.
-	\item params : this is a general notation for the control parameters of the system. To save space, we have noted them as a group and will be explained only in th function that uses them. 
-\end{itemize}
+the method takes as parameters two images, \textit{Im1} and \textit{Im2} on which the flow will be computed, and a list of input parameters. The parameters are passed to the next function, so we will describe them on the function in which they are used. 
 
-The flow of this function is represented in figure \ref{CTFflow}. First the maximum height is computed with formula from \ref{pyrheight}. Then, the \textit{BuildPyramid} function is calld for each image. After the pyramids are built, in an iteration trough each level of the pyramid, starting from the coarsest, first the flow parameters are initialized if they are not, otherwise an up sampling is done with \textit{resize}, then the \textit{ComputeFlow} function is called for each level. 
+The flow of this function is represented in figure \ref{CTFflow}. First the maximum height is computed with formula from \ref{pyrheight}. Then, the \textit{BuildPyramid} function is called for each image. After the pyramids are built, in an iteration trough each level of the pyramid, starting from the coarsest, first the flow parameters are initialized if they are not, otherwise an up sampling is done with \textit{resize}, then the \textit{ComputeFlow} function is called for each level. 
 
 At the initialization level, a flow structure is build, from the flow and its auxiliary variables needed in the next step.
 
-\paragraph{BuildPyramid(Im1)} This function has the task of building the pyramid. The input parameter is the image and the number of levels that it should have. It uses  MATLAB's \textit{resize} function for a with a sampling factor of $0.5$. The function returns a cell structure of images with the higher level corresponding to the coarsest.
+\paragraph{BuildPyramid(Im)} This function has the task of building the pyramid. The input parameter is the image and the number of levels that it should have. The pyramid is build by repentantly downsizing the input image. It uses  MATLAB's \textit{resize} function for a with a sampling factor of $0.5$. The function returns a cell structure of images with the higher level corresponding to the coarsest.
 
 \paragraph{ResizeFlow(Flow, size)}
 This function is used for up sampling. The input parameter is a flow vector and the desired size of the output flow. The sampling factor used for resizing the flow is the ratio between the new size and the old one. 
 
-\paragraph{Compute flow(Im1, Im2, wrs, maxIt, sigmaR, sigmaD)} This function is called on every level of the pyramid. The \textit{Im1} and \textit{Im2} inputs are the images that correspond to the current level of the pyramid. \textit{wrs} is the number of warps the system will perford, and \textit{maxIt} is maximum number of iterations. \textit{sigmaR} and \textit{sigmaD} are userd in comuting the bilateral filter.
+\paragraph{Compute flow(Im1, Im2, wrs, maxIt, sigmaR, sigmaD)} This function is called on every level of the pyramid. The \textit{Im1} and \textit{Im2} inputs are the images that correspond to the current level of the pyramid. \textit{wrs} is the number of warps the system will performed, and \textit{maxIt} is maximum number of iterations. \textit{sigmaR} and \textit{sigmaD} are used in computing the bilateral filter.
 
  In this function are computed matrices of the system that do not change trough iterations. 
  The structure of the function is: in an outer while loop, first the I2 is warped with the flow towards I1. ThenMatrices that do not change trough the iteration are computed : [see notations \ref{minproclmn}]  $G$, $\boldmath c$ , $K$, $bf \cdot K$,$bf^2 \cdot K$, $A$. 
- After the system  in prepared, after the matricas are computed, the systm starts to iterate trough \textit{OptimizationFlow} function.. 
+ After the system  in prepared, after the matrices are computed, the systm starts to iterate trough \textit{OptimizationFlow} function.
 
 \paragraph{OptimizeFlow(X, S, Lambda)}
 
+In this function, the optical flow is optimized. After the flow  and its parameters took an initial value in \textit{CoarseToFine} function, they are updated using the formulas in section \ref{lmn}.
 
+We first compute $D^2$ matrix from $D = S^{-1/2}X^{1/2}$, then as the matrix is single banded on the main diagonal we compute its inverse as $D^{-1} = S^{1/2}X^{-1/2}$, to save computational time. We need $X$ and $S$ matrices. This are the diagonal matrices from $\boldsymbol{x}$ and $\boldsymbol{s}$. We use MATLAB's \textit{spdiags} function to create this matrices. We also need $X^{-1}$. It will be computed in the same manner.  Elements may appear \textit{NAN}, from division with 0 in this matrices. This entries are replaced with 0.
+
+Now we can compute the left hand variables from the equations, namely
+\begin{equation}
+\begin{split}
+\boldsymbol{r}_c = G\boldsymbol{x} + \boldsymbol{c}-A^T\boldsymbol{\lambda} - \boldsymbol{s}\\
+\boldsymbol{r}_b = A\boldsymbol{x}-\boldsymbol{b}\\
+\boldsymbol{r}_a = XS\boldsymbol{1}- \sigma\mu \boldsymbol{1}\\
+\hat{\boldsymbol{r}}_b =  \boldsymbol{-r_b} + D^2_2\hat{\boldsymbol{r}}_{c2} - D^2_3\hat{\boldsymbol{r}}_{c3} \\
+\hat{\boldsymbol{r}}_c = \boldsymbol{r}_c + X^{-1}\boldsymbol{r}_a \\
+\tilde{\boldsymbol{r}}_{c1} = \hat{\boldsymbol{r}}_{c1} + \alpha R ^T( D_2^{2} +  D_3^{2} )^{-1} \hat{\boldsymbol{r}}_{b}
+\end{split}
+\end{equation}
+
+We access D1, D2 and D3 by splitting D in 3 equal parts on the diagonal.
+
+We can now compute solve the system for $\boldsymbol{x}$.
+
+ We use the formula $$\tilde{\boldsymbol{r}}_{c1} = \hat{\boldsymbol{r}}_{c1} + \alpha R ^T( D_2^{2} +  D_3^{2} )^{-1} \hat{\boldsymbol{r}}_{b}$$.
+ and the auxiliary variables.
+ \begin{equation}
+ \begin{split}
+ \Delta\boldsymbol{\lambda} = ( D_2^{2} +  D_3^{2} )^{-1}
+ (-\hat{\boldsymbol{r}}_{b} - \alpha R \boldsymbol{f})\\
+ \Delta\boldsymbol{v}^+ = D_2^{2}(-\hat{\boldsymbol{r}}_{c2} - \boldsymbol{\lambda})\\
+ \Delta\boldsymbol{v}^- = D_3^{2}(-\hat{\boldsymbol{r}}_{c3} + \boldsymbol{\lambda})\\
+ \Delta\boldsymbol{s} =  G  \boldsymbol{x} -  A^T\boldsymbol{\lambda} + \boldsymbol{r}_c
+ \end{split}
+ \end{equation}
+ 
+ Thee function returns $\boldsymbol{x}$, $\boldsymbol{s}$,$\boldsymbol{\lambda}$, which will be the input at the next iteration. The code is available in Appendix A.
 
 \paragraph{CorrelationTransforn(Im)}
 

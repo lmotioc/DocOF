@@ -2,24 +2,55 @@
 \chapter{Relevant code}
 
 \begin{verbatim}
- /** Maps are easy to use in Scala. */
-object Maps {
-  val colors = Map("red" -> 0xFF0000,
-                   "turquoise" -> 0x00FFFF,
-                   "black" -> 0x000000,
-                   "orange" -> 0xFF8040,
-                   "brown" -> 0x804000)
-  def main(args: Array[String]) {
-    for (name <- args) println(
-      colors.get(name) match {
-        case Some(code) =>
-          name + " has code: " + code
-        case None =>
-          "Unknown color: " + name
-      }
-    )
-  }
-}
+Optimize (x,s,lambda)
+\{
+	D23SqInv = spdiags(1./ ...
+				( ... 
+					x(1+dim:2*dim)./s(1+dim:2*dim)+ ...
+					x(1+2*dim:3*dim)./s(1+2*dim:3*dim)  ...
+				) ...
+				, 0, dim, dim);
+	D23SqInv(isnan(D23SqInv)) = 0;
+	
+	D3 = spdiags(x(1:dim)./s(1:dim), 0, dim, dim);
+	D2 = spdiags(x(1:dim)./s(1:dim), 0, dim, dim);
+	D1Inv  = spdiags(s(1:dim)./x(1:dim), 0, dim, dim);        
+	XInv = spdiags(1./x(:),0,3*dim, 3*dim);
+	
+	D3(isnan(D3)) = 0;
+	D2(isnan(D2)) = 0;
+	D1Inv(isnan(D1Inv)) = 0;
+	XInv(isnan(XInv)) = 0;
+	
+	miu = mean(x(:).*s(:));
+	sigma = std2(x(:).*s(:));
+	ra = x(:).* s(:) - miu*sigma*ones(3*dim, 1);
+	rc =  G*x+c-s-A'*l ;
+	rb = A*x;
+	rch =rc + XInv* ra;
+	
+	rch1 = rch(1:dim);
+	rch2 = rch(1+dim:2*dim);
+	rch3 = rch(1+2*dim:3*dim);
+	
+	rbh = rb + D2 * rch2 - D3 * rch3;
+	rcTilda =rch1 +bfK'*(D23SqInv)*rbh;
+	
+	BigA = 2*G(1:dim, 1:dim)+D1Inv+bf2K'*D23SqInv*K;
+	
+	deltaF = gmres(BigA, -rcTilda);
+	
+	
+	deltaL = D23SqInv*(-rbh-bfK*deltaF);
+	deltaVp = D2*(-rch2-deltaL);
+	deltaVm = D3*(-rch3-deltaL);
+	deltaX = [deltaF; deltaVp; deltaVm];
+	deltaS = G * deltaX- A'*deltaL+ rc;
+	
+	x = x + deltaX;
+	s = s + deltaS;
+	l = l + deltaL;
+\}
 \end{verbatim}
 
 \chapter{Other relevant information (demonstrations, etc.)}

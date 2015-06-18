@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  17 JUN 2015 23:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  18 JUN 2015 05:50
 entering extended mode
 **thesis.tex
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.tex
@@ -680,6 +680,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [53]
 
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1557.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
+7.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1557.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
+7.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1557.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
+7.
+
+
 LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1558.
 
 
@@ -701,46 +722,25 @@ LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
 8.
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1559.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
-9.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1559.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
-9.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1559.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
-9.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1564.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1563.
 
 
 LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
-4.
+3.
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1564.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
-4.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1564.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1563.
 
 
 LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
-4.
+3.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1563.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
+3.
 
 [54] [55]
 Chapter 6.
@@ -753,143 +753,151 @@ Underfull \vbox (badness 2042) has occurred while \output is active []
 <img/bigflow.jpg, id=206, 891.33pt x 283.0575pt>
 File: img/bigflow.jpg Graphic file (type jpg)
  <use img/bigflow.jpg>
-Package pdftex.def Info: img/bigflow.jpg used on input line 1611.
+Package pdftex.def Info: img/bigflow.jpg used on input line 1610.
 (pdftex.def)             Requested size: 448.07378pt x 142.29288pt.
 
 <img/functions.jpg, id=207, 604.2575pt x 966.61125pt>
 File: img/functions.jpg Graphic file (type jpg)
  <use img/functions.jpg>
-Package pdftex.def Info: img/functions.jpg used on input line 1623.
+Package pdftex.def Info: img/functions.jpg used on input line 1622.
 (pdftex.def)             Requested size: 433.62pt x 693.64395pt.
 
 
-LaTeX Warning: Float too large for page by 111.47182pt on input line 1625.
+LaTeX Warning: Float too large for page by 111.47182pt on input line 1624.
 
 [57 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/bigflow.jpg>] [58 <C:/Users/La
 la/Desktop/templateLaTeX-Eng/img/functions.jpg>]
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1651.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1645.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 165
-1.
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 164
+5.
 
 [59] <img/ctfflow.jpg, id=218, 461.725pt x 483.8075pt>
 File: img/ctfflow.jpg Graphic file (type jpg)
  <use img/ctfflow.jpg>
-Package pdftex.def Info: img/ctfflow.jpg used on input line 1673.
+Package pdftex.def Info: img/ctfflow.jpg used on input line 1699.
 (pdftex.def)             Requested size: 216.81pt x 227.17546pt.
 
-[60 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/ctfflow.jpg>] [61]
-Underfull \hbox (badness 10000) in paragraph at lines 1722--1725
+[60] [61 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/ctfflow.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1748--1751
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1726--1736
+Underfull \hbox (badness 10000) in paragraph at lines 1752--1762
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1726--1736
+Underfull \hbox (badness 10000) in paragraph at lines 1752--1762
 
  []
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1740.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62]
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1766.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 174
-0.
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 176
+6.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1740--1742
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1743--1753
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1743--1753
+Underfull \hbox (badness 10000) in paragraph at lines 1766--1768
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1759--1761
-
- []
-
-[62]
-Underfull \hbox (badness 10000) in paragraph at lines 1762--1772
+Underfull \hbox (badness 10000) in paragraph at lines 1769--1779
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1762--1772
+Underfull \hbox (badness 10000) in paragraph at lines 1769--1779
 
  []
 
-<img/vectors.jpg, id=228, 1204.5pt x 903.375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1785--1787
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1788--1798
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1788--1798
+
+ []
+
+[63] <img/vectors.jpg, id=231, 1204.5pt x 903.375pt>
 File: img/vectors.jpg Graphic file (type jpg)
  <use img/vectors.jpg>
-Package pdftex.def Info: img/vectors.jpg used on input line 1793.
+Package pdftex.def Info: img/vectors.jpg used on input line 1819.
 (pdftex.def)             Requested size: 216.81pt x 162.60048pt.
 
-<img/colors.jpg, id=229, 903.375pt x 677.53125pt>
+<img/colors.jpg, id=232, 903.375pt x 677.53125pt>
 File: img/colors.jpg Graphic file (type jpg)
  <use img/colors.jpg>
-Package pdftex.def Info: img/colors.jpg used on input line 1794.
+Package pdftex.def Info: img/colors.jpg used on input line 1820.
 (pdftex.def)             Requested size: 260.17244pt x 195.13504pt.
 
-Overfull \hbox (17.98244pt too wide) in paragraph at lines 1793--1795
+Overfull \hbox (17.98244pt too wide) in paragraph at lines 1819--1821
  [][][] 
  []
 
-[63] [64 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/vectors.jpg> <C:/Users/La
+[64] [65 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/vectors.jpg> <C:/Users/La
 la/Desktop/templateLaTeX-Eng/img/colors.jpg>]
 Chapter 7.
-[65
+[66
 
 ]
 Chapter 8.
-LaTeX Font Info:    Try loading font information for T1+aett on input line 1820
+LaTeX Font Info:    Try loading font information for T1+aett on input line 1846
 .
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (44.66533pt too wide) in paragraph at lines 1823--1824
+Overfull \hbox (44.66533pt too wide) in paragraph at lines 1849--1850
 []\T1/aer/m/n/12 In the MAT-LAB com-mand win-dow, type the fol-low-ing com-mand
 :\T1/aer/m/it/12 YOUR_COMMAND_HERE\T1/aer/m/n/12 . 
  []
 
-[66
+[67
 
 ]
 Chapter 9.
-[67
+[68
 
-] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [68] [69
+] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [69] [70
 
-]) [70]
+]) [71]
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.tex
 Appendix A.
-[71
+
+Underfull \vbox (badness 1014) has occurred while \output is active []
+
+ [72
 
 
 ]
+[73]
 Appendix B.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72
+ [74
 
 ]
-[73]
+[75]
 Appendix C.
-) [74
+) [76
 
 ] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.aux
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\guideline.aux)
@@ -903,10 +911,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 568 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5541 strings out of 493921
- 73414 string characters out of 3147285
- 152327 words of memory out of 3000000
- 8640 multiletter control sequences out of 15000+200000
+ 5542 strings out of 493921
+ 73427 string characters out of 3147285
+ 152338 words of memory out of 3000000
+ 8641 multiletter control sequences out of 15000+200000
  43940 words of font info for 101 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,25n,47p,845b,402s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -927,9 +935,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (71 pages, 1702051 bytes).
+Output written on thesis.pdf (73 pages, 1707261 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
+ 335 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

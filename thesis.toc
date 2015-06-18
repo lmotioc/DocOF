@@ -55,28 +55,28 @@
 \contentsline {section}{\numberline {6.2}General Overview}{57}
 \contentsline {section}{\numberline {6.3}Proposed algorithm implementation}{57}
 \contentsline {paragraph}{Main}{57}
-\contentsline {paragraph}{CoarseToFine(Im1, Im2, params)}{57}
-\contentsline {paragraph}{BuildPyramid(Im1)}{59}
+\contentsline {paragraph}{CoarseToFine(Im1, Im2, params)}{59}
+\contentsline {paragraph}{BuildPyramid(Im)}{59}
 \contentsline {paragraph}{ResizeFlow(Flow, size)}{59}
 \contentsline {paragraph}{Compute flow(Im1, Im2, wrs, maxIt, sigmaR, sigmaD)}{59}
 \contentsline {paragraph}{OptimizeFlow(X, S, Lambda)}{59}
 \contentsline {paragraph}{CorrelationTransforn(Im)}{60}
 \contentsline {section}{\numberline {6.4}Pyramidal Implementation}{60}
 \contentsline {section}{\numberline {6.5}Derivative Discretization}{61}
-\contentsline {section}{\numberline {6.6}Sparse Matrix}{61}
-\contentsline {section}{\numberline {6.7}Output and MATLAB Colorspace}{63}
-\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{65}
-\contentsline {section}{\numberline {7.1}Title}{65}
-\contentsline {section}{\numberline {7.2}Other title}{65}
-\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{66}
-\contentsline {section}{\numberline {8.1}Required resources}{66}
-\contentsline {section}{\numberline {8.2}Application Setup}{66}
-\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{67}
-\contentsline {section}{\numberline {9.1}Research}{67}
-\contentsline {section}{\numberline {9.2}Proposed Solution}{67}
-\contentsline {section}{\numberline {9.3}Further development}{68}
-\contentsline {chapter}{Bibliography}{69}
-\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{71}
-\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{72}
-\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{72}
-\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{74}
+\contentsline {section}{\numberline {6.6}Sparse Matrix}{62}
+\contentsline {section}{\numberline {6.7}Output and MATLAB Colorspace}{64}
+\contentsline {chapter}{Chapter{} \numberline {7}Testing and Validation}{66}
+\contentsline {section}{\numberline {7.1}Title}{66}
+\contentsline {section}{\numberline {7.2}Other title}{66}
+\contentsline {chapter}{Chapter{} \numberline {8}User's manual}{67}
+\contentsline {section}{\numberline {8.1}Required resources}{67}
+\contentsline {section}{\numberline {8.2}Application Setup}{67}
+\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{68}
+\contentsline {section}{\numberline {9.1}Research}{68}
+\contentsline {section}{\numberline {9.2}Proposed Solution}{68}
+\contentsline {section}{\numberline {9.3}Further development}{69}
+\contentsline {chapter}{Bibliography}{70}
+\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{72}
+\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{74}
+\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{74}
+\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{76}
