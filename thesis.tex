@@ -29,8 +29,8 @@
 \usepackage{algorithm}
 %\usepackage{algorithmic}
 \usepackage{color}
-\usepackage{color}
 
+\usepackage{verbatim}
 
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -223,7 +223,7 @@ Data \hspace{8cm} Nume, Prenume
 
 
 
-\chapter{Introduction - Project Context}
+\chapter{Introduction}
 \pagestyle{headings}
 
 This chapter will present an introduction to the field of optical flow. General concepts from the domain will be described, as they are placed in a historical context.
@@ -420,7 +420,60 @@ Based on this approach, many other algorithms were published. All this formulati
 
 Another heavily cited article was published in the same year by Lucas and Kanade ~\cite{lucas1981}. This approach solves the problem as a sum of squared differences, and proposes a coarse-to-fine solution for large displacements. As stated in chapter 3 from~\cite{mitiche2014computer} the main weakness of this algorithm compared to Horn Schunk 's is the lack of regularization.
  
+\section{Problem formulation}
+The optical flow problem is, generally speaking, an optimization problem applied to a function which consists of two terms. One of them is the function to be minimized and the other is a correlation term called \textit{diffusion term} which could correct or prevent errors (outliers) carried by the data term. 
 
+From a mathematical perspective we should point from the beginning one should major aspect. There are two kinds of data and diffusion terms from the isotropy perspective. The $L^2$ problem generally gives isotropic terms, as opposed to? $L^1$ which gives rise to anisotropic ones. The anisotropic property is very important, geometrically it means a direction dependence of the terms. Also the approach is more robust.
+
+Examples of the data term and the correction term are shown in the next tables,  as they are presented in \cite{trobin}.
+
+\begin{center}
+	\begin{tabular}{  | l | l | p{5cm} |}
+		\hline
+		Data Term & Constancy Assumption & Motion Type \\ \hline
+		$\Psi \left((\tilde{u}^T\tilde{\nabla}I)^2\right)$ & brightness & any \\ \hline
+		
+		$\Psi \left((\sum_{i=1}^{2}{(\tilde{u}^T\tilde{\nabla}I_{\chi_i})^2})\right)$ & gradient & translational,
+		divergent,
+		slow rotational \\ \hline
+		
+		$\Psi{\left(\sum_{i=1}^{2}\sum_{j=1}^{2}\left(\tilde{u}^T\tilde{\nabla}I_{\chi_i\chi_j}\right)^2\right)}$ & Hessian & translational,
+		divergent,
+		slow rotational \\
+		\hline
+		
+		$\Psi \left( \left( \tilde{u}^T \tilde{\nabla} |\nabla I| \right)^2 \right)$ & gradient magnitude & any \\
+		\hline
+		
+		$\Psi\left( \left( \tilde{u}^T\tilde{\nabla} \left( \Delta I \right) \right)^2 \right)$ & Laplacian & any \\
+		\hline
+		
+		$\Psi \left( \left( \tilde{u}^T \tilde{\nabla} det \left( \mathcal{H} \left( I \right) \right) \right)^2 \right) $ & Hessian determinant & any \\
+		\hline
+	\end{tabular}
+\end{center}
+
+
+{\renewcommand{\arraystretch}{2}
+	\begin{center}
+		
+		\begin{tabular}{| l | c |}
+			\hline
+			Data Term & Correction term  \\ \hline
+			$S_1 = \sum_{i=1}^{2}{|\nabla u_i|^2}$ & Homogeneous \\ \hline
+			
+			$S_2 = g \left( |\nabla I|^2 \right) \sum_{i=1}^{2} {|\nabla u_i|^2}$ & image-driven, isotropic  \\ \hline
+			
+			$S_3 = \sum_{i=1}^{2} \left( \nabla u_i \right)^T D \left( \nabla I \right) \nabla u_i$ & image-driven, anisotropic  \\
+			\hline
+			
+			$S_4 = \Psi \left( \sum_{i=1}^{2} |\nabla u_i|^2 \right)$ & flow-driven, isotropic  \\
+			\hline
+			
+			$S_5 = trace \Psi \left( \sum_{i=1}^{2} \nabla u_i \left( \nabla u_i \right)^T \right)$  & flow-driven, anisotropic \\
+			\hline
+		\end{tabular}
+	\end{center}
 
 \section{First Approaches}
 
@@ -531,60 +584,7 @@ Census transform, \cite{stein2004efficient} is also used in for describing the d
 
 All of this improvements and their mathematical model will be discussed in detail in the next chapter.   
 
-\section{Problem formulation}
-The optical flow problem is, generally speaking, an optimization problem applied to a function which consists of two terms. One of them is the function to be minimized and the other is a correlation term called \textit{diffusion term} which could correct or prevent errors (outliers) carried by the data term. 
 
-From a mathematical perspective we should point from the beginning one should major aspect. There are two kinds of data and diffusion terms from the isotropy perspective. The $L^2$ problem generally gives isotropic terms, as opposed to? $L^1$ which gives rise to anisotropic ones. The anisotropic property is very important, geometrically it means a direction dependence of the terms. Also the approach is more robust.
-
-Examples of the data term and the correction term are shown in the next tables,  as they are presented in \cite{trobin}.
-
-\begin{center}
-	\begin{tabular}{  | l | l | p{5cm} |}
-		\hline
-		Data Term & Constancy Assumption & Motion Type \\ \hline
-		$\Psi \left((\tilde{u}^T\tilde{\nabla}I)^2\right)$ & brightness & any \\ \hline
-		
-		$\Psi \left((\sum_{i=1}^{2}{(\tilde{u}^T\tilde{\nabla}I_{\chi_i})^2})\right)$ & gradient & translational,
-		divergent,
-		slow rotational \\ \hline
-		
-		$\Psi{\left(\sum_{i=1}^{2}\sum_{j=1}^{2}\left(\tilde{u}^T\tilde{\nabla}I_{\chi_i\chi_j}\right)^2\right)}$ & Hessian & translational,
-		divergent,
-		slow rotational \\
-		\hline
-		
-		$\Psi \left( \left( \tilde{u}^T \tilde{\nabla} |\nabla I| \right)^2 \right)$ & gradient magnitude & any \\
-		\hline
-		
-		$\Psi\left( \left( \tilde{u}^T\tilde{\nabla} \left( \Delta I \right) \right)^2 \right)$ & Laplacian & any \\
-		\hline
-		
-		$\Psi \left( \left( \tilde{u}^T \tilde{\nabla} det \left( \mathcal{H} \left( I \right) \right) \right)^2 \right) $ & Hessian determinant & any \\
-		\hline
-	\end{tabular}
-\end{center}
-
-
-{\renewcommand{\arraystretch}{2}
-	\begin{center}
-		
-		\begin{tabular}{| l | c |}
-			\hline
-			Data Term & Correction term  \\ \hline
-			$S_1 = \sum_{i=1}^{2}{|\nabla u_i|^2}$ & Homogeneous \\ \hline
-			
-			$S_2 = g \left( |\nabla I|^2 \right) \sum_{i=1}^{2} {|\nabla u_i|^2}$ & image-driven, isotropic  \\ \hline
-			
-			$S_3 = \sum_{i=1}^{2} \left( \nabla u_i \right)^T D \left( \nabla I \right) \nabla u_i$ & image-driven, anisotropic  \\
-			\hline
-			
-			$S_4 = \Psi \left( \sum_{i=1}^{2} |\nabla u_i|^2 \right)$ & flow-driven, isotropic  \\
-			\hline
-			
-			$S_5 = trace \Psi \left( \sum_{i=1}^{2} \nabla u_i \left( \nabla u_i \right)^T \right)$  & flow-driven, anisotropic \\
-			\hline
-		\end{tabular}
-	\end{center}
 
 \chapter{Analysis and Theoretical Foundation of existing algorithms}
 \label{ch:analysis}
@@ -846,7 +846,8 @@ Usually a sampling factor of $0.5$ is considered. If we consider $L$ the current
 \begin{split}
 I_{L+1}(x,y) = &\frac{1}{4}I_L(2x,2y)+\\
 &\frac{1}{8}(I_L(2x-1,2y)+I_L(2x+1,2y)+I_L(2x,2y-1)+I_L(2x,2y+1))+\\
-&\frac{1}{16}(I_L(2x-1,2y-1)+I_L(2x+1,2y+1)+I_L(2x-1,2y+1)+I_L(2x+1,2y-1) 
+&\frac{1}{16}(I_L(2x-1,2y-1)+I_L(2x+1,2y+1)\\
+&+I_L(2x-1,2y+1)+I_L(2x+1,2y-1))
 \end{split}
 \end{equation}
 
@@ -884,7 +885,7 @@ where $w_l$ is the flow computed until the level $l$ and $dw$ the  residual flow
 First formulations were in the $L^2$ norm. For this some classical approaches are used. As the function is convex and derivable, the solution of the optimization problem is the solution of the associated Euler-Lagrang equations. First compute the partial derivatives, then equate them to 0. This are simple solutions, that run fast and don't consume to much memory. But this methods are very sensitive to noise. 
 
 \subsection{Gauss-Seidel Iterations} \label{GaussSeidel}
-Gauss Seidel is a iterative method for solving simultaneous equations. If we consider the system 
+Gauss Seidel is a iterative method for solving simultaneous equations \ref{golub2012matrix}. If we consider the system 
 \begin{equation}
 A\boldsymbol{x} = b
 \end{equation}
@@ -1556,11 +1557,14 @@ The $K$
 		\State Set up pyramids $I_1$ $I_2$
 		\State If the coarsest level initialize $\boldmath{f^0}$, $\boldmath{s^0}$, $\boldmath{\lambda^0}$
 		\State If not, unsample $\boldmath{f^0}$, $\boldmath{s^0}$, $\boldmath{\lambda^0}$
+		\For{wr = 0, 1, 2 ...}
+		\State Warp I2 towards I1
 		\State Compute A
 		\For{k = 0, 1, 2 ...}
-		\State Compute G and $\boldsymbol{c}$ as they are dependent on $\boldsymbol{}$
+		\State Compute G and $\boldsymbol{c}$ as they are dependent on $\boldsymbol{x}$
 		\State Solve for $\Delta x$ \ref{lmnXeq}
 		\State Recover $\boldmath{f^0}$, $\boldmath{s^0}$, $\boldmath{\lambda^0}$ from \ref{lmnReq}
+		\EndFor
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
@@ -1828,11 +1832,9 @@ About 5\% of the paper
 \section{Title}
 \section{Other title}
 \chapter{User's manual}
-In the installation description section your should detail the hardware and software resources needed for installing and running the application, and a step by step description of how your application can be deployed/installed. An administrator should be able to perform the installation/deployment based on your instructions.
 
-In the user manual section you describe how to use the application from the point of view of a user with no inside technical information; this should be done with screen shots and a stepwize explanation of the interaction. Based on user's manual, a person should be able to use your product.
 
-Here we present a tutorial on how to setup the system and list the necessary resources for this.
+In this chapter we specify the resources needed to run our application and the setup steps towards lunching the application. We also describe the input parameters.
 
 \section{Required resources}
 For setting up the application, any operating system capable of running MATLAB can be used. In this presentation, we used Windows 7 OS. For a faster computation a 8GB of RAM and high speed processor are recommended. 
@@ -1843,11 +1845,35 @@ The implementation and testing were made on a Intel i3 processor and a 4 GB of R
 
 \section{Application Setup}
 \begin{enumerate}
-	\item Copy the contents of the CD to \path{C:\ } and extract the archive.
+	\item Copy the contents of the CD to \path{C:\ } or other local disk and extract the archive.
 	\item Start MATLAB.
-	\item Set MATLAB working directory to \path{C:\APPNAMEHERE\} <screenshot?>
-		\item In the MATLAB command window, type the following command:\textit{YOUR\_COMMAND\_HERE}.
+	\item Set MATLAB working directory to \path{C:\...\lmn\}. See figure a
+		\begin{figure}
+			\centering
+				\subfloat[]{\includegraphics[width = 3in]{img/path}} 	\label{path}
+				\subfloat[]{\includegraphics[width = 1.5in]{img/commandw}} \label{commw}
+			\caption{Path Selection}
+		\end{figure}
+	\item In the MATLAB command window, type the following command:\textit{OpticalFlow}. See figure b
 	\end{enumerate}
+
+\section{Running the application}
+
+After the \textit{OpticalFlow} command was initiated, another window will pop up with th settings.
+
+		\begin{figure}
+			\centering
+			\includegraphics[width = 2in]{img/inputwindow}
+			\caption{Path Selection}
+		\end{figure}
+		
+First the user should provide 2 images in the \textit{Image 1} and \textit{Image 2} fields. 
+
+The \textit{flow} input allows user to specify the ground truth to which the flow will be computed. Expects a .flo fie. this field is optional.
+
+Then the parameters are requested. All of them affect th smoothness of the flow.
+
+Lambda is indirect proportionally with the flow smoothness.
 
 \chapter{Conclusions}
 
@@ -1883,7 +1909,15 @@ The $L^1$ technique is preferred over $L2$. This is due to the robustness given 
  
  The LMN implementation will be improved in the near future, as it gives satisfying results even with very little optimization. 
  
- The bottleneck of our implantation is the sparse system solver, because is the most costly
+ The bottleneck of our implantation is the sparse system solver, because is the most costly part with respect to execution time and memory used. Because the system matrices are very well structured as banded symmetric sparse, a more specialized solver is needed.
+ 
+ Because the big applicability of the sparse problems there should be implemented specialized sparse solvers for this kind of matrices, and especially in c, where the this kind of problems are highly parallelizable.
+ 
+ A pre and post processing phase should fallow, to improve the accuracy of the results.
+ 
+ After the algorithm is properly set and no optimization can be done in the near future, it can be implemented for parallelizable platform like CUDA, using specific libraries like openGL. This should bring a considerate increase in execution time.
+ 
+ 
  
 
 

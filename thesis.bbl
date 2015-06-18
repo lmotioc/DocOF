@@ -56,6 +56,10 @@ A.~Mitiche and J.~K. Aggarwal, \emph{Computer Vision Analysis of Image Motion
   by Variational Methods}.\hskip 1em plus 0.5em minus 0.4em\relax Springer,
   2014.
 
+\bibitem{trobin}
+W.~Trobin, ``Local, semi-global, and global optimization for motion
+  estimation,'' 2009.
+
 \bibitem{wedel2011stereo}
 A.~Wedel and D.~Cremers, \emph{Stereo scene flow for 3D motion analysis}.\hskip
   1em plus 0.5em minus 0.4em\relax Springer Science \& Business Media, 2011.
@@ -101,10 +105,6 @@ J.~Moln{\'a}r, D.~Chetverikov, and S.~Fazekas, ``Illumination-robust
 F.~Stein, ``Efficient computation of optical flow using the census transform,''
   in \emph{Pattern Recognition}.\hskip 1em plus 0.5em minus 0.4em\relax
   Springer, 2004, pp. 79--86.
-
-\bibitem{trobin}
-W.~Trobin, ``Local, semi-global, and global optimization for motion
-  estimation,'' 2009.
 
 \bibitem{nagel1983constraints}
 H.-H. Nagel \emph{et~al.}, ``Constraints for the estimation of displacement

@@ -1,4 +1,4 @@
-\contentsline {chapter}{Chapter{} \numberline {1}Introduction - Project Context}{13}
+\contentsline {chapter}{Chapter{} \numberline {1}Introduction}{13}
 \contentsline {section}{\numberline {1.1}Project Context}{13}
 \contentsline {section}{\numberline {1.2}Project Domain}{13}
 \contentsline {section}{\numberline {1.3}Thesis structure}{14}
@@ -8,19 +8,19 @@
 \contentsline {section}{\numberline {2.3}Project Objectives}{18}
 \contentsline {section}{\numberline {2.4}General Flow of events}{19}
 \contentsline {chapter}{Chapter{} \numberline {3}Bibliographic research}{22}
-\contentsline {section}{\numberline {3.1}First Approaches}{22}
-\contentsline {subsection}{\numberline {3.1.1}Horn Schunk}{23}
-\contentsline {subsection}{\numberline {3.1.2}Lucas Kanade}{23}
-\contentsline {section}{\numberline {3.2}Coarse-to-Fine}{24}
-\contentsline {paragraph}{Pyramid Height}{24}
-\contentsline {paragraph}{Downsamplig}{24}
-\contentsline {paragraph}{Warping}{24}
-\contentsline {paragraph}{Interpolation technoques}{24}
-\contentsline {paragraph}{Drawbacks}{24}
-\contentsline {section}{\numberline {3.3}Solving the Minimization Problem}{25}
-\contentsline {section}{\numberline {3.4}$L^1$ Techniques}{25}
-\contentsline {section}{\numberline {3.5}Improvements}{26}
-\contentsline {section}{\numberline {3.6}Problem formulation}{27}
+\contentsline {section}{\numberline {3.1}Problem formulation}{22}
+\contentsline {section}{\numberline {3.2}First Approaches}{23}
+\contentsline {subsection}{\numberline {3.2.1}Horn Schunk}{23}
+\contentsline {subsection}{\numberline {3.2.2}Lucas Kanade}{24}
+\contentsline {section}{\numberline {3.3}Coarse-to-Fine}{25}
+\contentsline {paragraph}{Pyramid Height}{25}
+\contentsline {paragraph}{Downsamplig}{25}
+\contentsline {paragraph}{Warping}{25}
+\contentsline {paragraph}{Interpolation technoques}{25}
+\contentsline {paragraph}{Drawbacks}{25}
+\contentsline {section}{\numberline {3.4}Solving the Minimization Problem}{26}
+\contentsline {section}{\numberline {3.5}$L^1$ Techniques}{26}
+\contentsline {section}{\numberline {3.6}Improvements}{27}
 \contentsline {chapter}{Chapter{} \numberline {4}Analysis and Theoretical Foundation of existing algorithms}{29}
 \contentsline {section}{\numberline {4.1}Differential Methods}{29}
 \contentsline {subsection}{\numberline {4.1.1}The Brightness Constraint}{29}
@@ -71,12 +71,13 @@
 \contentsline {chapter}{Chapter{} \numberline {8}User's manual}{67}
 \contentsline {section}{\numberline {8.1}Required resources}{67}
 \contentsline {section}{\numberline {8.2}Application Setup}{67}
-\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{68}
-\contentsline {section}{\numberline {9.1}Research}{68}
-\contentsline {section}{\numberline {9.2}Proposed Solution}{68}
-\contentsline {section}{\numberline {9.3}Further development}{69}
-\contentsline {chapter}{Bibliography}{70}
-\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{72}
-\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{74}
-\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{74}
-\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{76}
+\contentsline {section}{\numberline {8.3}Running the application}{68}
+\contentsline {chapter}{Chapter{} \numberline {9}Conclusions}{69}
+\contentsline {section}{\numberline {9.1}Research}{69}
+\contentsline {section}{\numberline {9.2}Proposed Solution}{69}
+\contentsline {section}{\numberline {9.3}Further development}{70}
+\contentsline {chapter}{Bibliography}{71}
+\contentsline {chapter}{Appendix{} \numberline {A}Relevant code}{73}
+\contentsline {chapter}{Appendix{} \numberline {B}Other relevant information (demonstrations, etc.)}{75}
+\contentsline {section}{\numberline {B.1}Horn Scunk equation to Jacobi Iteration}{75}
+\contentsline {chapter}{Appendix{} \numberline {C}Published papers}{77}

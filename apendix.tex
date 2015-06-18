@@ -1,9 +1,11 @@
 \appendix
+
 \chapter{Relevant code}
+
 
 \begin{verbatim}
 Optimize (x,s,lambda)
-\{
+
 	D23SqInv = spdiags(1./ ...
 				( ... 
 					x(1+dim:2*dim)./s(1+dim:2*dim)+ ...
@@ -50,7 +52,8 @@ Optimize (x,s,lambda)
 	x = x + deltaX;
 	s = s + deltaS;
 	l = l + deltaL;
-\}
+
+
 \end{verbatim}
 
 \chapter{Other relevant information (demonstrations, etc.)}

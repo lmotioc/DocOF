@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  18 JUN 2015 05:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  18 JUN 2015 07:21
 entering extended mode
 **thesis.tex
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.tex
@@ -316,6 +316,12 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks29
+\verbatim@line=\toks30
+\verbatim@in@stream=\read2
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithmicx\algpseudocode.sty"
 Package: algpseudocode 
 
@@ -376,12 +382,12 @@ Package caption Info: End \AtBeginDocument code.
 \scratchbox=\box33
 \nofMPsegments=\count133
 \nofMParguments=\count134
-\everyMPshowfont=\toks29
+\everyMPshowfont=\toks31
 \MPscratchCnt=\count135
 \MPscratchDim=\dimen151
 \MPnumerator=\count136
 \makeMPintoPDFobject=\count137
-\everyMPtoPDFconversion=\toks30
+\everyMPtoPDFconversion=\toks32
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 61.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
@@ -469,30 +475,37 @@ Package pdftex.def Info: img/genFlow.jpg used on input line 374.
 
 [19] [20 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/genFlow.jpg>] [21]
 Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--438
+[]\T1/aer/m/n/12 translational, di-ver-gent,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--443
+[]\T1/aer/m/n/12 translational, di-ver-gent,
+ []
+
 [22
 
-]
+] [23]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 454.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 507.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 454.
- [23] [24] <img/func.jpg, id=83, 1204.5pt x 903.375pt>
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 507.
+
+Underfull \vbox (badness 2368) has occurred while \output is active []
+
+ [24]
+[25] <img/func.jpg, id=87, 1204.5pt x 903.375pt>
 File: img/func.jpg Graphic file (type jpg)
  <use img/func.jpg>
-Package pdftex.def Info: img/func.jpg used on input line 507.
+Package pdftex.def Info: img/func.jpg used on input line 560.
 (pdftex.def)             Requested size: 216.81pt x 162.60048pt.
 
-[25] [26 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/func.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 547--549
-[]\T1/aer/m/n/12 translational, di-ver-gent,
- []
+Underfull \vbox (badness 3199) has occurred while \output is active []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 551--554
-[]\T1/aer/m/n/12 translational, di-ver-gent,
- []
-
-[27] [28]
+ [26]
+[27 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/func.jpg>] [28]
 Chapter 4.
 [29
 
@@ -580,18 +593,13 @@ File: img/pyrLvls.jpg Graphic file (type jpg)
 <use img/pyrLvls.jpg>
 Package pdftex.def Info: img/pyrLvls.jpg used on input line 830.
 (pdftex.def)             Requested size: 216.81pt x 192.95995pt.
-
-Overfull \hbox (30.53337pt too wide) in paragraph at lines 851--851
-[] 
- []
-
-<img/cameraman.jpg, id=130, 366.61969pt x 192.72pt>
+ <img/cameraman.jpg, id=130, 366.61969pt x 192.72pt>
 File: img/cameraman.jpg Graphic file (type jpg)
- <use img/cameraman.jpg>
-Package pdftex.def Info: img/cameraman.jpg used on input line 858.
-(pdftex.def)             Requested size: 366.61879pt x 192.71951pt.
 
-[35]
+<use img/cameraman.jpg>
+Package pdftex.def Info: img/cameraman.jpg used on input line 859.
+(pdftex.def)             Requested size: 366.61879pt x 192.71951pt.
+ [35]
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 36 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
@@ -601,6 +609,11 @@ ON OF EXISTING ALGORITHMS
 ers/Lala/Desktop/templateLaTeX-Eng/img/realflow.jpg> <C:/Users/Lala/Desktop/tem
 plateLaTeX-Eng/img/HS.jpg> <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/HSPyr.j
 pg>] [37 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/pyrLvls.jpg>]
+
+LaTeX Warning: Reference `golub2012matrix' on page 38 undefined on input line 8
+88.
+
+
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 38 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
@@ -615,13 +628,13 @@ ON OF EXISTING ALGORITHMS
 [40] [41]
 File: img/frame10.png Graphic file (type png)
  <use img/frame10.png>
-Package pdftex.def Info: img/frame10.png used on input line 1065.
+Package pdftex.def Info: img/frame10.png used on input line 1066.
 (pdftex.def)             Requested size: 216.81pt x 144.0426pt.
  <img/bf.jpg, id=153, 586.19pt x 389.455pt>
 File: img/bf.jpg Graphic file (type jpg)
 
 <use img/bf.jpg>
-Package pdftex.def Info: img/bf.jpg used on input line 1066.
+Package pdftex.def Info: img/bf.jpg used on input line 1067.
 (pdftex.def)             Requested size: 216.81pt x 144.0426pt.
 
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
@@ -633,7 +646,7 @@ ON OF EXISTING ALGORITHMS
 <img/cens.jpg, id=159, 634.37pt x 182.6825pt>
 File: img/cens.jpg Graphic file (type jpg)
  <use img/cens.jpg>
-Package pdftex.def Info: img/cens.jpg used on input line 1090.
+Package pdftex.def Info: img/cens.jpg used on input line 1091.
 (pdftex.def)             Requested size: 361.34999pt x 104.06319pt.
  [43 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/cens.jpg>]
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
@@ -680,27 +693,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [53]
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1557.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
-7.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1557.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
-7.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1557.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
-7.
-
-
 LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1558.
 
 
@@ -722,25 +714,46 @@ LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
 8.
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1563.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1559.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
+9.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1559.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
+9.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1559.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 155
+9.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1566.
 
 
 LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
-3.
+6.
 
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1563.
-
-
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
-3.
-
-
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1563.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1566.
 
 
 LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
-3.
+6.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1566.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
+6.
 
 [54] [55]
 Chapter 6.
@@ -753,45 +766,45 @@ Underfull \vbox (badness 2042) has occurred while \output is active []
 <img/bigflow.jpg, id=206, 891.33pt x 283.0575pt>
 File: img/bigflow.jpg Graphic file (type jpg)
  <use img/bigflow.jpg>
-Package pdftex.def Info: img/bigflow.jpg used on input line 1610.
+Package pdftex.def Info: img/bigflow.jpg used on input line 1614.
 (pdftex.def)             Requested size: 448.07378pt x 142.29288pt.
 
 <img/functions.jpg, id=207, 604.2575pt x 966.61125pt>
 File: img/functions.jpg Graphic file (type jpg)
  <use img/functions.jpg>
-Package pdftex.def Info: img/functions.jpg used on input line 1622.
+Package pdftex.def Info: img/functions.jpg used on input line 1626.
 (pdftex.def)             Requested size: 433.62pt x 693.64395pt.
 
 
-LaTeX Warning: Float too large for page by 111.47182pt on input line 1624.
+LaTeX Warning: Float too large for page by 111.47182pt on input line 1628.
 
 [57 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/bigflow.jpg>] [58 <C:/Users/La
 la/Desktop/templateLaTeX-Eng/img/functions.jpg>]
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1645.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1649.
 
 
 LaTeX Font Warning: Command \mathversion invalid in math mode on input line 164
-5.
+9.
 
 [59] <img/ctfflow.jpg, id=218, 461.725pt x 483.8075pt>
 File: img/ctfflow.jpg Graphic file (type jpg)
  <use img/ctfflow.jpg>
-Package pdftex.def Info: img/ctfflow.jpg used on input line 1699.
+Package pdftex.def Info: img/ctfflow.jpg used on input line 1703.
 (pdftex.def)             Requested size: 216.81pt x 227.17546pt.
 
 [60] [61 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/ctfflow.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1748--1751
+Underfull \hbox (badness 10000) in paragraph at lines 1752--1755
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1752--1762
+Underfull \hbox (badness 10000) in paragraph at lines 1756--1766
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1752--1762
+Underfull \hbox (badness 10000) in paragraph at lines 1756--1766
 
  []
 
@@ -800,55 +813,55 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [62]
 
-LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1766.
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1770.
 
 
-LaTeX Font Warning: Command \mathversion invalid in math mode on input line 176
-6.
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 177
+0.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1766--1768
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1769--1779
+Underfull \hbox (badness 10000) in paragraph at lines 1770--1772
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1769--1779
+Underfull \hbox (badness 10000) in paragraph at lines 1773--1783
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1785--1787
+Underfull \hbox (badness 10000) in paragraph at lines 1773--1783
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1798
+Underfull \hbox (badness 10000) in paragraph at lines 1789--1791
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1798
+Underfull \hbox (badness 10000) in paragraph at lines 1792--1802
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1792--1802
 
  []
 
 [63] <img/vectors.jpg, id=231, 1204.5pt x 903.375pt>
 File: img/vectors.jpg Graphic file (type jpg)
  <use img/vectors.jpg>
-Package pdftex.def Info: img/vectors.jpg used on input line 1819.
+Package pdftex.def Info: img/vectors.jpg used on input line 1823.
 (pdftex.def)             Requested size: 216.81pt x 162.60048pt.
 
 <img/colors.jpg, id=232, 903.375pt x 677.53125pt>
 File: img/colors.jpg Graphic file (type jpg)
  <use img/colors.jpg>
-Package pdftex.def Info: img/colors.jpg used on input line 1820.
+Package pdftex.def Info: img/colors.jpg used on input line 1824.
 (pdftex.def)             Requested size: 260.17244pt x 195.13504pt.
 
-Overfull \hbox (17.98244pt too wide) in paragraph at lines 1819--1821
+Overfull \hbox (17.98244pt too wide) in paragraph at lines 1823--1825
  [][][] 
  []
 
@@ -859,65 +872,83 @@ Chapter 7.
 
 ]
 Chapter 8.
-LaTeX Font Info:    Try loading font information for T1+aett on input line 1846
+LaTeX Font Info:    Try loading font information for T1+aett on input line 1848
 .
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (44.66533pt too wide) in paragraph at lines 1849--1850
-[]\T1/aer/m/n/12 In the MAT-LAB com-mand win-dow, type the fol-low-ing com-mand
-:\T1/aer/m/it/12 YOUR_COMMAND_HERE\T1/aer/m/n/12 . 
- []
+<img/path.jpg, id=243, 341.77687pt x 63.98906pt>
+File: img/path.jpg Graphic file (type jpg)
+ <use img/path.jpg>
+Package pdftex.def Info: img/path.jpg used on input line 1853.
+(pdftex.def)             Requested size: 216.81pt x 40.59256pt.
 
-[67
+<img/commandw.jpg, id=244, 149.8097pt x 51.19125pt>
+File: img/commandw.jpg Graphic file (type jpg)
+ <use img/commandw.jpg>
+Package pdftex.def Info: img/commandw.jpg used on input line 1854.
+(pdftex.def)             Requested size: 108.405pt x 37.04356pt.
 
-]
+<img/inputwindow.jpg, id=245, 252.19218pt x 304.13625pt>
+File: img/inputwindow.jpg Graphic file (type jpg)
+
+<use img/inputwindow.jpg>
+Package pdftex.def Info: img/inputwindow.jpg used on input line 1866.
+(pdftex.def)             Requested size: 144.54pt x 174.3108pt.
+ [67
+
+ <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/path.jpg> <C:/Users/Lala/Desktop/
+templateLaTeX-Eng/img/commandw.jpg>] [68 <C:/Users/Lala/Desktop/templateLaTeX-E
+ng/img/inputwindow.jpg>]
 Chapter 9.
-[68
+[69
 
-] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [69] [70
+] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [70] [71
 
-]) [71]
+]) [72]
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.tex
 Appendix A.
 
 Underfull \vbox (badness 1014) has occurred while \output is active []
 
- [72
+ [73
 
 
 ]
-[73]
+[74]
 Appendix B.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74
+ [75
 
 ]
-[75]
+[76]
 Appendix C.
-) [76
+) [77
 
 ] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.aux
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\guideline.aux)
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.aux))
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 568 ({)
+### simple group (level 1) entered at line 457 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5542 strings out of 493921
- 73427 string characters out of 3147285
- 152338 words of memory out of 3000000
- 8641 multiletter control sequences out of 15000+200000
+ 5591 strings out of 493921
+ 74311 string characters out of 3147285
+ 152988 words of memory out of 3000000
+ 8685 multiletter control sequences out of 15000+200000
  43940 words of font info for 101 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,25n,47p,845b,402s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,25n,47p,845b,488s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
 sy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pro
@@ -935,9 +966,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (73 pages, 1707261 bytes).
+Output written on thesis.pdf (74 pages, 1763105 bytes).
 PDF statistics:
- 335 PDF objects out of 1000 (max. 8388607)
+ 341 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
