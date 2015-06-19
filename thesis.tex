@@ -45,11 +45,11 @@
 % \oneandhalfspace
 % \doublespace
 
-\renewcommand{\thesisauthor}{Firstname LASTNAME}    %% Your name.
+\renewcommand{\thesisauthor}{Laura MOTIOC}    %% Your name.
 \renewcommand{\thesismonth}{June}     %% Your month of graduation.
 \renewcommand{\thesisyear}{2015}      %% Your year of graduation.
-\renewcommand{\thesistitle}{LICENSE THESIS TITLE} 
-\renewcommand{\thesissupervisor}{scientific title Firstname LASTNAME}
+\renewcommand{\thesistitle}{TOTAL VARIATION WITH L2-L1 FOR DENSE OPTICAL FIELD COMPUTATION} 
+\renewcommand{\thesissupervisor}{\\ prof. dr. ing Sergiu NEDEVSCHI \\conf. dr. Radu PETER }
 \newcommand{\department}{\bf FACULTY OF AUTOMATION AND COMPUTER SCIENCE\\
 COMPUTER SCIENCE DEPARTMENT}
 \newcommand{\thesis}{LUCRARE DE LICEN'T'A}
@@ -80,7 +80,7 @@ COMPUTER SCIENCE DEPARTMENT}
 
 \department
 
-\vspace{4cm}
+\vspace{3cm}
 
 {\bf \thesistitle} %LICENSE THESIS TITLE}
 
@@ -88,9 +88,9 @@ COMPUTER SCIENCE DEPARTMENT}
 
 LICENSE THESIS
 
-\vspace{6cm}
+\vspace{5.5cm}
 
-Graduate: {\bf Firstname LASTNAME} 
+Graduate: {\bf \thesisauthor} 
 
 Supervisor: {\bf \thesissupervisor}
 
@@ -129,9 +129,9 @@ Graduate: {\bf \thesisauthor}
 \vspace{1cm}
 
 \begin{enumerate}
- \item {\bf Project proposal:} {\it Short description of the license thesis and initial data}
-\item {\bf Project contents:} {\it (enumerate the main component parts) Presentation page, advisor's evaluation, title of chapter 1, title of chapter 2, ..., title of chapter n, bibliography, appendices.}
-\item {\bf Place of documentation:} {\it Example}: Technical University of Cluj-Napoca, Computer Science Department
+ \item {\bf Project proposal:} In this thesis we study the classical models of dense optical flow computation and propose a new solution in solving the optical flow.
+\item {\bf Project contents:} Introduction, Project Objectives, Bibliographic research, Analysis, and Theoretical background, Proposed Algorithm, Detailed Implementation and design,   Testing and validation, User's manual, Conclusions.
+\item {\bf Place of documentation:} Technical University of Cluj-Napoca, Computer Science Department
 \item {\bf Consultants:}
 \item {\bf Date of issue of the proposal:} November 1, 2014
 \item {\bf Date of  delivery:} June 18, 2015 {\it (the date when the document is submitted)}
@@ -198,7 +198,7 @@ Data \hspace{8cm} Nume, Prenume
 
 \uline{3cm} \hspace{5cm} \uline{5cm}
 
-\vspace{1cm}
+\vspace{0.5cm}
 \hspace{9.4cm}Semn\u{a}tura
 
 \thispagestyle{empty}
@@ -317,9 +317,9 @@ Optical flow is a big area of research form computer vision. It is given by a ve
 The optical flow is defined from a field of vectors $(u,v)$ which define the velocities of the pixels in a image.
 Solving the optical flow means finding this $(u,v)$ correspondence between the pixels of 2 consecutive frames.
 
-Let us dfine the optical flow on the example in image \ref{movingDot}. If we have the 2 frames, which are consecutive in time, we observe the white dot in the first frame $(x,y)$. In the second frame it had moved up and to the right, reaching the position $(x+1, y+v)$. Now, The flow is defined by the displacement of this dot. We say that the flow is defined by the vector $(u,v)$. The assumption on which most of the dense models are formulated is that moving pixels do not change their intensity in time. In our example $$I(x,y) = I(x+u, y+v)$$.
+Let us define the optical flow on the example in image \ref{movingDot}. If we have the 2 frames, which are consecutive in time, we observe the white dot in the first frame $(x,y)$. In the second frame it had moved up and to the right, reaching the position $(x+1, y+v)$. Now, the flow is defined by the displacement of this dot. We say that the flow is defined by the vector $(u,v)$. The assumption on which most of the dense models are formulated is that moving pixels do not change their intensity in time. In our example $$I(x,y) = I(x+u, y+v)$$.
 
-Taking an more complex example, \ref{moreflow} the optical field is composed from $m\cdot n$ vectors corresponding to each pixel. This exemplifies the flow between image frames, which are matrices of pixels. The algorithms that compute such a structure for the flow are called dense, unlike sparse methods that compute the flow only for key features of the frames. The flow is formulated in a energy function, based on the brightness  constraint and others, depending on the algorithm. This function should be ideally $0$. A simple (but not very efficient) example of the energy function is $\sum |I(x,y) - I(x+u, y+v)|$. In \ref{moreflow} if we add all the difference between pixels in the first image and their corresponding from the next, we will find that the result is 0.
+Taking an more complex example, \ref{moreflow} the optical field is composed from $m\cdot n$ vectors corresponding to each pixel. This exemplifies the flow between image frames, which are matrices of pixels. The algorithms that compute such a structure for the flow are called dense, unlike sparse methods that compute the flow only for key features of the frames. The flow is formulated in a energy function, based on the brightness  constraint and others, depending on the algorithm. This function should be ideally $0$. A simple (but not very efficient) example of the energy function is $\sum |I(x,y) - I(x+u, y+v)|$. In \ref{moreflow}, if we add all the difference between pixels in the first image and their corresponding from the next, we will find that the result is 0.
 \begin{figure} \label{movingDot}
 \centering
 \includegraphics[width = 5in]{img/movingDot} 
@@ -340,7 +340,7 @@ As we have 2 equations for each pixel, this is the most critical part of the alg
 
 The solution available is based on the chosen model. The classic formulation are based om a $L^2$ norm. With variational calculus, their derivatives are equated to 0. For this simple solvers are available. Gauss-Seidel and Jacobi iterations are the most handy solution. They are simple, fast, and memory inexpensive. This are classic approaches for the $L^2$ norm. We used them to implement the Horn and Schunk method and they are discussed in the next chapters.
 
-In latest approaches there is a tendency to lose the $L^2$ formulation in favour of the $L^1$. Although it is more computationally expensive to solve then, this formulations are preferred because of it's robustness. We study the Proximal Projected Point and the Least Mixes Squares strategies.
+In latest approaches there is a tendency to lose the $L^2$ formulation in favour of the $L^1$. Although $L^1$ is more computationally expensive to solve then $L^2$, this formulations are preferred because of it's robustness. We study the Proximal Projected Point and the Least Mixes Squares strategies.
 
 \section{Project Objectives}
 
@@ -352,7 +352,7 @@ The main achievement is the implementation of an Least Mixed Norm (LMN) algorith
 
 Such kind of algorithms are successfully used in image restoration and one of their strongest points is the adaptation to the overall problems ($L^2-L^1, L^1-L^1$) and tasks.
 
-Horn and Schunk is a global method of computing the optical flow. Based on the brightness and the smoothness constraint, an error function is described. The function depends on thee intensity of the pixels and the flow. Taking a initial guess for the flow field, the scope of the algorithm is to minimize this error function by varying the flow vectors. The minimization problem transforms in a system of equations by differentiating with respect to the horizontal and vertical component of the flow. Using a Jacobi approximation, the flow is updated trough iterations, until the desired output is achieved.
+Horn and Schunk is a global method of computing the optical flow. Based on the brightness and the smoothness constraint, an error function is described. The function depends on the intensity of the pixels and the flow. Taking a initial guess for the flow field, the scope of the algorithm is to minimize this error function by varying the flow vectors. The minimization problem transforms in a system of equations by differentiating with respect to the horizontal and vertical component of the flow. Using a Jacobi approximation, the flow is updated trough iterations, until the desired output is achieved.
 
 Lucas Kanade is a local method. The error function is based this time on the brightness constraint only is constructed. It is also dependent of the intensity of the pixels and the flow. For each pixel the computation is done by searching in its near vicinity. The minimization problem it is again written as a system of equation by differentiation technique. For the system is solved by taking an initial guess and then computing the remaining flow.
 
@@ -459,7 +459,7 @@ Examples of the data term and the correction term are shown in the next tables, 
 		
 		\begin{tabular}{| l | c |}
 			\hline
-			Data Term & Correction term  \\ \hline
+			Correction Term & Property  \\ \hline
 			$S_1 = \sum_{i=1}^{2}{|\nabla u_i|^2}$ & Homogeneous \\ \hline
 			
 			$S_2 = g \left( |\nabla I|^2 \right) \sum_{i=1}^{2} {|\nabla u_i|^2}$ & image-driven, isotropic  \\ \hline
@@ -613,7 +613,7 @@ The brightness constraint assumes that the moving pixels of an image do not chan
 \begin{equation}  \label{Idt0}
 \frac{\partial I}{\partial t} = 0
 \end{equation}
-From this, using multi-dimensional Euler-Lagrange equations (see appendix B for full demonstration), we obtain
+From this, using multi-dimensional Euler-Lagrange equations we obtain
 \begin{equation} \label{Idt0_lagr}
 \frac{\partial I}{\partial x}\frac{dx}{dt} +
 \frac{\partial I}{\partial y}\frac{dy}{dt} +
@@ -885,7 +885,7 @@ where $w_l$ is the flow computed until the level $l$ and $dw$ the  residual flow
 First formulations were in the $L^2$ norm. For this some classical approaches are used. As the function is convex and derivable, the solution of the optimization problem is the solution of the associated Euler-Lagrang equations. First compute the partial derivatives, then equate them to 0. This are simple solutions, that run fast and don't consume to much memory. But this methods are very sensitive to noise. 
 
 \subsection{Gauss-Seidel Iterations} \label{GaussSeidel}
-Gauss Seidel is a iterative method for solving simultaneous equations \ref{golub2012matrix}. If we consider the system 
+Gauss Seidel is a iterative method for solving simultaneous equations \cite{golub2012matrix}. If we consider the system 
 \begin{equation}
 A\boldsymbol{x} = b
 \end{equation}
@@ -949,7 +949,7 @@ $A_{2*i, 2*j+1} = I_{xi}I_{yi}$,
  \end{split}
  \end{equation}
 \subsection{Jacobi Iterations}
-Like Gauss Seidel, the Jacobi method solves a system of linear equations. It is generally used when the system is diagonally dominant. 
+Like Gauss Seidel, the Jacobi method solves a system of linear equations\cite{golub2012matrix}. It is generally used when the system is diagonally dominant. 
 
 If we consider the system 
 \begin{equation}
@@ -1689,7 +1689,7 @@ We can now compute solve the system for $\boldsymbol{x}$.
 
 The correlation transform function, used in expressing the data term transforms an image vector into its cross correlate form. The formula in computing the correlation transform is described at \ref{crosscorrtrans}.
 
- 
+\paragraph{ComputeBilateralFilter(Im, $\sigma range$, $\sigma distance$)}  The bilateral filter is constructed from th first image. for this we use the formula in \ref{bilateralFilterTerm}. We use the \textit{absolute} function instead of square, because the nature of our smoothness term.
 
 \section{Pyramidal Implementation} \label{pyr}
 The pyramidal approach wraps every implementation we did. 
@@ -1786,7 +1786,7 @@ A special type of sparse are band matrices. This are regular sparse, the non-zer
 First, in solving the system we used the \textit{mldivide} function, but the program run very slow and on a 4GB of RAM it did not support other programs to run in parallel. The maximum default memory given by MATLAB for stocking matrices in 1 GB, and \textit{mldivide} took most of it.
 We've switched to the \textit{gmres} which is specialized in banded matrices and the memory consumption decreased to almost a half and the execution time shorten to about 10%.
 
-To proov this in a simple way we have chosen to test on a  $500000 \times 500000$ sparse matrix with three five-columns bands. It is important that the matrix is symmetric. We've tested and timed both \textit{mldivide} and \textit{gmres}. The results are shown in the table below.
+To prove this in a simple way we have chosen to test on a  $500000 \times 500000$ sparse matrix with three five-columns bands. It is important that the matrix is symmetric. We've tested and timed both \textit{mldivide} and \textit{gmres}. The results are shown in the table below.
 \\
 
 \begin{tabular}{ l l  l l }
@@ -1800,7 +1800,7 @@ gmres  &    $500000\times 500000$       &         2.625163
 \\
 \\
 
-Sparse matrix don't perform this well only in solving systems, but also in simpler algebraic operations. The function are optimised to improve metrics of such implementation and ar worth using as much as it may be.
+Sparse matrix don't perform this well only in solving systems, but also in simpler algebraic operations. The functions are optimised to improve metrics of such implementation and are worth using as much as it may be.
 
 \section{Output and MATLAB Colorspace}
 
@@ -1828,10 +1828,136 @@ For visualizing the output each vector is encoded to the MATLAB's colour space. 
 
 \chapter{Testing and Validation}
 
-About 5\% of the paper
-\section{Title}
-\section{Other title}
+In this chapter we will discuss the results from the implementation of the Least Mixed Norm minimization, in comparison with the Proximal Point solution. We also take a look on how the input parameters influence the error of the output. 
+
+Our error measurement include the mean angular error and the endpoint error. 
+
+The angular error is the difference angle from the original flow and  the computed one. For this we use th formula:
+
+$$
+\frac{1}{n}\sum  \arccos \left( \frac{u^T \cdot u_{gt}}{|u||u_{gt}|}\right)
+$$
+The other measurement is the endpoint error, also called the absolute flow. This is influenced more by the magnitude of the vectors unlike the angular error that takes in account the direction.
+
+\begin{equation}
+\begin{split}
+\frac{1}{n}\sum  \sqrt{(u-u_{gt})^2+(v-v_{gt})^2} 
+\end{split}
+\end{equation}
+
+
+\section{Results and error comparison}
+
+To compare our implementations of the  Least Mixed Norm and the Proximal, we used the set of images and ground truth flow, available on the website \cite{middleburry}
+
+From the images we see that the Proximal Projection point behaves better than the Least Mixed Norm, but the results are not that far away. 
+\begin{figure}
+	\label{rsults}
+	\centering
+	\subfloat{\includegraphics[width = 2in]{img/groove}} 
+	\subfloat{\includegraphics[width = 2in]{img/groovelmn}} 
+	\subfloat{\includegraphics[width = 2in]{img/grooveppp}} \\
+	\subfloat{\includegraphics[width = 2in]{img/city}} 
+	\subfloat{\includegraphics[width = 2in]{img/citylmn}} 
+	\subfloat{\includegraphics[width = 2in]{img/cityppp}} \\
+	\subfloat{\includegraphics[width = 2in]{img/frame10}} 
+	\subfloat{\includegraphics[width = 2in]{img/walelmn}} 
+	\subfloat{\includegraphics[width = 2in]{img/waleppp}} \\
+	\caption{Flow results. In the left is the original image, in the centre is the result from Least Mixed Norm and in the right from Proximal Projection Point}
+\end{figure}
+
+\begin{center}
+	\begin{tabular}{  l  l  l  l }
+		\hline
+		Sequence & Method & Angular Error & Endpoint Error \\ \hline
+		\hline
+		Groove & LMN & 16.52 & 4.05 \\
+		Groove & PPP & 3.75 & 0.28 \\
+		City & LMN & 20.21 & 10.8 \\
+		City & PPP & 2.06 & 0.25 \\
+		Rubber wale & LMN & 21.35 & 2.27 \\
+		Rubber wale & PPP & 2.51& 0.15 \\
+	\end{tabular}
+\end{center} 
+
+In the table above it can be seen that the result from the Projected Proximal Point are slightly better. But the results from the Least Mixed Norm approach are the first implementation, so there is lots of room for improvement.
+
+\section{The influence of the parameters}
+ In this section we will present the error results from varying the control parameters. We tested on th \textit{groove} image.
+ 
+ The parameters lambda,  $\sigma range$ and $\sigma distance$ are all indirect proportional with the smoothness term. We used lambda as the coefficient of the data term, and $\sigma range$ and $\sigma distance$ are parameters in the bilateral filter term. I mention we used a $L^1$ variant of the filter. If the images are more homogeneous we want the smoothness term to decrease. As it can be seen in the tables the lambda term has more influence on the output than  $\sigma range$ and $\sigma distance$. The bilateral filter terms are used for fine tuning.
+ 
+ \newpage
+ Variation of the lambda coefficient and its impact on the error magnitude.
+ \begin{center}
+ 	\begin{tabular}{  l  l  l  l  l l}
+ 		\hline
+ 		Lambda &  $\sigma range$ & $\sigma distance$& Warps & Angular error & Endpoint Error \\ \hline
+ 		\hline
+9.5 & 5 & 3 & 2 & 16.4133 & 5.2412\\ 
+9 & 5 & 3 & 2 & 16.3875 & 5.1577\\ 
+8.5 & 5 & 3 & 2 & 16.3699 & 5.0662\\ 
+8 & 5 & 3 & 2 & 16.359 & 4.9684\\ 
+7.5 & 5 & 3 & 2 & 16.3515 & 4.8574\\ 
+7 & 5 & 3 & 2 & 16.3509 & 4.7355\\ 
+6.5 & 5 & 3 & 2 & 16.3692 & 4.6006\\ 
+6 & 5 & 3 & 2 & 16.3999 & 4.4506\\ 
+5.5 & 5 & 3 & 2 & 16.4486 & 4.2834\\ 
+5 & 5 & 3 & 2 & 16.5061 & 4.096\\ 
+4.5 & 5 & 3 & 2 & 16.585 & 3.8852\\ 
+ 	\end{tabular}
+ \end{center} 
+ 
+\newpage
+ Variation of the Sigma Range coefficient and its impact on the error magnitude.
+ \begin{center}
+ 	\begin{tabular}{  l  l  l  l  l l}
+ 		\hline
+ 		Lambda &  $\sigma range$ & $\sigma distance$ & Warps & Angular error & Endpoint Error \\ \hline
+ 		\hline
+5.5 & 2 & 3 & 2 & 16.4238 & 4.302\\ 
+5.5 & 1.5 & 3 & 2 & 16.4079 & 4.3116\\ 
+5.5 & 1 & 3 & 2 & 16.3828 & 4.3292\\ 
+5.5 & 0.5 & 3 & 2 & 16.3235 & 4.3857\\ 
+5.5 & 0.5 & 3 & 2 & 16.3235 & 4.3857\\ 
+5.5 & 0.4 & 3 & 2 & 16.3014 & 4.4117\\ 
+5.5 & 0.3 & 3 & 2 & 16.2744 & 4.4523\\ 
+5.5 & 0.2 & 3 & 2 & 16.2509 & 4.527\\ 
+5.5 & 0.1 & 3 & 2 & 16.2668 & 4.6939\\ 
+5.5 & 0.1 & 3 & 2 & 16.2668 & 4.6939\\ 
+5.5 & 0.08 & 3 & 2 & 16.2947 & 4.7554\\ 
+5.5 & 0.06 & 3 & 2 & 16.3526 & 4.839\\ 
+5.5 & 0.04 & 3 & 2 & 16.4624 & 4.9573\\ 
+5.5 & 0.02 & 3 & 2 & 16.6982 & 5.1382\\ 
+ 	\end{tabular}
+ \end{center} 
+ \newpage
+  Variation of the Sigma Distance coefficient and its impact on the error magnitude.
+  \begin{center}
+  	\begin{tabular}{  l  l  l  l  l l}
+  		\hline
+  		Lambda&  $\sigma range$ & $\sigma distance$& Warps & Angular error & Endpoint Error \\ \hline
+  		\hline
+  		5.5 & 2 & 3 & 2 & 16.4238 & 4.302\\ 
+  		5.5 & 1.5 & 3 & 2 & 16.4079 & 4.3116\\ 
+  		5.5 & 1 & 3 & 2 & 16.3828 & 4.3292\\ 
+  		5.5 & 0.5 & 3 & 2 & 16.3235 & 4.3857\\ 
+  		5.5 & 0.5 & 3 & 2 & 16.3235 & 4.3857\\ 
+  		5.5 & 0.4 & 3 & 2 & 16.3014 & 4.4117\\ 
+  		5.5 & 0.3 & 3 & 2 & 16.2744 & 4.4523\\ 
+  		5.5 & 0.2 & 3 & 2 & 16.2509 & 4.527\\ 
+  		5.5 & 0.1 & 3 & 2 & 16.2668 & 4.6939\\ 
+  		5.5 & 0.1 & 3 & 2 & 16.2668 & 4.6939\\ 
+  		5.5 & 0.08 & 3 & 2 & 16.2947 & 4.7554\\ 
+  		5.5 & 0.06 & 3 & 2 & 16.3526 & 4.839\\ 
+  		5.5 & 0.04 & 3 & 2 & 16.4624 & 4.9573\\ 
+  		5.5 & 0.02 & 3 & 2 & 16.6982 & 5.1382\\ 
+  	\end{tabular}
+  \end{center} 
+
 \chapter{User's manual}
+ 
+  
 
 
 In this chapter we specify the resources needed to run our application and the setup steps towards lunching the application. We also describe the input parameters.
@@ -1914,6 +2040,8 @@ The $L^1$ technique is preferred over $L2$. This is due to the robustness given 
  Because the big applicability of the sparse problems there should be implemented specialized sparse solvers for this kind of matrices, and especially in c, where the this kind of problems are highly parallelizable.
  
  A pre and post processing phase should fallow, to improve the accuracy of the results.
+ 
+ Also this algorithm keeps room for extension. This approach is a general solution an in can be applied to any combination of $L^1$ $L^2$ norm. For the future the algorithm could be applied on a $L^1$-$L^1$ formulation tu further increase robustness. 
  
  After the algorithm is properly set and no optimization can be done in the near future, it can be implemented for parallelizable platform like CUDA, using specific libraries like openGL. This should bring a considerate increase in execution time.
  

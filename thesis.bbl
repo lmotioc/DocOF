@@ -111,6 +111,10 @@ H.-H. Nagel \emph{et~al.}, ``Constraints for the estimation of displacement
   vector fields from image sequences.'' in \emph{IJCAI}.\hskip 1em plus 0.5em
   minus 0.4em\relax Citeseer, 1983, pp. 945--951.
 
+\bibitem{golub2012matrix}
+G.~H. Golub and C.~F. Van~Loan, \emph{Matrix computations}.\hskip 1em plus
+  0.5em minus 0.4em\relax JHU Press, 2012, vol.~3.
+
 \bibitem{tomasi1998bilateral}
 C.~Tomasi and R.~Manduchi, ``Bilateral filtering for gray and color images,''
   in \emph{Computer Vision, 1998. Sixth International Conference on}.\hskip 1em

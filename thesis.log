@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  18 JUN 2015 07:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.16)  19 JUN 2015 18:10
 entering extended mode
 **thesis.tex
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.tex
@@ -428,18 +428,18 @@ File: img/tucn.jpg Graphic file (type jpg)
  <use img/tucn.jpg>
 Package pdftex.def Info: img/tucn.jpg used on input line 162.
 (pdftex.def)             Requested size: 426.79134pt x 89.06966pt.
- [7] [8]
-(C:\Users\Lala\Desktop\templateLaTeX-Eng\guideline.tex) [9
+ [7]
+(C:\Users\Lala\Desktop\templateLaTeX-Eng\guideline.tex) [8
 
 ]
-(C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.toc [10
+(C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.toc [9
 
 
-] [11])
+] [10])
 \tf@toc=\write4
- [12]
+ [11]
 Chapter 1.
-[13
+[12
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+aer on input line 261.
@@ -449,31 +449,31 @@ File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 261.
- [14] [15]
+ [13] [14]
 Chapter 2.
-[16
+[15
 
-] <img/movingDot.jpg, id=51, 711.4078pt x 320.69812pt>
+] <img/movingDot.jpg, id=47, 711.4078pt x 320.69812pt>
 File: img/movingDot.jpg Graphic file (type jpg)
 
 <use img/movingDot.jpg>
 Package pdftex.def Info: img/movingDot.jpg used on input line 325.
 (pdftex.def)             Requested size: 361.34999pt x 162.89815pt.
- <img/morefow.jpg, id=52, 677.53125pt x 228.855pt>
+ <img/morefow.jpg, id=48, 677.53125pt x 228.855pt>
 File: img/morefow.jpg Graphic file (type jpg)
 
 <use img/morefow.jpg>
 Package pdftex.def Info: img/morefow.jpg used on input line 332.
 (pdftex.def)             Requested size: 361.34999pt x 122.0608pt.
- [17 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/movingDot.jpg>] [18 <C:/Users
+ [16 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/movingDot.jpg>] [17 <C:/Users
 /Lala/Desktop/templateLaTeX-Eng/img/morefow.jpg>]
-<img/genFlow.jpg, id=60, 320.19624pt x 838.13126pt>
+<img/genFlow.jpg, id=57, 320.19624pt x 838.13126pt>
 File: img/genFlow.jpg Graphic file (type jpg)
  <use img/genFlow.jpg>
 Package pdftex.def Info: img/genFlow.jpg used on input line 374.
 (pdftex.def)             Requested size: 220.877pt x 578.15999pt.
 
-[19] [20 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/genFlow.jpg>] [21]
+[18] [19 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/genFlow.jpg>] [20]
 Chapter 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 436--438
@@ -485,9 +485,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 440--443
 []\T1/aer/m/n/12 translational, di-ver-gent,
  []
 
-[22
+[21
 
-] [23]
+] [22]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 507.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
@@ -495,8 +495,8 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 
 Underfull \vbox (badness 2368) has occurred while \output is active []
 
- [24]
-[25] <img/func.jpg, id=87, 1204.5pt x 903.375pt>
+ [23]
+[24] <img/func.jpg, id=84, 1204.5pt x 903.375pt>
 File: img/func.jpg Graphic file (type jpg)
  <use img/func.jpg>
 Package pdftex.def Info: img/func.jpg used on input line 560.
@@ -504,157 +504,157 @@ Package pdftex.def Info: img/func.jpg used on input line 560.
 
 Underfull \vbox (badness 3199) has occurred while \output is active []
 
- [26]
-[27 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/func.jpg>] [28]
+ [25]
+[26 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/func.jpg>] [27]
 Chapter 4.
-[29
+[28
 
-] <img/Aperture.png, id=101, 112.42pt x 158.5925pt>
+] <img/Aperture.png, id=98, 112.42pt x 158.5925pt>
 File: img/Aperture.png Graphic file (type png)
  <use img/Aperture.png>
 Package pdftex.def Info: img/Aperture.png used on input line 646.
 (pdftex.def)             Requested size: 112.41972pt x 158.59209pt.
+
+[29] <img/sin.jpg, id=103, 156.585pt x 30.1125pt>
+File: img/sin.jpg Graphic file (type jpg)
+ <use img/sin.jpg>
+Package pdftex.def Info: img/sin.jpg used on input line 655.
+(pdftex.def)             Requested size: 156.58461pt x 30.11241pt.
 
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 30 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[30] <img/sin.jpg, id=106, 156.585pt x 30.1125pt>
-File: img/sin.jpg Graphic file (type jpg)
- <use img/sin.jpg>
-Package pdftex.def Info: img/sin.jpg used on input line 655.
-(pdftex.def)             Requested size: 156.58461pt x 30.11241pt.
- [31 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/Aperture.png> <C:/Users/Lala/
-Desktop/templateLaTeX-Eng/img/sin.jpg>]
+[30 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/Aperture.png> <C:/Users/Lala/D
+esktop/templateLaTeX-Eng/img/sin.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [31]
+<img/1.jpg, id=111, 75.28125pt x 75.28125pt>
+File: img/1.jpg Graphic file (type jpg)
+ <use img/1.jpg>
+Package pdftex.def Info: img/1.jpg used on input line 765.
+(pdftex.def)             Requested size: 144.54pt x 144.56934pt.
+
+<img/firsto.jpg, id=112, 100.375pt x 100.375pt>
+File: img/firsto.jpg Graphic file (type jpg)
+ <use img/firsto.jpg>
+Package pdftex.def Info: img/firsto.jpg used on input line 766.
+(pdftex.def)             Requested size: 144.54pt x 144.56131pt.
+
+<img/firsto1.jpg, id=113, 100.375pt x 100.375pt>
+File: img/firsto1.jpg Graphic file (type jpg)
+ <use img/firsto1.jpg>
+Package pdftex.def Info: img/firsto1.jpg used on input line 767.
+(pdftex.def)             Requested size: 144.54pt x 144.56131pt.
 
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 32 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[32] <img/1.jpg, id=114, 75.28125pt x 75.28125pt>
-File: img/1.jpg Graphic file (type jpg)
- <use img/1.jpg>
-Package pdftex.def Info: img/1.jpg used on input line 765.
-(pdftex.def)             Requested size: 144.54pt x 144.56934pt.
-
-<img/firsto.jpg, id=115, 100.375pt x 100.375pt>
-File: img/firsto.jpg Graphic file (type jpg)
- <use img/firsto.jpg>
-Package pdftex.def Info: img/firsto.jpg used on input line 766.
-(pdftex.def)             Requested size: 144.54pt x 144.56131pt.
-
-<img/firsto1.jpg, id=116, 100.375pt x 100.375pt>
-File: img/firsto1.jpg Graphic file (type jpg)
- <use img/firsto1.jpg>
-Package pdftex.def Info: img/firsto1.jpg used on input line 767.
-(pdftex.def)             Requested size: 144.54pt x 144.56131pt.
- [33]
+[32]
 Underfull \vbox (badness 1194) has occurred while \output is active []
 
+ [33 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/1.jpg> <C:/Users/Lala/Desktop
+/templateLaTeX-Eng/img/firsto.jpg> <C:/Users/Lala/Desktop/templateLaTeX-Eng/img
+/firsto1.jpg>] <img/frame10.png, id=121, 586.19pt x 389.455pt>
+File: img/frame10.png Graphic file (type png)
+ <use img/frame10.png>
+Package pdftex.def Info: img/frame10.png used on input line 815.
+(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
+
+<img/realflow.jpg, id=122, 586.19pt x 389.455pt>
+File: img/realflow.jpg Graphic file (type jpg)
+ <use img/realflow.jpg>
+Package pdftex.def Info: img/realflow.jpg used on input line 816.
+(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
+
+<img/HS.jpg, id=123, 586.19pt x 389.455pt>
+File: img/HS.jpg Graphic file (type jpg)
+ <use img/HS.jpg>
+Package pdftex.def Info: img/HS.jpg used on input line 817.
+(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
+
+<img/HSPyr.jpg, id=124, 586.19pt x 389.455pt>
+File: img/HSPyr.jpg Graphic file (type jpg)
+ <use img/HSPyr.jpg>
+Package pdftex.def Info: img/HSPyr.jpg used on input line 818.
+(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
+
+<img/pyrLvls.jpg, id=125, 383.18156pt x 341.02406pt>
+File: img/pyrLvls.jpg Graphic file (type jpg)
+ <use img/pyrLvls.jpg>
+Package pdftex.def Info: img/pyrLvls.jpg used on input line 830.
+(pdftex.def)             Requested size: 216.81pt x 192.95995pt.
+
+<img/cameraman.jpg, id=126, 366.61969pt x 192.72pt>
+File: img/cameraman.jpg Graphic file (type jpg)
+ <use img/cameraman.jpg>
+Package pdftex.def Info: img/cameraman.jpg used on input line 859.
+(pdftex.def)             Requested size: 366.61879pt x 192.71951pt.
 
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 34 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[34 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/1.jpg> <C:/Users/Lala/Desktop/
-templateLaTeX-Eng/img/firsto.jpg> <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/
-firsto1.jpg>] <img/frame10.png, id=125, 586.19pt x 389.455pt>
-File: img/frame10.png Graphic file (type png)
-
-<use img/frame10.png>
-Package pdftex.def Info: img/frame10.png used on input line 815.
-(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
- <img/realflow.jpg, id=126, 586.19pt x 389.455pt>
-File: img/realflow.jpg Graphic file (type jpg)
-
-<use img/realflow.jpg>
-Package pdftex.def Info: img/realflow.jpg used on input line 816.
-(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
- <img/HS.jpg, id=127, 586.19pt x 389.455pt>
-File: img/HS.jpg Graphic file (type jpg)
-
-<use img/HS.jpg>
-Package pdftex.def Info: img/HS.jpg used on input line 817.
-(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
- <img/HSPyr.jpg, id=128, 586.19pt x 389.455pt>
-File: img/HSPyr.jpg Graphic file (type jpg)
-
-<use img/HSPyr.jpg>
-Package pdftex.def Info: img/HSPyr.jpg used on input line 818.
-(pdftex.def)             Requested size: 216.81pt x 144.0426pt.
- <img/pyrLvls.jpg, id=129, 383.18156pt x 341.02406pt>
-File: img/pyrLvls.jpg Graphic file (type jpg)
-
-<use img/pyrLvls.jpg>
-Package pdftex.def Info: img/pyrLvls.jpg used on input line 830.
-(pdftex.def)             Requested size: 216.81pt x 192.95995pt.
- <img/cameraman.jpg, id=130, 366.61969pt x 192.72pt>
-File: img/cameraman.jpg Graphic file (type jpg)
-
-<use img/cameraman.jpg>
-Package pdftex.def Info: img/cameraman.jpg used on input line 859.
-(pdftex.def)             Requested size: 366.61879pt x 192.71951pt.
- [35]
+[34] [35 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/frame10.png (PNG copy)> <
+C:/Users/Lala/Desktop/templateLaTeX-Eng/img/realflow.jpg> <C:/Users/Lala/Deskto
+p/templateLaTeX-Eng/img/HS.jpg> <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/HS
+Pyr.jpg>]
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 36 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[36 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/frame10.png (PNG copy)> <C:/Us
-ers/Lala/Desktop/templateLaTeX-Eng/img/realflow.jpg> <C:/Users/Lala/Desktop/tem
-plateLaTeX-Eng/img/HS.jpg> <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/HSPyr.j
-pg>] [37 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/pyrLvls.jpg>]
-
-LaTeX Warning: Reference `golub2012matrix' on page 38 undefined on input line 8
-88.
-
-
+[36 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/pyrLvls.jpg>] [37 <C:/Users/La
+la/Desktop/templateLaTeX-Eng/img/cameraman.jpg>]
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 38 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[38 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/cameraman.jpg>] [39]
+[38] [39]
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 40 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[40] [41]
+[40]
 File: img/frame10.png Graphic file (type png)
  <use img/frame10.png>
 Package pdftex.def Info: img/frame10.png used on input line 1066.
 (pdftex.def)             Requested size: 216.81pt x 144.0426pt.
- <img/bf.jpg, id=153, 586.19pt x 389.455pt>
+ <img/bf.jpg, id=150, 586.19pt x 389.455pt>
 File: img/bf.jpg Graphic file (type jpg)
 
 <use img/bf.jpg>
 Package pdftex.def Info: img/bf.jpg used on input line 1067.
 (pdftex.def)             Requested size: 216.81pt x 144.0426pt.
+ [41 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/bf.jpg>]
+<img/cens.jpg, id=156, 634.37pt x 182.6825pt>
+File: img/cens.jpg Graphic file (type jpg)
+ <use img/cens.jpg>
+Package pdftex.def Info: img/cens.jpg used on input line 1091.
+(pdftex.def)             Requested size: 361.34999pt x 104.06319pt.
 
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 42 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[42 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/bf.jpg>]
-<img/cens.jpg, id=159, 634.37pt x 182.6825pt>
-File: img/cens.jpg Graphic file (type jpg)
- <use img/cens.jpg>
-Package pdftex.def Info: img/cens.jpg used on input line 1091.
-(pdftex.def)             Requested size: 361.34999pt x 104.06319pt.
- [43 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/cens.jpg>]
+[42 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/cens.jpg>] [43]
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 44 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
-[44] [45]
+[44]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -667,31 +667,22 @@ ON OF EXISTING ALGORITHMS
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [47]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (58.82532pt too wide) has occurred while \output is active
 \T1/aer/m/n/12 48 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
 ON OF EXISTING ALGORITHMS
  []
 
 [48] [49]
-Overfull \hbox (58.82532pt too wide) has occurred while \output is active
-\T1/aer/m/n/12 50 \T1/aer/m/sl/12 CHAPTER 4.  ANALYSIS AND THEORETICAL FOUNDATI
-ON OF EXISTING ALGORITHMS
- []
-
-[50]
 Chapter 5.
-[51
+[50
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52]
+ [51]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53]
+ [52]
 
 LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1558.
 
@@ -755,30 +746,30 @@ LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1566.
 LaTeX Font Warning: Command \mathversion invalid in math mode on input line 156
 6.
 
-[54] [55]
+[53] [54]
 Chapter 6.
 
 Underfull \vbox (badness 2042) has occurred while \output is active []
 
- [56
+ [55
 
 ]
-<img/bigflow.jpg, id=206, 891.33pt x 283.0575pt>
+<img/bigflow.jpg, id=203, 891.33pt x 283.0575pt>
 File: img/bigflow.jpg Graphic file (type jpg)
  <use img/bigflow.jpg>
 Package pdftex.def Info: img/bigflow.jpg used on input line 1614.
 (pdftex.def)             Requested size: 448.07378pt x 142.29288pt.
 
-<img/functions.jpg, id=207, 604.2575pt x 966.61125pt>
+<img/functions.jpg, id=204, 584.1825pt x 923.45pt>
 File: img/functions.jpg Graphic file (type jpg)
  <use img/functions.jpg>
 Package pdftex.def Info: img/functions.jpg used on input line 1626.
-(pdftex.def)             Requested size: 433.62pt x 693.64395pt.
+(pdftex.def)             Requested size: 433.62pt x 685.47pt.
 
 
-LaTeX Warning: Float too large for page by 111.47182pt on input line 1628.
+LaTeX Warning: Float too large for page by 103.29787pt on input line 1628.
 
-[57 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/bigflow.jpg>] [58 <C:/Users/La
+[56 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/bigflow.jpg>] [57 <C:/Users/La
 la/Desktop/templateLaTeX-Eng/img/functions.jpg>]
 
 LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1649.
@@ -787,18 +778,21 @@ LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1649.
 LaTeX Font Warning: Command \mathversion invalid in math mode on input line 164
 9.
 
-[59] <img/ctfflow.jpg, id=218, 461.725pt x 483.8075pt>
+[58] [59] <img/ctfflow.jpg, id=218, 461.725pt x 483.8075pt>
 File: img/ctfflow.jpg Graphic file (type jpg)
- <use img/ctfflow.jpg>
+
+<use img/ctfflow.jpg>
 Package pdftex.def Info: img/ctfflow.jpg used on input line 1703.
 (pdftex.def)             Requested size: 216.81pt x 227.17546pt.
 
-[60] [61 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/ctfflow.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/ctfflow.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 1752--1755
 
  []
 
-
+[61]
 Underfull \hbox (badness 10000) in paragraph at lines 1756--1766
 
  []
@@ -808,10 +802,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1756--1766
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [62]
 
 LaTeX Font Warning: Command \boldmath invalid in math mode on input line 1770.
 
@@ -849,13 +839,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1792--1802
 
  []
 
-[63] <img/vectors.jpg, id=231, 1204.5pt x 903.375pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62]
+<img/vectors.jpg, id=228, 1204.5pt x 903.375pt>
 File: img/vectors.jpg Graphic file (type jpg)
  <use img/vectors.jpg>
 Package pdftex.def Info: img/vectors.jpg used on input line 1823.
 (pdftex.def)             Requested size: 216.81pt x 162.60048pt.
 
-<img/colors.jpg, id=232, 903.375pt x 677.53125pt>
+<img/colors.jpg, id=229, 903.375pt x 677.53125pt>
 File: img/colors.jpg Graphic file (type jpg)
  <use img/colors.jpg>
 Package pdftex.def Info: img/colors.jpg used on input line 1824.
@@ -865,74 +859,133 @@ Overfull \hbox (17.98244pt too wide) in paragraph at lines 1823--1825
  [][][] 
  []
 
-[64] [65 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/vectors.jpg> <C:/Users/La
+[63] [64 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/vectors.jpg> <C:/Users/La
 la/Desktop/templateLaTeX-Eng/img/colors.jpg>]
 Chapter 7.
-[66
+<img/groove.png, id=237, 642.4pt x 481.8pt>
+File: img/groove.png Graphic file (type png)
+ <use img/groove.png>
+Package pdftex.def Info: img/groove.png used on input line 1857.
+(pdftex.def)             Requested size: 144.54pt x 108.40031pt.
+
+<img/groovelmn.jpg, id=238, 642.4pt x 481.8pt>
+File: img/groovelmn.jpg Graphic file (type jpg)
+ <use img/groovelmn.jpg>
+Package pdftex.def Info: img/groovelmn.jpg used on input line 1858.
+(pdftex.def)             Requested size: 144.54pt x 108.40031pt.
+
+<img/grooveppp.jpg, id=239, 642.4pt x 481.8pt>
+File: img/grooveppp.jpg Graphic file (type jpg)
+ <use img/grooveppp.jpg>
+Package pdftex.def Info: img/grooveppp.jpg used on input line 1859.
+(pdftex.def)             Requested size: 144.54pt x 108.40031pt.
+
+<img/city.png, id=240, 642.4pt x 481.8pt>
+File: img/city.png Graphic file (type png)
+ <use img/city.png>
+Package pdftex.def Info: img/city.png used on input line 1860.
+(pdftex.def)             Requested size: 144.54pt x 108.40031pt.
+
+<img/citylmn.jpg, id=241, 642.4pt x 481.8pt>
+File: img/citylmn.jpg Graphic file (type jpg)
+ <use img/citylmn.jpg>
+Package pdftex.def Info: img/citylmn.jpg used on input line 1861.
+(pdftex.def)             Requested size: 144.54pt x 108.40031pt.
+
+<img/cityppp.jpg, id=242, 642.4pt x 481.8pt>
+File: img/cityppp.jpg Graphic file (type jpg)
+ <use img/cityppp.jpg>
+Package pdftex.def Info: img/cityppp.jpg used on input line 1862.
+(pdftex.def)             Requested size: 144.54pt x 108.40031pt.
+File: img/frame10.png Graphic file (type png)
+
+<use img/frame10.png>
+Package pdftex.def Info: img/frame10.png used on input line 1863.
+(pdftex.def)             Requested size: 144.54pt x 96.02641pt.
+ <img/walelmn.jpg, id=243, 586.19pt x 389.455pt>
+File: img/walelmn.jpg Graphic file (type jpg)
+
+<use img/walelmn.jpg>
+Package pdftex.def Info: img/walelmn.jpg used on input line 1864.
+(pdftex.def)             Requested size: 144.54pt x 96.02641pt.
+ <img/waleppp.jpg, id=244, 586.19pt x 389.455pt>
+File: img/waleppp.jpg Graphic file (type jpg)
+
+<use img/waleppp.jpg>
+Package pdftex.def Info: img/waleppp.jpg used on input line 1865.
+(pdftex.def)             Requested size: 144.54pt x 96.02641pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [65
 
 ]
+[66 <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/groove.png (PNG copy)> <C:/Use
+rs/Lala/Desktop/templateLaTeX-Eng/img/groovelmn.jpg> <C:/Users/Lala/Desktop/tem
+plateLaTeX-Eng/img/grooveppp.jpg> <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/
+city.png (PNG copy)> <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/citylmn.jpg> 
+<C:/Users/Lala/Desktop/templateLaTeX-Eng/img/cityppp.jpg> <C:/Users/Lala/Deskto
+p/templateLaTeX-Eng/img/walelmn.jpg> <C:/Users/Lala/Desktop/templateLaTeX-Eng/i
+mg/waleppp.jpg>] [67] [68] [69] [70]
 Chapter 8.
-LaTeX Font Info:    Try loading font information for T1+aett on input line 1848
+LaTeX Font Info:    Try loading font information for T1+aett on input line 1974
 .
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-<img/path.jpg, id=243, 341.77687pt x 63.98906pt>
+<img/path.jpg, id=264, 341.77687pt x 63.98906pt>
 File: img/path.jpg Graphic file (type jpg)
  <use img/path.jpg>
-Package pdftex.def Info: img/path.jpg used on input line 1853.
+Package pdftex.def Info: img/path.jpg used on input line 1979.
 (pdftex.def)             Requested size: 216.81pt x 40.59256pt.
 
-<img/commandw.jpg, id=244, 149.8097pt x 51.19125pt>
+<img/commandw.jpg, id=265, 149.8097pt x 51.19125pt>
 File: img/commandw.jpg Graphic file (type jpg)
  <use img/commandw.jpg>
-Package pdftex.def Info: img/commandw.jpg used on input line 1854.
+Package pdftex.def Info: img/commandw.jpg used on input line 1980.
 (pdftex.def)             Requested size: 108.405pt x 37.04356pt.
 
-<img/inputwindow.jpg, id=245, 252.19218pt x 304.13625pt>
+<img/inputwindow.jpg, id=266, 252.19218pt x 304.13625pt>
 File: img/inputwindow.jpg Graphic file (type jpg)
 
 <use img/inputwindow.jpg>
-Package pdftex.def Info: img/inputwindow.jpg used on input line 1866.
+Package pdftex.def Info: img/inputwindow.jpg used on input line 1992.
 (pdftex.def)             Requested size: 144.54pt x 174.3108pt.
- [67
+ [71
 
  <C:/Users/Lala/Desktop/templateLaTeX-Eng/img/path.jpg> <C:/Users/Lala/Desktop/
-templateLaTeX-Eng/img/commandw.jpg>] [68 <C:/Users/Lala/Desktop/templateLaTeX-E
+templateLaTeX-Eng/img/commandw.jpg>] [72 <C:/Users/Lala/Desktop/templateLaTeX-E
 ng/img/inputwindow.jpg>]
 Chapter 9.
-[69
+[73
 
-] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [70] [71
+] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.bbl [74] [75
 
-]) [72]
+]) [76]
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.tex
 Appendix A.
 
 Underfull \vbox (badness 1014) has occurred while \output is active []
 
- [73
+ [77
 
 
 ]
-[74]
+[78]
 Appendix B.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [75
+ [79
 
 ]
-[76]
+[80]
 Appendix C.
-) [77
+) [81
 
 ] (C:\Users\Lala\Desktop\templateLaTeX-Eng\thesis.aux
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\guideline.aux)
 (C:\Users\Lala\Desktop\templateLaTeX-Eng\apendix.aux))
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -942,13 +995,13 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 457 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5591 strings out of 493921
- 74311 string characters out of 3147285
- 152988 words of memory out of 3000000
- 8685 multiletter control sequences out of 15000+200000
+ 5632 strings out of 493921
+ 75039 string characters out of 3147285
+ 153058 words of memory out of 3000000
+ 8718 multiletter control sequences out of 15000+200000
  43940 words of font info for 101 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,25n,47p,845b,488s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,25n,47p,1031b,487s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
 sy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pro
@@ -966,9 +1019,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (74 pages, 1763105 bytes).
+Output written on thesis.pdf (78 pages, 2907740 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
+ 361 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
